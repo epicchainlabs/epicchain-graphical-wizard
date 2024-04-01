@@ -41,11 +41,11 @@ Welcome to the EpicChain DevTracker Extension for Visual Studio Code! This exten
 
 ## Feedback
 
-Your feedback is invaluable to us! If you encounter any issues or have suggestions for improvement, please feel free to [open an issue](https://github.com/your-repository/issues) on our GitHub repository.
+Your feedback is invaluable to us! If you encounter any issues or have suggestions for improvement, please feel free to [open an issue](https://github.com/epicchainlabs/epicchain-graphical-wizard/issues) on our GitHub repository.
 
 ## License
 
-This extension is licensed under the [MIT License](https://github.com/your-repository/blob/main/LICENSE).
+This extension is licensed under the [MIT License](https://https://github.com/epicchainlabs/epicchain-graphical-wizard/blob/main/LICENSE).
 
 ---
 
