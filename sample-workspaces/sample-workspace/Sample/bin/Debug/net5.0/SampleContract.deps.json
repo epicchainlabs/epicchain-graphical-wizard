@@ -1,0 +1,41 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "SampleContract/1.0.0": {
+        "dependencies": {
+          "Neo.SmartContract.Framework": "3.0.0-rc3"
+        },
+        "runtime": {
+          "SampleContract.dll": {}
+        }
+      },
+      "Neo.SmartContract.Framework/3.0.0-rc3": {
+        "runtime": {
+          "lib/net5.0/Neo.SmartContract.Framework.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SampleContract/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Neo.SmartContract.Framework/3.0.0-rc3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-k+FYdRULgVkUxQB0FTUSW6Ldel1BBRBS5pIRPHncEYCKGw/grBA2m+t+LlOWWY7PE9yTA3OIIAl7sq+mOGdUrg==",
+      "path": "neo.smartcontract.framework/3.0.0-rc3",
+      "hashPath": "neo.smartcontract.framework.3.0.0-rc3.nupkg.sha512"
+    }
+  }
+}

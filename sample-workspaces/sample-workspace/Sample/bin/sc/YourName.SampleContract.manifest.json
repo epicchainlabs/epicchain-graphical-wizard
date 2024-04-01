@@ -1,0 +1,40 @@
+{
+  "name": "YourName.SampleContract",
+  "groups": [],
+  "features": {},
+  "supportedstandards": [],
+  "abi": {
+    "methods": [
+      {
+        "name": "changeNumber",
+        "offset": 0,
+        "safe": false,
+        "returntype": "Boolean",
+        "parameters": [{ "name": "positiveNumber", "type": "Integer" }]
+      },
+      {
+        "name": "getNumber",
+        "offset": 169,
+        "safe": false,
+        "returntype": "ByteArray",
+        "parameters": []
+      }
+    ],
+    "events": [
+      {
+        "name": "NumberChanged",
+        "parameters": [
+          { "name": "arg1", "type": "Hash160" },
+          { "name": "arg2", "type": "Integer" }
+        ]
+      }
+    ]
+  },
+  "permissions": [],
+  "trusts": [],
+  "extra": {
+    "Author": "Your name",
+    "Email": "your@address.invalid",
+    "Description": "Describe your contract..."
+  }
+}
