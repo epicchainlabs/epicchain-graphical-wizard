@@ -27,9 +27,9 @@ export default class NeoCommands {
     if (!identifier) {
       return;
     }
-    if (identifier.name === "Neo N3 MainNet") {
+    if (identifier.name === "EpicChain Graphical Wizard MainNet") {
       vscode.window.showErrorMessage(
-        "Contract Deployment to Neo N3 MainNet is not supported."
+        "Contract Deployment to EpicChain Graphical Wizard MainNet is not supported."
       );
       return;
     }

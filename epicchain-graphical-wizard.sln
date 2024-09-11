@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample-workspaces", "sample-workspaces", "{B9C3EEAE-7890-463E-9AF6-87A342C92E30}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample-workspace", "sample-workspace", "{A72A0906-35DA-4F34-AF61-6736722FA432}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleContract", "sample-workspaces\sample-workspace\Sample\SampleContract.csproj", "{8041C0AC-7710-4D27-85AC-D9E3DF507E33}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8041C0AC-7710-4D27-85AC-D9E3DF507E33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8041C0AC-7710-4D27-85AC-D9E3DF507E33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8041C0AC-7710-4D27-85AC-D9E3DF507E33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8041C0AC-7710-4D27-85AC-D9E3DF507E33}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A72A0906-35DA-4F34-AF61-6736722FA432} = {B9C3EEAE-7890-463E-9AF6-87A342C92E30}
+		{8041C0AC-7710-4D27-85AC-D9E3DF507E33} = {A72A0906-35DA-4F34-AF61-6736722FA432}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {62CD9ED0-3601-489D-BF92-8DCDA8B9F068}
+	EndGlobalSection
+EndGlobal

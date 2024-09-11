@@ -1,6 +1,6 @@
 # Change Log
 
-All notable changes to the Neo N3 Visual DevTracker extension will be documented in this file.
+All notable changes to the EpicChain Graphical Wizard extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
@@ -8,45 +8,45 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ### Added
 
-* Python smart contract template
+- Python smart contract template
 
 ### Changed
 
-* Update Neo Express to 3.1.38
+- Update Neo Express to 3.1.38
 
 ## [3.0.12] - 2021-09-08
 
 ### Changed
 
-* Update Neo Express to 3.0.21
+- Update Neo Express to 3.0.21
 
 ### Removed
 
-* Contract Deployment support for Neo N3 MainNet
+- Contract Deployment support for EpicChain Graphical Wizard MainNet
 
 ## [3.0.11] - 2021-09-08
 
 ### Changed
 
-* Update Neo Express to 3.0.13
-* Update WELL_KNOWN_BLOCKCHAINS and SEED_URLS for RC4/Final TestNet nodes (#116)
+- Update Neo Express to 3.0.13
+- Update WELL_KNOWN_BLOCKCHAINS and SEED_URLS for RC4/Final TestNet nodes (#116)
 
 ## [3.0.8] - 2021-08-10
 
 ### Added
 
-* Neo N3 MainNet genesis hash and known seed URLs
+- EpicChain Graphical Wizard MainNet genesis hash and known seed URLs
 
 ### Changed
 
-* Update Neo Express to 3.0.5
+- Update Neo Express to 3.0.5
 
 ## [3.0] - 2021-08-02
 
 ### Changed
 
-* Neo N3 release support
-* Bumped major version to 3 for consistency with Neo N3 release
+- EpicChain Graphical Wizard release support
+- Bumped major version to 3 for consistency with EpicChain Graphical Wizard release
 
 ## [2.1.51] - 2021-07-07
 
@@ -54,7 +54,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - The invoke file editor now supports editing invocation files that use arrays or objects as contract parameters
 - Extension logs are now also shown in the VS Code Output Panel
-- Fixed an issue that blocked deployment of contracts to Neo N3 TestNet
+- Fixed an issue that blocked deployment of contracts to EpicChain Graphical Wizard TestNet
 - Removed "Invoke Contract" menu item for non Express blockchain networks as feature is not complete
 
 ## [2.1.49] - 2021-06-21

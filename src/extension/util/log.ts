@@ -29,7 +29,7 @@ function log(
   consoleLogger(prefix, ...args);
   if (!outputChannel) {
     outputChannel = vscode.window.createOutputChannel(
-      "Neo N3 Visual DevTracker"
+      "EpicChain Graphical Wizard"
     );
   }
   outputChannel.appendLine(

@@ -108,9 +108,9 @@ export default function Contract({ viewState, postMessage }: Props) {
           >
             ?
             <span style={tooltipStyle}>
-              Various tools in the Neo N3 ecosystem expect different byte order
-              for contract hash strings. Please check the byte order expected by
-              the tools you are using.
+              Various tools in the EpicChain Graphical Wizard ecosystem expect
+              different byte order for contract hash strings. Please check the
+              byte order expected by the tools you are using.
             </span>
           </span>
         </div>
