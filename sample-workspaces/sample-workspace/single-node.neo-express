@@ -1,17 +1,17 @@
 {
   "magic": 31355455,
-  "address-version": 53,
+  "address-version": 76,
   "consensus-nodes": [
     {
-      "tcp-port": 50013,
-      "ws-port": 50014,
-      "rpc-port": 50012,
+      "tcp-port": 60112,
+      "ws-port": 60113,
+      "rpc-port": 60111,
       "wallet": {
         "name": "node1",
         "accounts": [
           {
             "private-key": "41bfc41358c239ebb99341b37a701c806500d4819070a9c2b2b37e8f021175cc",
-            "script-hash": "NRrucR5PMVCKEprcdfzyEExYQkcFTZ2tYQ",
+            "script-hash": "XbfB3dE5zhtVTKmP3jiHZDhWAZeyDNW1bK",
             "label": null,
             "is-default": true,
             "contract": {
@@ -23,7 +23,7 @@
           },
           {
             "private-key": "41bfc41358c239ebb99341b37a701c806500d4819070a9c2b2b37e8f021175cc",
-            "script-hash": "NQR8KXPxmyjfAaAZgcwqNXasHgdVAVMjXx",
+            "script-hash": "XddSYhqz8pKiXcL6XvgpcJWnJ7TeNdsj23",
             "label": "Consensus MultiSigContract",
             "is-default": false,
             "contract": {
@@ -43,7 +43,7 @@
       "accounts": [
         {
           "private-key": "a430a6cab5f9c1967dddf2742a5fb83927a9653c6f2753ad3a8124672417dd0d",
-          "script-hash": "NVDVpNyLrTRJJQ2u2in4ttFTk2HFtcpyea",
+          "script-hash": "Xd7JKdVRhdG12ZYsbdp9t3MM5Hd7xuS3LW",
           "label": null,
           "is-default": true,
           "contract": {
@@ -60,7 +60,7 @@
       "accounts": [
         {
           "private-key": "fd5450901e7d3724f2ec1da07ebcc3af81aed8107ec1d763cf00027fc31725d7",
-          "script-hash": "NR8ZhgJZMSR9JJC7TjFxHykCSWFd9fazji",
+          "script-hash": "XdqNPZ71P7SA7wy9rkfntUp2MkvYG9SfeY",
           "label": null,
           "is-default": true,
           "contract": {

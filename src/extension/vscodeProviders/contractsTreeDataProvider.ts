@@ -37,7 +37,7 @@ export default class ContractsTreeDataProvider
     return {
       command: contract.hash
         ? {
-            command: "neo3-visual-devtracker.tracker.openContract",
+            command: "epicchain-graphical-wizard.tracker.openContract",
             arguments: [{ hash: contract.hash }],
             title: contract.hash,
           }

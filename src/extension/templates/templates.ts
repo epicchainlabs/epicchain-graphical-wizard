@@ -63,16 +63,19 @@ export default class Templates {
     }
 
     switch (languageCode) {
-      // neo3-boa needs the name of the contract to compile
+      // epicchain-boa needs the name of the contract to compile
       case "python":
         if (language.tasks) {
-          language.tasks.forEach(task => {
+          language.tasks.forEach((task) => {
             if (task.args) {
-              task.args.forEach((element, index) => { 
-                task.args[index] = element.replace("$_CONTRACTNAME_$", contractName)
-              })
+              task.args.forEach((element, index) => {
+                task.args[index] = element.replace(
+                  "$_CONTRACTNAME_$",
+                  contractName
+                );
+              });
             }
-          })
+          });
         }
         break;
     }

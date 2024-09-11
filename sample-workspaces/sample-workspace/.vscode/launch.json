@@ -6,7 +6,7 @@
   "configurations": [
     {
       "name": "register",
-      "type": "neo-contract",
+      "type": "epicchain-contract",
       "request": "launch",
       "program": "${workspaceFolder}/src/bin/Debug/netstandard2.1/registrar.nef",
       "invocation": {
@@ -16,7 +16,7 @@
     },
     {
       "name": "delete",
-      "type": "neo-contract",
+      "type": "epicchain-contract",
       "request": "launch",
       "program": "${workspaceFolder}/src/bin/Debug/netstandard2.1/registrar.nef",
       "invocation": {

@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'io.neow3j.gradle-plugin' version "$_NEOW3JLIBVERSION_$"
+    id 'io.epicchain-jdk.gradle-plugin' version "$_EPICCHAIN-JDKLIBVERSION_$"
 }
 
 group '$_REVERSEDOMAINNAME_$'
@@ -15,13 +15,13 @@ repositories {
 }
 
 dependencies {
-    implementation 'io.neow3j:contract:$_NEOW3JLIBVERSION_$'
-    implementation 'io.neow3j:devpack:$_NEOW3JLIBVERSION_$'
-    implementation 'io.neow3j:compiler:$_NEOW3JLIBVERSION_$'
+    implementation 'io.epicchain-jdk:contract:$_EPICCHAIN-JDKLIBVERSION_$'
+    implementation 'io.epicchain-jdk:devpack:$_EPICCHAIN-JDKLIBVERSION_$'
+    implementation 'io.epicchain-jdk:compiler:$_EPICCHAIN-JDKLIBVERSION_$'
     implementation 'junit:junit:4.12'
 }
 
-neow3jCompiler {
+epicchain-jdkCompiler {
     className = "$_REVERSEDOMAINNAME_$.$_CLASSNAME_$"
     debug = true
 }

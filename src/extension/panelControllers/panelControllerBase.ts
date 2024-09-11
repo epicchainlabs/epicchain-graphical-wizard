@@ -34,7 +34,7 @@ export default abstract class PanelControllerBase<
     this.viewState = { ...initialViewState };
     if (!panel) {
       panel = vscode.window.createWebviewPanel(
-        `neo3-visual-tracker-${this.viewState.view}`,
+        `epicchain-graphical-wizard-${this.viewState.view}`,
         this.viewState.panelTitle,
         vscode.ViewColumn.Active,
         { enableScripts: true }

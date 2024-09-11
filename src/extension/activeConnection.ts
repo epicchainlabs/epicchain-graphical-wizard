@@ -110,12 +110,12 @@ export default class ActiveConnection {
           "statusBarItem.remoteForeground"
         );
       }
-      this.statusBarItem.command = "neo3-visual-devtracker.disconnect";
+      this.statusBarItem.command = "epicchain-graphical-wizard.disconnect";
     } else {
       this.statusBarItem.text = `${STATUS_PREFIX} Not connected`;
       this.statusBarItem.tooltip = "Click to connect to a Neo blockchain";
       this.statusBarItem.color = new vscode.ThemeColor("statusBar.foreground");
-      this.statusBarItem.command = "neo3-visual-devtracker.connect";
+      this.statusBarItem.command = "epicchain-graphical-wizard.connect";
     }
     if (!this.visible) {
       this.statusBarItem.show();

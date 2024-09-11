@@ -5,16 +5,16 @@ on:
     branches:
       - master
       - develop
-      - 'release/*'
+      - "release/*"
   push:
     branches:
       - master
       - develop
-      - 'release/**'
+      - "release/**"
   workflow_call:
     outputs:
       extensionVersion:
-        value:  ${{ jobs.build.outputs.extensionVersion }}
+        value: ${{ jobs.build.outputs.extensionVersion }}
 
 jobs:
   build:
@@ -29,17 +29,17 @@ jobs:
       - name: 💿 Setup .NET Core SDK
         uses: actions/setup-dotnet@v2.1.0
         with:
-          dotnet-version: '6.0.x'
+          dotnet-version: "6.0.x"
       - id: nbgv
         name: Setup Nerdbank.GitVersioning
         uses: dotnet/nbgv@v0.4.0
       - name: 💿 Setup NodeJS
         uses: actions/setup-node@v2
         with:
-          node-version: '16'
+          node-version: "16"
       - name: Install dependencies
         run: npm ci
-      - name: Build + Package extension 
+      - name: Build + Package extension
         uses: actions/github-script@v6.0.0
         env:
           EXTENSION_VERSION: ${{ steps.nbgv.outputs.NpmPackageVersion }}
@@ -52,12 +52,12 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: extension
-          path: ./neo3-visual-tracker-*.vsix
+          path: ./epicchain-graphical-wizard-*.vsix
       - name: 🎁 Package
         id: package
         shell: bash
         run: |
-          cp *.vsix neo3-visual-tracker.vsix
+          cp *.vsix epicchain-graphical-wizard.vsix
           echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
       - name: 🌎 Release Rolling build
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
@@ -66,5 +66,5 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag-name: v0.0-${{ steps.package.outputs.branch }}
           release-name: "Rolling build"
-          asset-name: "neo3-visual-tracker.vsix"
-          file: "neo3-visual-tracker.vsix"
+          asset-name: "epicchain-graphical-wizard.vsix"
+          file: "epicchain-graphical-wizard.vsix"

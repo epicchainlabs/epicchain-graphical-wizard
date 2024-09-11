@@ -1,11 +1,11 @@
 {
   "magic": 3204124941,
-  "address-version": 53,
+  "address-version": 76,
   "consensus-nodes": [
     {
-      "tcp-port": 50013,
-      "ws-port": 50014,
-      "rpc-port": 50012,
+      "tcp-port": 60112,
+      "ws-port": 60113,
+      "rpc-port": 60111,
       "wallet": {
         "name": "node1",
         "accounts": [

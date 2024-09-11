@@ -1,4 +1,6 @@
-{
-  "contract": "GasToken",
-  "operation": "symbol"
-}
+[
+  {
+    "contract": "EpicPulse",
+    "operation": "symbol"
+  }
+]

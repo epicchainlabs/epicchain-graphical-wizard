@@ -113,35 +113,35 @@ export async function activate(context: vscode.ExtensionContext) {
 
   context.subscriptions.push(
     vscode.window.registerTreeDataProvider(
-      "neo3-visual-devtracker.views.blockchains",
+      "epicchain-graphical-wizard.views.blockchains",
       blockchainsTreeDataProvider
     )
   );
 
   context.subscriptions.push(
     vscode.window.registerTreeDataProvider(
-      "neo3-visual-devtracker.views.contracts",
+      "epicchain-graphical-wizard.views.contracts",
       contractsTreeDataProvider
     )
   );
 
   context.subscriptions.push(
     vscode.window.registerTreeDataProvider(
-      "neo3-visual-devtracker.views.wallets",
+      "epicchain-graphical-wizard.views.wallets",
       walletsTreeDataProvider
     )
   );
 
   context.subscriptions.push(
     vscode.window.registerCustomEditorProvider(
-      "neo3-visual-devtracker.neo.neo-invoke-json",
+      "epicchain-graphical-wizard.epicchain.neo-invoke-json",
       neoInvokeFileEditorProvider
     )
   );
 
   context.subscriptions.push(
     vscode.window.registerWebviewViewProvider(
-      "neo3-visual-devtracker.views.quickStart",
+      "epicchain-graphical-wizard.views.quickStart",
       new QuickStartViewProvider(
         context,
         blockchainsTreeDataProvider,
@@ -153,7 +153,7 @@ export async function activate(context: vscode.ExtensionContext) {
     )
   );
 
-  registerCommand(context, "neo3-visual-devtracker.express.create", () =>
+  registerCommand(context, "epicchain-graphical-wizard.express.create", () =>
     NeoExpressCommands.create(
       context,
       neoExpress,
@@ -164,29 +164,35 @@ export async function activate(context: vscode.ExtensionContext) {
     )
   );
 
-  registerCommand(context, "neo3-visual-devtracker.neo.newContract", () =>
-    Templates.newContract(context)
+  registerCommand(
+    context,
+    "epicchain-graphical-wizard.epicchain.newContract",
+    () => Templates.newContract(context)
   );
 
-  registerCommand(context, "neo3-visual-devtracker.neo.walletCreate", () =>
-    NeoCommands.createWallet()
+  registerCommand(
+    context,
+    "epicchain-graphical-wizard.epicchain.walletCreate",
+    () => NeoCommands.createWallet()
   );
 
-  registerCommand(context, "neo3-visual-devtracker.connect", () =>
+  registerCommand(context, "epicchain-graphical-wizard.connect", () =>
     activeConnection.connect()
   );
 
-  registerCommand(context, "neo3-visual-devtracker.customizeServerList", () =>
-    serverListDetector.customize()
+  registerCommand(
+    context,
+    "epicchain-graphical-wizard.customizeServerList",
+    () => serverListDetector.customize()
   );
 
-  registerCommand(context, "neo3-visual-devtracker.disconnect", () =>
+  registerCommand(context, "epicchain-graphical-wizard.disconnect", () =>
     activeConnection.disconnect()
   );
 
   registerCommand(
     context,
-    "neo3-visual-devtracker.express.contractDeploy",
+    "epicchain-graphical-wizard.express.contractDeploy",
     (commandArguments) =>
       NeoExpressCommands.contractDeploy(
         neoExpress,
@@ -198,7 +204,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
   registerCommand(
     context,
-    "neo3-visual-devtracker.express.customCommand",
+    "epicchain-graphical-wizard.express.customCommand",
     (commandArguments) =>
       NeoExpressCommands.customCommand(
         neoExpress,
@@ -209,7 +215,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
   registerCommand(
     context,
-    "neo3-visual-devtracker.express.createCheckpoint",
+    "epicchain-graphical-wizard.express.createCheckpoint",
     (commandArguments) =>
       NeoExpressCommands.createCheckpoint(
         neoExpress,
@@ -220,7 +226,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
   registerCommand(
     context,
-    "neo3-visual-devtracker.express.exploreStorage",
+    "epicchain-graphical-wizard.express.exploreStorage",
     (commandArguments) =>
       NeoExpressCommands.exploreStorage(
         context,
@@ -234,7 +240,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
   registerCommand(
     context,
-    "neo3-visual-devtracker.express.reset",
+    "epicchain-graphical-wizard.express.reset",
     (commandArguments) =>
       NeoExpressCommands.reset(
         neoExpress,
@@ -246,7 +252,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
   registerCommand(
     context,
-    "neo3-visual-devtracker.express.restoreCheckpoint",
+    "epicchain-graphical-wizard.express.restoreCheckpoint",
     (commandArguments) =>
       NeoExpressCommands.restoreCheckpoint(
         neoExpress,
@@ -258,7 +264,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
   registerCommand(
     context,
-    "neo3-visual-devtracker.express.run",
+    "epicchain-graphical-wizard.express.run",
     (commandArguments) =>
       neoExpressInstanceManager.run(
         blockchainsTreeDataProvider,
@@ -268,7 +274,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
   registerCommand(
     context,
-    "neo3-visual-devtracker.express.runAdvanced",
+    "epicchain-graphical-wizard.express.runAdvanced",
     (commandArguments) =>
       neoExpressInstanceManager.runAdvanced(
         blockchainsTreeDataProvider,
@@ -278,7 +284,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
   registerCommand(
     context,
-    "neo3-visual-devtracker.express.stop",
+    "epicchain-graphical-wizard.express.stop",
     (commandArguments) =>
       neoExpressInstanceManager.stop(
         blockchainsTreeDataProvider,
@@ -288,7 +294,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
   registerCommand(
     context,
-    "neo3-visual-devtracker.express.transfer",
+    "epicchain-graphical-wizard.express.transfer",
     (commandArguments) =>
       NeoExpressCommands.transfer(
         neoExpress,
@@ -299,7 +305,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
   registerCommand(
     context,
-    "neo3-visual-devtracker.express.walletCreate",
+    "epicchain-graphical-wizard.express.walletCreate",
     (commandArguments) =>
       NeoExpressCommands.walletCreate(
         neoExpress,
@@ -310,7 +316,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
   registerCommand(
     context,
-    "neo3-visual-devtracker.neo.contractDeploy",
+    "epicchain-graphical-wizard.epicchain.contractDeploy",
     (commandArguments) =>
       NeoCommands.contractDeploy(
         contractDetector,
@@ -322,7 +328,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
   registerCommand(
     context,
-    "neo3-visual-devtracker.neo.invokeContract",
+    "epicchain-graphical-wizard.epicchain.invokeContract",
     (commandArguments) =>
       NeoCommands.invokeContract(
         activeConnection,
@@ -333,7 +339,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
   registerCommand(
     context,
-    "neo3-visual-devtracker.tracker.openTracker",
+    "epicchain-graphical-wizard.tracker.openTracker",
     (commandArguments) =>
       TrackerCommands.openTracker(
         context,
@@ -346,14 +352,14 @@ export async function activate(context: vscode.ExtensionContext) {
 
   registerCommand(
     context,
-    "neo3-visual-devtracker.tracker.openContract",
+    "epicchain-graphical-wizard.tracker.openContract",
     (commandArguments) =>
       TrackerCommands.openContract(context, autoComplete, commandArguments)
   );
 
   registerCommand(
     context,
-    "neo3-visual-devtracker.tracker.openWallet",
+    "epicchain-graphical-wizard.tracker.openWallet",
     (commandArguments) =>
       TrackerCommands.openWallet(
         context,

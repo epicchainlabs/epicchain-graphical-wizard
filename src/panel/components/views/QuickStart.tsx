@@ -26,7 +26,7 @@ export default function QuickStart({ viewState, postMessage }: Props) {
           <StartNeoExpress
             key="startNeoExpress"
             onStart={() =>
-              postMessage({ command: "neo3-visual-devtracker.express.run" })
+              postMessage({ command: "epicchain-graphical-wizard.express.run" })
             }
           />
         );
@@ -36,7 +36,9 @@ export default function QuickStart({ viewState, postMessage }: Props) {
         <CreateNeoExpressInstance
           key="createNeoExpressInstance"
           onCreate={() =>
-            postMessage({ command: "neo3-visual-devtracker.express.create" })
+            postMessage({
+              command: "epicchain-graphical-wizard.express.create",
+            })
           }
         />
       );
@@ -46,7 +48,9 @@ export default function QuickStart({ viewState, postMessage }: Props) {
         <CreateContract
           key="createContract"
           onCreate={() =>
-            postMessage({ command: "neo3-visual-devtracker.neo.newContract" })
+            postMessage({
+              command: "epicchain-graphical-wizard.epicchain.newContract",
+            })
           }
         />
       );
@@ -59,7 +63,7 @@ export default function QuickStart({ viewState, postMessage }: Props) {
             connectionName={viewState.connectionName}
             onDeploy={() =>
               postMessage({
-                command: "neo3-visual-devtracker.express.contractDeploy",
+                command: "epicchain-graphical-wizard.express.contractDeploy",
               })
             }
           />
@@ -71,7 +75,7 @@ export default function QuickStart({ viewState, postMessage }: Props) {
             connectionName={viewState.connectionName}
             onDeploy={() =>
               postMessage({
-                command: "neo3-visual-devtracker.neo.contractDeploy",
+                command: "epicchain-graphical-wizard.epicchain.contractDeploy",
               })
             }
           />
@@ -82,7 +86,7 @@ export default function QuickStart({ viewState, postMessage }: Props) {
             key="invokeContract"
             onInvoke={() =>
               postMessage({
-                command: "neo3-visual-devtracker.neo.invokeContract",
+                command: "epicchain-graphical-wizard.epicchain.invokeContract",
               })
             }
           />
@@ -93,7 +97,7 @@ export default function QuickStart({ viewState, postMessage }: Props) {
         <ConnectToBlockchain
           key="connectToBlockchain"
           onConnect={() =>
-            postMessage({ command: "neo3-visual-devtracker.connect" })
+            postMessage({ command: "epicchain-graphical-wizard.connect" })
           }
         />
       );
@@ -104,7 +108,7 @@ export default function QuickStart({ viewState, postMessage }: Props) {
           key="createWallet"
           onCreate={() =>
             postMessage({
-              command: "neo3-visual-devtracker.neo.walletCreate",
+              command: "epicchain-graphical-wizard.epicchain.walletCreate",
             })
           }
         />
@@ -127,7 +131,9 @@ export default function QuickStart({ viewState, postMessage }: Props) {
     <OpenBlockchainExplorer
       key="openBlockchainExplorer"
       onOpen={() =>
-        postMessage({ command: "neo3-visual-devtracker.tracker.openTracker" })
+        postMessage({
+          command: "epicchain-graphical-wizard.tracker.openTracker",
+        })
       }
     />
   );

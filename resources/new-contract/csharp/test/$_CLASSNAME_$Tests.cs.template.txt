@@ -2,18 +2,18 @@
 using System.Linq;
 
 using FluentAssertions;
-using Neo.Assertions;
-using Neo.BlockchainToolkit;
-using Neo.BlockchainToolkit.Models;
-using Neo.BlockchainToolkit.SmartContract;
-using Neo.SmartContract;
-using Neo.VM;
-using NeoTestHarness;
+using EpicChain.Assertions;
+using EpicChain.BlockchainToolkit;
+using EpicChain.BlockchainToolkit.Models;
+using EpicChain.BlockchainToolkit.SmartContract;
+using EpicChain.SmartContract;
+using EpicChain.VM;
+using EpicChainTestHarness;
 using Xunit;
 
 namespace $_CONTRACTNAME_$Tests
 {
-    [CheckpointPath("test/bin/checkpoints/contract-deployed.neoxp-checkpoint")]
+    [CheckpointPath("test/bin/checkpoints/contract-deployed.epicchainxp-checkpoint")]
     public class $_CLASSNAME_$Tests : IClassFixture<CheckpointFixture<$_CLASSNAME_$Tests>>
     {
         readonly CheckpointFixture fixture;
@@ -52,7 +52,7 @@ namespace $_CONTRACTNAME_$Tests
 
             using var snapshot = fixture.GetSnapshot();
 
-            // ExecuteScript converts the provided expression(s) into a Neo script
+            // ExecuteScript converts the provided expression(s) into a EpicChain script
             // loads them into the engine and executes it 
             using var engine = new TestApplicationEngine(snapshot, settings, alice);
 

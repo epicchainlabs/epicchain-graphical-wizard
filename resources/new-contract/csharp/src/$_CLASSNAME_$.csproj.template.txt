@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <NeoContractName>$(AssemblyName)</NeoContractName>
+    <EpicChainContractName>$(AssemblyName)</EpicChainContractName>
     <RootNamespace>$_CONTRACTNAME_$</RootNamespace>
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Neo.SmartContract.Framework" Version="3.5.0" />
-    <PackageReference Include="Neo.BuildTasks" Version="3.5.15" PrivateAssets="all" />
+    <PackageReference Include="EpicChain.SmartContract.Framework" Version="3.5.0" />
+    <PackageReference Include="EpicChain.BuildTasks" Version="3.5.15" PrivateAssets="all" />
   </ItemGroup>
 
 </Project>

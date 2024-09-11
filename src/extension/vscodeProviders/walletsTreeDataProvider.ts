@@ -40,7 +40,7 @@ export default class WalletsTreeDataProvider
   getTreeItem(wallet: WalletData): vscode.TreeItem {
     return {
       command: {
-        command: "neo3-visual-devtracker.tracker.openWallet",
+        command: "epicchain-graphical-wizard.tracker.openWallet",
         arguments: [{ address: wallet.address }],
         title: wallet.address,
       },

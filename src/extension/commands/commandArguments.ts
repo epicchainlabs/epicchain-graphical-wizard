@@ -10,7 +10,7 @@ import BlockchainIdentifier from "../blockchainIdentifier";
 // Example of how to construct a command URI:
 //   const args = [{ asset: "NEO", amount: 1000, sender: "alice", receiver: "bob" }];
 //   const commandUri = vscode.Uri.parse(
-//     `command:neo3-visual-devtracker.express.transfer?${
+//     `command:epicchain-graphical-wizard.express.transfer?${
 //       encodeURIComponent(JSON.stringify(args))
 //     }`
 //   );

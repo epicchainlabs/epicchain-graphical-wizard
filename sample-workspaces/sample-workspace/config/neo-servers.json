@@ -1,9 +1,9 @@
 {
-  "neo-rpc-uris": [
+  "epicchain-rpc-uris": [
     "(invalid URLs are ignored)",
-    "http://127.0.0.1:49154"
+    "http://127.0.0.1:89453"
   ],
-  "neo-blockchain-names": {
+  "epicchain-blockchain-names": {
     "0x4661f92562043b8cf39caa79a9f0de1ed462371aec26746c0998225fa5b8b2ca": "My Private Net"
   }
 }

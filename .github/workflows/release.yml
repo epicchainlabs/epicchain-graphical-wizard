@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
     inputs:
       githubRelease:
-        description: 'Create a GitHub release (release branches only)'
+        description: "Create a GitHub release (release branches only)"
         default: true
         type: boolean
       marketplaceRelease:
-        description: 'Publish to VSCode Marketplace (release branches only)'
+        description: "Publish to VSCode Marketplace (release branches only)"
         default: true
         type: boolean
 
@@ -36,4 +36,4 @@ jobs:
             *.vsix
       - name: Publish debug extension to VSCode Marketplace
         if: startsWith(github.ref, 'refs/heads/release/')
-        run: npx vsce publish -i ${{ format('./artifacts/neo3-visual-tracker-{0}.vsix', needs.build.outputs.extensionVersion) }} -p ${{ secrets.VSCODE_MARKETPLACE_TOKEN }}
+        run: npx vsce publish -i ${{ format('./artifacts/epicchain-graphical-wizard-{0}.vsix', needs.build.outputs.extensionVersion) }} -p ${{ secrets.VSCODE_MARKETPLACE_TOKEN }}
