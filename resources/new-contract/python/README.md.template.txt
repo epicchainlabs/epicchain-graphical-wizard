@@ -35,4 +35,4 @@ Inside it you'll see the following files:
 - `$_CONTRACTNAME_$Tests.epicchain-express`
     - The private chain itself, you should find it by its name on the visual tracker.
 - `setup-test-chain.batch`
-    - This batch was used to transfer some EpicPulse to alice, bob and owner's accounts in the private chain.
+    - This batch was used to transfer some GAS to alice, bob and owner's accounts in the private chain.

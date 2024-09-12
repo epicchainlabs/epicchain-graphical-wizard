@@ -1,5 +1,5 @@
 {
-  "name": "mum",
+  "name": "sani isa",
   "version": "1.0",
   "scrypt": {
     "n": 16384,
@@ -9,13 +9,13 @@
   },
   "accounts": [
     {
-      "address": "NULa5NxtRkLNJtXZHyYQQVAkt3N4Tkt6nL",
+      "address": "NY1CqfxZYZVkLBezn13gxdFSKWwerGikcx",
       "label": "Default account",
       "isDefault": true,
       "lock": false,
-      "key": "6PYQVzQnGJDNj3Qd4ffnApppJepKWNp8Lj19Y2foWpBjzuAnYt1xyhgZnt",
+      "key": "6PYLWHvTpRGtoASMW49TuhtNo8eQuXMLmSa751yMTnBTEqyg7ayceGL82d",
       "contract": {
-        "script": "DCEDfa+KYlFQ4hf/DdYSnZP9RtPAZTrgm5xRkRAV2dQFTOhBVuezJw==",
+        "script": "DCEDV5LKCvsrEoPXETEWkyREVsFTkd5aam3VejpEnSmxDjJBVuezJw==",
         "parameters": [
           {
             "name": "signature",

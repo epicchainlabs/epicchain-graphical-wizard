@@ -196,14 +196,14 @@ export default class NeoCommands {
     const safeWalletName = walletName.replace(/[^-_.a-z0-9]/gi, "-");
     let filename = posixPath(
       walletFilesFolder,
-      `${safeWalletName}.epicchain-wallet.json`
+      `${safeWalletName}.neo-wallet.json`
     );
     let i = 0;
     while (fs.existsSync(filename)) {
       i++;
       filename = posixPath(
         walletFilesFolder,
-        `${safeWalletName} (${i}).epicchain-wallet.json`
+        `${safeWalletName} (${i}).neo-wallet.json`
       );
     }
     await fs.promises.writeFile(filename, walletJson);

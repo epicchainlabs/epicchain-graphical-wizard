@@ -44,7 +44,7 @@ export class SmartContract {
    * Note:
    * - results are persisted to the blockchain.
    * - currently only supports Sender as signer
-   * Tip: use `testInvoke` for querying data without needing to pay EpicPulse.
+   * Tip: use `testInvoke` for querying data without needing to pay GAS.
    * @param operation - name of operation to call
    * @param params - parameters to pass.
    * @param callFlags - call flag required for the operation to call.

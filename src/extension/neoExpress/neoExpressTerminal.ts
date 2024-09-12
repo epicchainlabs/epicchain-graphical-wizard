@@ -43,7 +43,7 @@ export default class NeoExpressTerminal {
 
   open(initialDimensions: vscode.TerminalDimensions | undefined) {
     this.dimensions = initialDimensions;
-    this.writeEmitter.fire(this.bold("\r\nStarting EpicChain Private...\r\n"));
+    this.writeEmitter.fire(this.bold("\r\nStarting Neo Express...\r\n"));
     this.process = childProcess.spawn(this.shellPath, this.shellArgs);
     this.process.stdout.on("data", (d) =>
       this.writeEmitter.fire("\r\n" + d.toString().trim())
@@ -54,7 +54,7 @@ export default class NeoExpressTerminal {
     this.process.on("close", (code: number) => {
       this.writeEmitter.fire(
         this.bold(
-          `\r\n\r\nEpicChain Private has exited with code ${code}.\r\nPress any key to close this terminal.`
+          `\r\n\r\nNeo Express has exited with code ${code}.\r\nPress any key to close this terminal.`
         )
       );
       this.process = null;
@@ -62,7 +62,7 @@ export default class NeoExpressTerminal {
     this.process.on("error", () => {
       this.writeEmitter.fire(
         this.bold(
-          `\r\n\r\nEpicChain Private encountered an error.\r\nPress any key to close this terminal.`
+          `\r\n\r\nNeo Express encountered an error.\r\nPress any key to close this terminal.`
         )
       );
       this.process = null;

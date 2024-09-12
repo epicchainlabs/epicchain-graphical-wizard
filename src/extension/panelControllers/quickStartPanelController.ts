@@ -3,7 +3,7 @@ import * as vscode from "vscode";
 import ActiveConnection from "../activeConnection";
 import BlockchainsTreeDataProvider from "../vscodeProviders/blockchainsTreeDataProvider";
 import ContractDetector from "../fileDetectors/contractDetector";
-import EpicChainExpressInstanceManager from "../neoExpress/EpicChainExpressInstanceManager";
+import NeoExpressInstanceManager from "../neoExpress/neoExpressInstanceManager";
 import PanelControllerBase from "./panelControllerBase";
 import QuickStartViewRequest from "../../shared/messages/quickStartViewRequest";
 import QuickStartViewState from "../../shared/viewState/quickStartViewState";
@@ -19,7 +19,7 @@ export default class QuickStartPanelController extends PanelControllerBase<
     context: vscode.ExtensionContext,
     panel: vscode.WebviewView,
     private readonly blockchainsTreeDataProvider: BlockchainsTreeDataProvider,
-    private readonly EpicChainExpressInstanceManager: EpicChainExpressInstanceManager,
+    private readonly neoExpressInstanceManager: NeoExpressInstanceManager,
     private readonly contractDetector: ContractDetector,
     private readonly activeConnection: ActiveConnection,
     private readonly walletDetector: WalletDetector
@@ -43,7 +43,7 @@ export default class QuickStartPanelController extends PanelControllerBase<
     );
     vscode.workspace.onDidChangeWorkspaceFolders(() => this.refresh());
     this.blockchainsTreeDataProvider.onDidChangeTreeData(() => this.refresh());
-    this.EpicChainExpressInstanceManager.onChange(() => this.refresh());
+    this.neoExpressInstanceManager.onChange(() => this.refresh());
     this.contractDetector.onChange(() => this.refresh());
     this.activeConnection.onChange(() => this.refresh());
     this.walletDetector.onChange(() => this.refresh());
@@ -89,7 +89,7 @@ export default class QuickStartPanelController extends PanelControllerBase<
     const hasWallets = this.walletDetector.wallets.length > 0;
 
     const neoExpressIsRunning =
-      this.EpicChainExpressInstanceManager.runningInstance?.blockchainType ===
+      this.neoExpressInstanceManager.runningInstance?.blockchainType ===
       "express";
 
     const workspaceIsOpen = !!vscode.workspace.workspaceFolders?.length;

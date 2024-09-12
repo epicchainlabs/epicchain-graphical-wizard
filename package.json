@@ -3,7 +3,7 @@
   "publisher": "EpicChainGraphicalWizard",
   "displayName": "EpicChain Graphical Wizard",
   "description": "The EpicChain Graphical Wizard Extension offers a user-friendly interface for tracking and overseeing your development tasks, ensuring a streamlined workflow from start to finish.",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "icon": "resources/epicchain.png",
   "galleryBanner": {
     "color": "#242424",

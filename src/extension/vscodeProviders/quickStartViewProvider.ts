@@ -3,17 +3,16 @@ import * as vscode from "vscode";
 import ActiveConnection from "../activeConnection";
 import BlockchainsTreeDataProvider from "./blockchainsTreeDataProvider";
 import ContractDetector from "../fileDetectors/contractDetector";
-import EpicChainExpressInstanceManager from "../neoExpress/EpicChainExpressInstanceManager";
+import NeoExpressInstanceManager from "../neoExpress/neoExpressInstanceManager";
 import QuickStartPanelController from "../panelControllers/quickStartPanelController";
 import WalletDetector from "../fileDetectors/walletDetector";
 
 export default class QuickStartViewProvider
-  implements vscode.WebviewViewProvider
-{
+  implements vscode.WebviewViewProvider {
   constructor(
     private readonly context: vscode.ExtensionContext,
     private readonly blockchainsTreeDataProvider: BlockchainsTreeDataProvider,
-    private readonly EpicChainExpressInstanceManager: EpicChainExpressInstanceManager,
+    private readonly neoExpressInstanceManager: NeoExpressInstanceManager,
     private readonly contractDetector: ContractDetector,
     private readonly activeConnection: ActiveConnection,
     private readonly walletDetector: WalletDetector
@@ -25,7 +24,7 @@ export default class QuickStartViewProvider
       this.context,
       webviewView,
       this.blockchainsTreeDataProvider,
-      this.EpicChainExpressInstanceManager,
+      this.neoExpressInstanceManager,
       this.contractDetector,
       this.activeConnection,
       this.walletDetector

@@ -31,13 +31,13 @@ export default function AddressDetails({
         <small>NEO balance:</small>
       </p>
       <p style={{ fontWeight: "bold", fontSize: "1.25rem", marginTop: 0 }}>
-        {addressInfo.epicchainBalance.toLocaleString()} NEO
+        {addressInfo.neoBalance.toLocaleString()} NEO
       </p>
       <p style={{ marginBottom: 5 }}>
         <small>GAS balance:</small>
       </p>
       <p style={{ fontWeight: "bold", fontSize: "1.25rem", marginTop: 0 }}>
-        {(addressInfo.epicpulseBalance / 100000000.0).toLocaleString()} GAS
+        {(addressInfo.gasBalance / 100000000.0).toLocaleString()} GAS
       </p>
       {!!Object.keys(addressInfo.allBalances).length && (
         <>
