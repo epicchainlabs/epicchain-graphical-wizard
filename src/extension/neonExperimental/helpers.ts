@@ -1,6 +1,6 @@
 import { CONST, rpc, sc, tx, u, wallet } from "@cityofzion/neon-core";
 import { CommonConfig } from "./types";
-import { GASContract } from "./nep17";
+import { EpicPulseContract } from "./nep17";
 
 /**
  * Calculate the GAS costs for validation and inclusion of the transaction in a block
@@ -224,14 +224,14 @@ export async function addFees(
     );
   }
 
-  const GAS = new GASContract(config);
-  const gasBalance = await GAS.balanceOf(config.account.address);
+  const GAS = new EpicPulseContract(config);
+  const epicpulseBalance = await GAS.balanceOf(config.account.address);
   const requiredGAS = parseFloat(
     transaction.systemFee.add(transaction.networkFee).toDecimal(8)
   );
-  if (gasBalance < requiredGAS) {
+  if (epicpulseBalance < requiredGAS) {
     throw new Error(
-      `Insufficient GAS. Required: ${requiredGAS} Available: ${gasBalance}`
+      `Insufficient GAS. Required: ${requiredGAS} Available: ${epicpulseBalance}`
     );
   }
 }

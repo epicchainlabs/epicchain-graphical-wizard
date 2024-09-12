@@ -8,11 +8,11 @@ import Log from "../util/log";
 import NeoExpress from "./neoExpress";
 import IoHelpers from "../util/ioHelpers";
 
-const LOG_PREFIX = "NeoExpressInstanceManager";
+const LOG_PREFIX = "EpicChainExpressInstanceManager";
 // VS Code does not offer an event-driven mechanism for detecting when a user closes a terminal, so polling is required:
 const REFRESH_INTERVAL_MS = 1000 * 2;
 
-export default class NeoExpressInstanceManager {
+export default class EpicChainExpressInstanceManager {
   onChange: vscode.Event<void>;
 
   get runningInstance() {

@@ -15,9 +15,9 @@ import ContractsTreeDataProvider from "./vscodeProviders/contractsTreeDataProvid
 import Log from "./util/log";
 import NeoCommands from "./commands/neoCommands";
 import NeoExpress from "./neoExpress/neoExpress";
-import NeoExpressCommands from "./commands/neoExpressCommands";
+import EpicChainExpressCommands from "./commands/EpicChainExpressCommands";
 import NeoExpressDetector from "./fileDetectors/neoExpressDetector";
-import NeoExpressInstanceManager from "./neoExpress/neoExpressInstanceManager";
+import EpicChainExpressInstanceManager from "./neoExpress/EpicChainExpressInstanceManager";
 import NeoInvokeFileEditorProvider from "./vscodeProviders/neoInvokeFileEditorProvider";
 import QuickStartViewProvider from "./vscodeProviders/quickStartViewProvider";
 import ServerListDetector from "./fileDetectors/serverListDetector";
@@ -71,7 +71,7 @@ export async function activate(context: vscode.ExtensionContext) {
     blockchainMonitorPool
   );
   const contractDetector = new ContractDetector(activeConnection);
-  const neoExpressInstanceManager = new NeoExpressInstanceManager(
+  const EpicChainExpressInstanceManager = new EpicChainExpressInstanceManager(
     neoExpress,
     activeConnection
   );
@@ -107,7 +107,7 @@ export async function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(checkpointDetector);
   context.subscriptions.push(contractDetector);
   context.subscriptions.push(neoExpressDetector);
-  context.subscriptions.push(neoExpressInstanceManager);
+  context.subscriptions.push(EpicChainExpressInstanceManager);
   context.subscriptions.push(serverListDetector);
   context.subscriptions.push(walletDetector);
 
@@ -145,7 +145,7 @@ export async function activate(context: vscode.ExtensionContext) {
       new QuickStartViewProvider(
         context,
         blockchainsTreeDataProvider,
-        neoExpressInstanceManager,
+        EpicChainExpressInstanceManager,
         contractDetector,
         activeConnection,
         walletDetector
@@ -154,10 +154,10 @@ export async function activate(context: vscode.ExtensionContext) {
   );
 
   registerCommand(context, "epicchain-graphical-wizard.express.create", () =>
-    NeoExpressCommands.create(
+    EpicChainExpressCommands.create(
       context,
       neoExpress,
-      neoExpressInstanceManager,
+      EpicChainExpressInstanceManager,
       autoComplete,
       blockchainMonitorPool,
       blockchainsTreeDataProvider
@@ -194,7 +194,7 @@ export async function activate(context: vscode.ExtensionContext) {
     context,
     "epicchain-graphical-wizard.express.contractDeploy",
     (commandArguments) =>
-      NeoExpressCommands.contractDeploy(
+      EpicChainExpressCommands.contractDeploy(
         neoExpress,
         contractDetector,
         blockchainsTreeDataProvider,
@@ -206,7 +206,7 @@ export async function activate(context: vscode.ExtensionContext) {
     context,
     "epicchain-graphical-wizard.express.customCommand",
     (commandArguments) =>
-      NeoExpressCommands.customCommand(
+      EpicChainExpressCommands.customCommand(
         neoExpress,
         blockchainsTreeDataProvider,
         commandArguments
@@ -217,7 +217,7 @@ export async function activate(context: vscode.ExtensionContext) {
     context,
     "epicchain-graphical-wizard.express.createCheckpoint",
     (commandArguments) =>
-      NeoExpressCommands.createCheckpoint(
+      EpicChainExpressCommands.createCheckpoint(
         neoExpress,
         blockchainsTreeDataProvider,
         commandArguments
@@ -228,7 +228,7 @@ export async function activate(context: vscode.ExtensionContext) {
     context,
     "epicchain-graphical-wizard.express.exploreStorage",
     (commandArguments) =>
-      NeoExpressCommands.exploreStorage(
+      EpicChainExpressCommands.exploreStorage(
         context,
         autoComplete,
         blockchainMonitorPool,
@@ -242,9 +242,9 @@ export async function activate(context: vscode.ExtensionContext) {
     context,
     "epicchain-graphical-wizard.express.reset",
     (commandArguments) =>
-      NeoExpressCommands.reset(
+      EpicChainExpressCommands.reset(
         neoExpress,
-        neoExpressInstanceManager,
+        EpicChainExpressInstanceManager,
         blockchainsTreeDataProvider,
         commandArguments
       )
@@ -254,7 +254,7 @@ export async function activate(context: vscode.ExtensionContext) {
     context,
     "epicchain-graphical-wizard.express.restoreCheckpoint",
     (commandArguments) =>
-      NeoExpressCommands.restoreCheckpoint(
+      EpicChainExpressCommands.restoreCheckpoint(
         neoExpress,
         blockchainsTreeDataProvider,
         checkpointDetector,
@@ -266,7 +266,7 @@ export async function activate(context: vscode.ExtensionContext) {
     context,
     "epicchain-graphical-wizard.express.run",
     (commandArguments) =>
-      neoExpressInstanceManager.run(
+      EpicChainExpressInstanceManager.run(
         blockchainsTreeDataProvider,
         commandArguments
       )
@@ -276,7 +276,7 @@ export async function activate(context: vscode.ExtensionContext) {
     context,
     "epicchain-graphical-wizard.express.runAdvanced",
     (commandArguments) =>
-      neoExpressInstanceManager.runAdvanced(
+      EpicChainExpressInstanceManager.runAdvanced(
         blockchainsTreeDataProvider,
         commandArguments
       )
@@ -286,7 +286,7 @@ export async function activate(context: vscode.ExtensionContext) {
     context,
     "epicchain-graphical-wizard.express.stop",
     (commandArguments) =>
-      neoExpressInstanceManager.stop(
+      EpicChainExpressInstanceManager.stop(
         blockchainsTreeDataProvider,
         commandArguments
       )
@@ -296,7 +296,7 @@ export async function activate(context: vscode.ExtensionContext) {
     context,
     "epicchain-graphical-wizard.express.transfer",
     (commandArguments) =>
-      NeoExpressCommands.transfer(
+      EpicChainExpressCommands.transfer(
         neoExpress,
         blockchainsTreeDataProvider,
         commandArguments
@@ -307,7 +307,7 @@ export async function activate(context: vscode.ExtensionContext) {
     context,
     "epicchain-graphical-wizard.express.walletCreate",
     (commandArguments) =>
-      NeoExpressCommands.walletCreate(
+      EpicChainExpressCommands.walletCreate(
         neoExpress,
         blockchainsTreeDataProvider,
         commandArguments

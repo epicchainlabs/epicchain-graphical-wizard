@@ -54,7 +54,7 @@ export default class NeoExpress {
 
     const hasStarted: Promise<void> = new Promise((resolve) => {
       pty.onDidWrite((data) => {
-        if (data.indexOf("Neo express is running") !== -1) {
+        if (data.indexOf("EpicChain Ptivate Networks is running") !== -1) {
           resolve();
         }
       });
@@ -111,7 +111,7 @@ export default class NeoExpress {
     ...options: string[]
   ): Promise<{ message: string; isError?: boolean }> {
     if (!this.checkForDotNet()) {
-      return { message: "Could not launch Neo Express", isError: true };
+      return { message: "Could not launch EpicChain Private", isError: true };
     }
     const dotNetArguments = [
       this.binaryPath,

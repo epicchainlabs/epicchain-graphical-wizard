@@ -14,8 +14,8 @@ const BLOCK_CACHE_SIZE = 1024;
 const BLOCKS_PER_QUERY = 100;
 const LOG_PREFIX = "BlockchainMonitorInternal";
 const MAX_RETRIES = 3;
-const SCRIPTHASH_GAS = "0xd2a4cff31913016155e38e474a2c06d08be276cf";
-const SCRIPTHASH_NEO = "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5";
+const SCRIPTHASH_EPICPULSE = "0xbc8459660544656355b4f60861c22f544341e828";
+const SCRIPTHASH_EPICCHAIN = "0x6dc3bff7b2e6061f3cad5744edf307c14823328e";
 const SLEEP_ON_ERROR_MS = 500;
 const SPEED_DETECTION_WINDOW = 4; // Analyze previous 4 block times to calculate block speed
 const TRANSACTION_CACHE_SIZE = 1024;
@@ -80,8 +80,8 @@ export default class BlockchainMonitorInternal {
         return {
           address,
           allBalances,
-          gasBalance: allBalances[SCRIPTHASH_GAS] || 0,
-          neoBalance: allBalances[SCRIPTHASH_NEO] || 0,
+          epicpulseBalance: allBalances[SCRIPTHASH_EPICPULSE] || 0,
+          epicchainBalance: allBalances[SCRIPTHASH_EPICCHAIN] || 0,
         };
       } catch (e) {
         Log.warn(

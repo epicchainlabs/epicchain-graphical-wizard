@@ -1,0 +1,29 @@
+{
+  "name": "mum",
+  "version": "1.0",
+  "scrypt": {
+    "n": 16384,
+    "r": 8,
+    "p": 8,
+    "size": 64
+  },
+  "accounts": [
+    {
+      "address": "NULa5NxtRkLNJtXZHyYQQVAkt3N4Tkt6nL",
+      "label": "Default account",
+      "isDefault": true,
+      "lock": false,
+      "key": "6PYQVzQnGJDNj3Qd4ffnApppJepKWNp8Lj19Y2foWpBjzuAnYt1xyhgZnt",
+      "contract": {
+        "script": "DCEDfa+KYlFQ4hf/DdYSnZP9RtPAZTrgm5xRkRAV2dQFTOhBVuezJw==",
+        "parameters": [
+          {
+            "name": "signature",
+            "type": "Signature"
+          }
+        ],
+        "deployed": false
+      }
+    }
+  ]
+}

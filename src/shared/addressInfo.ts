@@ -1,7 +1,7 @@
 type AddressInfo = {
   address: string;
-  neoBalance: number;
-  gasBalance: number;
+  epicchainBalance: number;
+  epicpulseBalance: number;
   allBalances: { [assetHash: string]: number };
 };
 
