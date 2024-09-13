@@ -11,10 +11,10 @@ import posixPath from "../util/posixPath";
 
 const LOG_PREFIX = "ServerListDetector";
 
-const SEARCH_PATTERN = "**/neo-servers.json";
+const SEARCH_PATTERN = "**/epicchain-servers.json";
 
 const DEFAULT_FILE = {
-  "neo-rpc-uris": ["http://localhost:20332"],
+  "neo-rpc-uris": ["http://localhost:80111"],
   "neo-blockchain-names": {
     "0x0000000000000000000000000000000000000000000000000000000000000000":
       "My Private Blockchain",
@@ -27,24 +27,24 @@ const UNKNOWN_BLOCKCHAIN =
 // These are the genesis block hashes of some well-known blockchains.
 // We identify which blockchain an RPC URL corresponds to by requesting
 // block 0 and then comparing the hash to the list below (and any other
-// names the user has supplied through neo-servers.json file(s) in the
+// names the user has supplied through epicchain-servers.json file(s) in the
 // current workspace):
 const WELL_KNOWN_BLOCKCHAINS: { [genesisHash: string]: string } = {
-  "0x1f4d1defa46faa5e7b9b8d3f79a06bec777d7c26c4aa5f6f5899a291daa87c15":
+  "0xa30609d477c023fd7bc3ee38d80f4d06f92bfe9b771a30addcb7a214352c43ca":
     "EpicChain Graphical Wizard MainNet",
-  "0x9d3276785e7306daf59a3f3b9e31912c095598bbfb8a4476b821b0e59be4c57a":
+  "0x86bad159d6e943fa108d22be45cbd40d7c6188b524301bd14c15d7ba5bdb0fe6":
     "EpicChain Graphical Wizard TestNet",
 };
 
 // These are the RPC URLs made available to users who do not have their
-// own neo-servers.json file(s) in their workspace:
+// own epicchain-servers.json file(s) in their workspace:
 const SEED_URLS: { [url: string]: boolean } = {
   //
   // TODO: Add alternative TestNet endpoints.
   //
   // V3 MainNet:
   "http://mainnet1-seed.epic-chain.org:10111": true,
-  "http://mainnet2-seed.epic-chain.org:101112": true,
+  "http://mainnet2-seed.epic-chain.org:10111": true,
   "http://mainnet3-seed.epic-chain.org:10111": true,
   "http://mainnet4-seed.epic-chain.org:10111": true,
   "http://mainnet5-seed.epic-chain.org:10111": true,
@@ -92,7 +92,7 @@ export default class ServerListDetector extends DetectorBase {
             ...workspaceFolders
           );
         }
-        const fileToEdit = posixPath(workspaceFolder, "neo-servers.json");
+        const fileToEdit = posixPath(workspaceFolder, "epicchain-servers.json");
         if (!fs.existsSync(fileToEdit)) {
           fs.writeFileSync(fileToEdit, JSONC.stringify(DEFAULT_FILE));
         }
