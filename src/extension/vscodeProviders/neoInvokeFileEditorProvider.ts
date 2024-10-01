@@ -5,7 +5,7 @@ import AutoComplete from "../autoComplete";
 import InvokeFilePanelController from "../panelControllers/invokeFilePanelController";
 import EpicChainExpress from "../EpicChainExpress/EpicChainExpress";
 
-export default class NeoInvokeFileEditorProvider
+export default class EpicChainInvokeFileEditorProvider
   implements vscode.CustomTextEditorProvider
 {
   // We store the timestamp of when we last opened an editor, and a reference to that editor.

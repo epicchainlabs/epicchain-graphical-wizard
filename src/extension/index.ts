@@ -18,7 +18,7 @@ import EpicChainExpress from "./EpicChainExpress/EpicChainExpress";
 import EpicChainExpressCommands from "./commands/EpicChainExpressCommands";
 import EpicChainExpressDetector from "./fileDetectors/EpicChainExpressDetector";
 import EpicChainExpressInstanceManager from "./EpicChainExpress/EpicChainExpressInstanceManager";
-import NeoInvokeFileEditorProvider from "./vscodeProviders/neoInvokeFileEditorProvider";
+import EpicChainInvokeFileEditorProvider from "./vscodeProviders/EpicChainInvokeFileEditorProvider";
 import QuickStartViewProvider from "./vscodeProviders/quickStartViewProvider";
 import ServerListDetector from "./fileDetectors/serverListDetector";
 import Templates from "./templates/templates";
@@ -96,12 +96,13 @@ export async function activate(context: vscode.ExtensionContext) {
     autoComplete,
     contractDetector
   );
-  const neoInvokeFileEditorProvider = new NeoInvokeFileEditorProvider(
-    context,
-    activeConnection,
-    EpicChainExpress,
-    autoComplete
-  );
+  const EpicChainInvokeFileEditorProvider =
+    new EpicChainInvokeFileEditorProvider(
+      context,
+      activeConnection,
+      EpicChainExpress,
+      autoComplete
+    );
   const checkpointDetector = new CheckpointDetector();
 
   context.subscriptions.push(activeConnection);
@@ -137,7 +138,7 @@ export async function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
     vscode.window.registerCustomEditorProvider(
       "epicchain-graphical-wizard.epicchain.neo-invoke-json",
-      neoInvokeFileEditorProvider
+      EpicChainInvokeFileEditorProvider
     )
   );
 
