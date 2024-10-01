@@ -3,20 +3,20 @@ import * as neonSc from "@cityofzion/neon-core/lib/sc";
 import BlockchainIdentifier from "../blockchainIdentifier";
 import JSONC from "../util/JSONC";
 import Log from "../util/log";
-import NeoExpress from "./neoExpress";
+import EpicChainExpress from "./EpicChainExpress";
 
-const LOG_PREFIX = "NeoExpressIo";
+const LOG_PREFIX = "EpicChainExpressIo";
 
-export default class NeoExpressIo {
+export default class EpicChainExpressIo {
   static async contractGet(
-    neoExpress: NeoExpress,
+    EpicChainExpress: EpicChainExpress,
     identifer: BlockchainIdentifier,
     hashOrNefPath: string
   ): Promise<neonSc.ContractManifestJson | null> {
     if (identifer.blockchainType !== "express") {
       return null;
     }
-    const output = await neoExpress.run(
+    const output = await EpicChainExpress.run(
       "contract",
       "get",
       hashOrNefPath,
@@ -34,7 +34,7 @@ export default class NeoExpressIo {
   }
 
   static async contractList(
-    neoExpress: NeoExpress,
+    EpicChainExpress: EpicChainExpress,
     identifer: BlockchainIdentifier
   ): Promise<{
     [name: string]: { hash: string };
@@ -42,7 +42,7 @@ export default class NeoExpressIo {
     if (identifer.blockchainType !== "express") {
       return {};
     }
-    const output = await neoExpress.run(
+    const output = await EpicChainExpress.run(
       "contract",
       "list",
       "-i",
@@ -69,14 +69,14 @@ export default class NeoExpressIo {
   }
 
   static async contractStorage(
-    neoExpress: NeoExpress,
+    EpicChainExpress: EpicChainExpress,
     identifer: BlockchainIdentifier,
     contractName: string
   ): Promise<{ key?: string; value?: string; constant?: boolean }[]> {
     if (identifer.blockchainType !== "express") {
       return [];
     }
-    const output = await neoExpress.run(
+    const output = await EpicChainExpress.run(
       "contract",
       "storage",
       contractName,

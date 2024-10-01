@@ -9,9 +9,9 @@ import BlockchainIdentifier from "./blockchainIdentifier";
 import ContractDetector from "./fileDetectors/contractDetector";
 import dedupeAndSort from "./util/dedupeAndSort";
 import Log from "./util/log";
-import NeoExpress from "./neoExpress/neoExpress";
-import NeoExpressDetector from "./fileDetectors/neoExpressDetector";
-import NeoExpressIo from "./neoExpress/neoExpressIo";
+import EpicChainExpress from "./EpicChainExpress/EpicChainExpress";
+import EpicChainExpressDetector from "./fileDetectors/EpicChainExpressDetector";
+import EpicChainExpressIo from "./EpicChainExpress/EpicChainExpressIo";
 import WalletDetector from "./fileDetectors/walletDetector";
 
 const LOG_PREFIX = "AutoComplete";
@@ -38,11 +38,11 @@ export default class AutoComplete {
 
   constructor(
     private readonly context: vscode.ExtensionContext,
-    private readonly neoExpress: NeoExpress,
+    private readonly EpicChainExpress: EpicChainExpress,
     private readonly activeConnection: ActiveConnection,
     private readonly contractDetector: ContractDetector,
     private readonly walletDetector: WalletDetector,
-    neoExpressDetector: NeoExpressDetector
+    EpicChainExpressDetector: EpicChainExpressDetector
   ) {
     this.latestData = {
       contractManifests: {},
@@ -66,7 +66,7 @@ export default class AutoComplete {
     );
     contractDetector.onChange(() => this.update("contracts changed"));
     walletDetector.onChange(() => this.update("wallets changed"));
-    neoExpressDetector.onChange(() =>
+    EpicChainExpressDetector.onChange(() =>
       this.update("neo-express instances changed")
     );
     this.update("initial population required");
@@ -87,7 +87,7 @@ export default class AutoComplete {
       [name: string]: { hash: string; manifest: neonSc.ContractManifestJson };
     } = {};
     try {
-      const versionResult = await this.neoExpress.run("-v");
+      const versionResult = await this.EpicChainExpress.run("-v");
       let cacheKey = "";
       if (versionResult.isError) {
         Log.error(LOG_PREFIX, "Could not determine neo-express version");
@@ -104,17 +104,18 @@ export default class AutoComplete {
         Log.log(LOG_PREFIX, "Creating temporary instance");
         fs.closeSync(tempFile.fd);
         await fs.promises.unlink(tempFile.path);
-        const result = await this.neoExpress.run(
+        const result = await this.EpicChainExpress.run(
           "create",
           "-f",
           "-c",
           "1",
           tempFile.path
         );
-        const identifier = await BlockchainIdentifier.fromNeoExpressConfig(
-          this.context.extensionPath,
-          tempFile.path
-        );
+        const identifier =
+          await BlockchainIdentifier.fromEpicChainExpressConfig(
+            this.context.extensionPath,
+            tempFile.path
+          );
         if (!identifier || result.isError) {
           Log.error(
             LOG_PREFIX,
@@ -123,14 +124,14 @@ export default class AutoComplete {
             result.message
           );
         } else {
-          const contractList = await NeoExpressIo.contractList(
-            this.neoExpress,
+          const contractList = await EpicChainExpressIo.contractList(
+            this.EpicChainExpress,
             identifier
           );
           for (const contractName of Object.keys(contractList)) {
             const contract = contractList[contractName];
-            const manifest = await NeoExpressIo.contractGet(
-              this.neoExpress,
+            const manifest = await EpicChainExpressIo.contractGet(
+              this.EpicChainExpress,
               identifier,
               contract.hash
             );
@@ -225,19 +226,20 @@ export default class AutoComplete {
 
     if (connection?.blockchainIdentifier?.blockchainType === "express") {
       try {
-        const deployedContracts = await NeoExpressIo.contractList(
-          this.neoExpress,
+        const deployedContracts = await EpicChainExpressIo.contractList(
+          this.EpicChainExpress,
           connection.blockchainIdentifier
         );
         for (const contractName of Object.keys(deployedContracts)) {
           const deployedContract = deployedContracts[contractName];
           const contractHash = deployedContract.hash;
           if (!this.cachedManifests[contractHash]) {
-            this.cachedManifests[contractHash] = await NeoExpressIo.contractGet(
-              this.neoExpress,
-              connection.blockchainIdentifier,
-              contractHash
-            );
+            this.cachedManifests[contractHash] =
+              await EpicChainExpressIo.contractGet(
+                this.EpicChainExpress,
+                connection.blockchainIdentifier,
+                contractHash
+              );
           }
           const manifest = this.cachedManifests[contractHash];
           if (manifest) {

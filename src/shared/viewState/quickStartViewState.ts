@@ -4,11 +4,11 @@ type QuickStartViewState = {
   connectionName: string | null;
   hasContracts: boolean;
   hasDeployedContract: boolean;
-  hasNeoExpressInstance: boolean;
+  hasEpicChainExpressInstance: boolean;
   hasWallets: boolean;
   neoDeploymentRequired: boolean;
-  neoExpressDeploymentRequired: boolean;
-  neoExpressIsRunning: boolean;
+  EpicChainExpressDeploymentRequired: boolean;
+  EpicChainExpressIsRunning: boolean;
   workspaceIsOpen: boolean;
 };
 

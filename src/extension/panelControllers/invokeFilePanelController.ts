@@ -11,7 +11,7 @@ import InvokeFileViewState from "../../shared/viewState/invokeFileViewState";
 import IoHelpers from "../util/ioHelpers";
 import JSONC from "../util/JSONC";
 import Log from "../util/log";
-import NeoExpress from "../neoExpress/neoExpress";
+import EpicChainExpress from "../EpicChainExpress/EpicChainExpress";
 import PanelControllerBase from "./panelControllerBase";
 import posixPath from "../util/posixPath";
 import TransactionStatus from "../../shared/transactionStatus";
@@ -29,7 +29,7 @@ export default class InvokeFilePanelController extends PanelControllerBase<
     context: vscode.ExtensionContext,
     public isPartOfDiffView: boolean,
     isReadOnly: boolean,
-    private readonly neoExpress: NeoExpress,
+    private readonly EpicChainExpress: EpicChainExpress,
     private readonly document: vscode.TextDocument,
     private readonly activeConnection: ActiveConnection,
     private readonly autoComplete: AutoComplete,
@@ -330,7 +330,7 @@ export default class InvokeFilePanelController extends PanelControllerBase<
       }
       await this.document.save();
       await this.updateViewState({ collapseTransactions: false });
-      const result = await this.neoExpress.runInDirectory(
+      const result = await this.EpicChainExpress.runInDirectory(
         path.dirname(this.document.uri.fsPath),
         "contract",
         "invoke",

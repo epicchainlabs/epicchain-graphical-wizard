@@ -6,7 +6,7 @@ type Props = {
   onCreate: () => void;
 };
 
-export default function CreateNeoExpressInstance({ onCreate }: Props) {
+export default function CreateEpicChainExpressInstance({ onCreate }: Props) {
   return (
     <>
       <div style={{ margin: 10, textAlign: "left" }}>

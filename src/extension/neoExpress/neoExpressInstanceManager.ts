@@ -5,14 +5,14 @@ import BlockchainIdentifier from "../blockchainIdentifier";
 import BlockchainsTreeDataProvider from "../vscodeProviders/blockchainsTreeDataProvider";
 import { CommandArguments } from "../commands/commandArguments";
 import Log from "../util/log";
-import NeoExpress from "./neoExpress";
+import EpicChainExpress from "./EpicChainExpress";
 import IoHelpers from "../util/ioHelpers";
 
-const LOG_PREFIX = "NeoExpressInstanceManager";
+const LOG_PREFIX = "EpicChainExpressInstanceManager";
 // VS Code does not offer an event-driven mechanism for detecting when a user closes a terminal, so polling is required:
 const REFRESH_INTERVAL_MS = 1000 * 2;
 
-export default class NeoExpressInstanceManager {
+export default class EpicChainExpressInstanceManager {
   onChange: vscode.Event<void>;
 
   get runningInstance() {
@@ -26,7 +26,7 @@ export default class NeoExpressInstanceManager {
   private terminals: vscode.Terminal[];
 
   constructor(
-    private readonly neoExpress: NeoExpress,
+    private readonly EpicChainExpress: EpicChainExpress,
     private readonly activeConnection: ActiveConnection
   ) {
     this.disposed = false;
@@ -68,7 +68,7 @@ export default class NeoExpressInstanceManager {
     const children = identifier.getChildren();
     if (children.length) {
       for (const child of children) {
-        const terminal = await this.neoExpress.runInTerminal(
+        const terminal = await this.EpicChainExpress.runInTerminal(
           child.name,
           "run",
           "-i",
@@ -82,7 +82,7 @@ export default class NeoExpressInstanceManager {
         }
       }
     } else {
-      const terminal = await this.neoExpress.runInTerminal(
+      const terminal = await this.EpicChainExpress.runInTerminal(
         identifier.name,
         "run",
         "-i",

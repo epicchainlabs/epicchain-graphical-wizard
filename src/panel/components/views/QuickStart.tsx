@@ -2,14 +2,14 @@ import React from "react";
 
 import ConnectToBlockchain from "../quickStart/ConnectToBlockchain";
 import CreateContract from "../quickStart/CreateContract";
-import CreateNeoExpressInstance from "../quickStart/CreateNeoExpressInstance";
+import CreateEpicChainExpressInstance from "../quickStart/CreateEpicChainExpressInstance";
 import CreateOrOpenWorkspace from "../quickStart/CreateOrOpenWorkspace";
 import CreateWallet from "../quickStart/CreateWallet";
 import DeployContract from "../quickStart/DeployContract";
 import OpenBlockchainExplorer from "../quickStart/OpenBlockchainExplorer";
 import QuickStartViewRequest from "../../../shared/messages/quickStartViewRequest";
 import QuickStartViewState from "../../../shared/viewState/quickStartViewState";
-import StartNeoExpress from "../quickStart/StartNeoExpress";
+import StartEpicChainExpress from "../quickStart/StartEpicChainExpress";
 import InvokeContract from "../quickStart/InvokeContract";
 
 type Props = {
@@ -20,11 +20,11 @@ type Props = {
 export default function QuickStart({ viewState, postMessage }: Props) {
   const actions: JSX.Element[] = [];
   if (viewState.workspaceIsOpen) {
-    if (viewState.hasNeoExpressInstance) {
-      if (!viewState.neoExpressIsRunning) {
+    if (viewState.hasEpicChainExpressInstance) {
+      if (!viewState.EpicChainExpressIsRunning) {
         actions.push(
-          <StartNeoExpress
-            key="startNeoExpress"
+          <StartEpicChainExpress
+            key="startEpicChainExpress"
             onStart={() =>
               postMessage({ command: "epicchain-graphical-wizard.express.run" })
             }
@@ -33,8 +33,8 @@ export default function QuickStart({ viewState, postMessage }: Props) {
       }
     } else {
       actions.push(
-        <CreateNeoExpressInstance
-          key="createNeoExpressInstance"
+        <CreateEpicChainExpressInstance
+          key="createEpicChainExpressInstance"
           onCreate={() =>
             postMessage({
               command: "epicchain-graphical-wizard.express.create",
@@ -56,7 +56,7 @@ export default function QuickStart({ viewState, postMessage }: Props) {
       );
     }
     if (viewState.connectionName) {
-      if (viewState.neoExpressDeploymentRequired) {
+      if (viewState.EpicChainExpressDeploymentRequired) {
         actions.push(
           <DeployContract
             key="deployContractNeo"
@@ -71,7 +71,7 @@ export default function QuickStart({ viewState, postMessage }: Props) {
       } else if (viewState.neoDeploymentRequired) {
         actions.push(
           <DeployContract
-            key="deployContractNeoExpress"
+            key="deployContractEpicChainExpress"
             connectionName={viewState.connectionName}
             onDeploy={() =>
               postMessage({

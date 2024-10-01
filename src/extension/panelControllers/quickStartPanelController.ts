@@ -3,7 +3,7 @@ import * as vscode from "vscode";
 import ActiveConnection from "../activeConnection";
 import BlockchainsTreeDataProvider from "../vscodeProviders/blockchainsTreeDataProvider";
 import ContractDetector from "../fileDetectors/contractDetector";
-import NeoExpressInstanceManager from "../neoExpress/neoExpressInstanceManager";
+import EpicChainExpressInstanceManager from "../EpicChainExpress/EpicChainExpressInstanceManager";
 import PanelControllerBase from "./panelControllerBase";
 import QuickStartViewRequest from "../../shared/messages/quickStartViewRequest";
 import QuickStartViewState from "../../shared/viewState/quickStartViewState";
@@ -19,7 +19,7 @@ export default class QuickStartPanelController extends PanelControllerBase<
     context: vscode.ExtensionContext,
     panel: vscode.WebviewView,
     private readonly blockchainsTreeDataProvider: BlockchainsTreeDataProvider,
-    private readonly neoExpressInstanceManager: NeoExpressInstanceManager,
+    private readonly EpicChainExpressInstanceManager: EpicChainExpressInstanceManager,
     private readonly contractDetector: ContractDetector,
     private readonly activeConnection: ActiveConnection,
     private readonly walletDetector: WalletDetector
@@ -31,11 +31,11 @@ export default class QuickStartPanelController extends PanelControllerBase<
         connectionName: null,
         hasContracts: false,
         hasDeployedContract: false,
-        hasNeoExpressInstance: false,
+        hasEpicChainExpressInstance: false,
         hasWallets: false,
         neoDeploymentRequired: false,
-        neoExpressDeploymentRequired: false,
-        neoExpressIsRunning: false,
+        EpicChainExpressDeploymentRequired: false,
+        EpicChainExpressIsRunning: false,
         workspaceIsOpen: false,
       },
       context,
@@ -43,7 +43,7 @@ export default class QuickStartPanelController extends PanelControllerBase<
     );
     vscode.workspace.onDidChangeWorkspaceFolders(() => this.refresh());
     this.blockchainsTreeDataProvider.onDidChangeTreeData(() => this.refresh());
-    this.neoExpressInstanceManager.onChange(() => this.refresh());
+    this.EpicChainExpressInstanceManager.onChange(() => this.refresh());
     this.contractDetector.onChange(() => this.refresh());
     this.activeConnection.onChange(() => this.refresh());
     this.walletDetector.onChange(() => this.refresh());
@@ -58,7 +58,7 @@ export default class QuickStartPanelController extends PanelControllerBase<
       null;
 
     let neoDeploymentRequired = false;
-    let neoExpressDeploymentRequired = false;
+    let EpicChainExpressDeploymentRequired = false;
     const deploymentRequired =
       Object.values(this.contractDetector.contracts).filter(
         (_) => _.deploymentRequired
@@ -68,7 +68,7 @@ export default class QuickStartPanelController extends PanelControllerBase<
         this.activeConnection.connection?.blockchainIdentifier
           .blockchainType === "express"
       ) {
-        neoExpressDeploymentRequired = true;
+        EpicChainExpressDeploymentRequired = true;
       } else {
         neoDeploymentRequired = true;
       }
@@ -81,15 +81,15 @@ export default class QuickStartPanelController extends PanelControllerBase<
       Object.values(this.contractDetector.contracts).filter((_) => _.deployed)
         .length > 0;
 
-    const hasNeoExpressInstance =
+    const hasEpicChainExpressInstance =
       this.blockchainsTreeDataProvider
         .getChildren()
         .filter((_) => _.blockchainType === "express").length > 0;
 
     const hasWallets = this.walletDetector.wallets.length > 0;
 
-    const neoExpressIsRunning =
-      this.neoExpressInstanceManager.runningInstance?.blockchainType ===
+    const EpicChainExpressIsRunning =
+      this.EpicChainExpressInstanceManager.runningInstance?.blockchainType ===
       "express";
 
     const workspaceIsOpen = !!vscode.workspace.workspaceFolders?.length;
@@ -98,11 +98,11 @@ export default class QuickStartPanelController extends PanelControllerBase<
       connectionName,
       hasContracts,
       hasDeployedContract,
-      hasNeoExpressInstance,
+      hasEpicChainExpressInstance,
       hasWallets,
       neoDeploymentRequired,
-      neoExpressDeploymentRequired,
-      neoExpressIsRunning,
+      EpicChainExpressDeploymentRequired,
+      EpicChainExpressIsRunning,
       workspaceIsOpen,
     });
   }

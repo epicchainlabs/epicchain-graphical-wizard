@@ -5,8 +5,8 @@ import BlockchainIdentifier from "../blockchainIdentifier";
 import BlockchainMonitor from "../blockchainMonitor/blockchainMonitor";
 import BlockchainMonitorPool from "../blockchainMonitor/blockchainMonitorPool";
 import Log from "../util/log";
-import NeoExpress from "../neoExpress/neoExpress";
-import NeoExpressIo from "../neoExpress/neoExpressIo";
+import EpicChainExpress from "../EpicChainExpress/EpicChainExpress";
+import EpicChainExpressIo from "../EpicChainExpress/EpicChainExpressIo";
 import PanelControllerBase from "./panelControllerBase";
 import StorageExplorerViewRequest from "../../shared/messages/storageExplorerViewRequest";
 import StorageExplorerViewState from "../../shared/viewState/storageExplorerViewState";
@@ -25,7 +25,7 @@ export default class StorageExplorerPanelController extends PanelControllerBase<
     private readonly autoComplete: AutoComplete,
     blockchainMonitorPool: BlockchainMonitorPool,
     rpcUrl: string | undefined,
-    private readonly neoExpress: NeoExpress
+    private readonly EpicChainExpress: EpicChainExpress
   ) {
     super(
       {
@@ -72,7 +72,10 @@ export default class StorageExplorerPanelController extends PanelControllerBase<
 
     try {
       updates.contracts = Object.keys(
-        await NeoExpressIo.contractList(this.neoExpress, this.identifier)
+        await EpicChainExpressIo.contractList(
+          this.EpicChainExpress,
+          this.identifier
+        )
       );
       if (
         !!this.viewState.selectedContract &&
@@ -99,8 +102,8 @@ export default class StorageExplorerPanelController extends PanelControllerBase<
           `Refreshing storage data for ${selectedContract}`
         );
         try {
-          updates.storage = await NeoExpressIo.contractStorage(
-            this.neoExpress,
+          updates.storage = await EpicChainExpressIo.contractStorage(
+            this.EpicChainExpress,
             this.identifier,
             selectedContract
           );

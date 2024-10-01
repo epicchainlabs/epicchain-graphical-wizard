@@ -6,7 +6,7 @@ type Props = {
   onStart: () => void;
 };
 
-export default function StartNeoExpress({ onStart }: Props) {
+export default function StartEpicChainExpress({ onStart }: Props) {
   return (
     <>
       <div style={{ margin: 10, textAlign: "left" }}>

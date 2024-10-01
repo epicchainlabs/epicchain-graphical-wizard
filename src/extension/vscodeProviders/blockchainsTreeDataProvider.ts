@@ -4,7 +4,7 @@ import BlockchainIdentifier from "../blockchainIdentifier";
 import BlockchainType from "../blockchainType";
 import IoHelpers from "../util/ioHelpers";
 import Log from "../util/log";
-import NeoExpressDetector from "../fileDetectors/neoExpressDetector";
+import EpicChainExpressDetector from "../fileDetectors/EpicChainExpressDetector";
 import ServerListDetector from "../fileDetectors/serverListDetector";
 
 const LOG_PREFIX = "BlockchainsTreeDataProvider";
@@ -19,11 +19,11 @@ export default class BlockchainsTreeDataProvider
   private rootElements: BlockchainIdentifier[] = [];
 
   static async create(
-    neoExpressDetector: NeoExpressDetector,
+    EpicChainExpressDetector: EpicChainExpressDetector,
     serverListDetector: ServerListDetector
   ) {
     const blockchainsTreeDataProvider = new BlockchainsTreeDataProvider(
-      neoExpressDetector,
+      EpicChainExpressDetector,
       serverListDetector
     );
     await blockchainsTreeDataProvider.refresh();
@@ -31,12 +31,12 @@ export default class BlockchainsTreeDataProvider
   }
 
   private constructor(
-    private readonly neoExpressDetector: NeoExpressDetector,
+    private readonly EpicChainExpressDetector: EpicChainExpressDetector,
     private readonly serverListDetector: ServerListDetector
   ) {
     this.onDidChangeTreeDataEmitter = new vscode.EventEmitter<void>();
     this.onDidChangeTreeData = this.onDidChangeTreeDataEmitter.event;
-    neoExpressDetector.onChange(() => this.refresh());
+    EpicChainExpressDetector.onChange(() => this.refresh());
     serverListDetector.onChange(() => this.refresh());
   }
 
@@ -56,7 +56,7 @@ export default class BlockchainsTreeDataProvider
     Log.log(LOG_PREFIX, "Refreshing tree view...");
     this.rootElements = [
       ...this.serverListDetector.blockchains,
-      ...this.neoExpressDetector.blockchains,
+      ...this.EpicChainExpressDetector.blockchains,
     ];
     this.onDidChangeTreeDataEmitter.fire();
   }

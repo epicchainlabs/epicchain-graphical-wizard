@@ -9,16 +9,16 @@ import CheckpointDetector from "../fileDetectors/checkpointDetector";
 import { CommandArguments } from "./commandArguments";
 import ContractDetector from "../fileDetectors/contractDetector";
 import IoHelpers from "../util/ioHelpers";
-import NeoExpress from "../neoExpress/neoExpress";
-import NeoExpressInstanceManager from "../neoExpress/neoExpressInstanceManager";
+import EpicChainExpress from "../EpicChainExpress/EpicChainExpress";
+import EpicChainExpressInstanceManager from "../EpicChainExpress/EpicChainExpressInstanceManager";
 import posixPath from "../util/posixPath";
 import StorageExplorerPanelController from "../panelControllers/storageExplorerPanelController";
 import TrackerPanelController from "../panelControllers/trackerPanelController";
 import workspaceFolder from "../util/workspaceFolder";
 
-export default class NeoExpressCommands {
+export default class EpicChainExpressCommands {
   static async contractDeploy(
-    neoExpress: NeoExpress,
+    EpicChainExpress: EpicChainExpress,
     contractDetector: ContractDetector,
     blockchainsTreeDataProvider: BlockchainsTreeDataProvider,
     commandArguments?: CommandArguments
@@ -54,7 +54,7 @@ export default class NeoExpressCommands {
     if (!contractFile) {
       return;
     }
-    const output = await neoExpress.run(
+    const output = await EpicChainExpress.run(
       "contract",
       "deploy",
       contractFile,
@@ -62,13 +62,13 @@ export default class NeoExpressCommands {
       "-i",
       identifier.configPath
     );
-    NeoExpressCommands.showResult(output);
+    EpicChainExpressCommands.showResult(output);
   }
 
   static async create(
     context: vscode.ExtensionContext,
-    neoExpress: NeoExpress,
-    neoExpressInstanceManager: NeoExpressInstanceManager,
+    EpicChainExpress: EpicChainExpress,
+    EpicChainExpressInstanceManager: EpicChainExpressInstanceManager,
     autoComplete: AutoComplete,
     blockchainMonitorPool: BlockchainMonitorPool,
     blockchainsTreeDataProvider: BlockchainsTreeDataProvider
@@ -95,22 +95,22 @@ export default class NeoExpressCommands {
     if (!configSavePath) {
       return;
     }
-    const output = await neoExpress.run(
+    const output = await EpicChainExpress.run(
       "create",
       "-f",
       "-c",
       nodeCount,
       configSavePath
     );
-    NeoExpressCommands.showResult(output);
+    EpicChainExpressCommands.showResult(output);
     if (!output.isError) {
       const blockchainIdentifier =
-        await BlockchainIdentifier.fromNeoExpressConfig(
+        await BlockchainIdentifier.fromEpicChainExpressConfig(
           context.extensionPath,
           configSavePath
         );
       if (blockchainIdentifier) {
-        await neoExpressInstanceManager.run(blockchainsTreeDataProvider, {
+        await EpicChainExpressInstanceManager.run(blockchainsTreeDataProvider, {
           blockchainIdentifier,
         });
         const rpcUrl = await blockchainIdentifier.selectRpcUrl();
@@ -127,7 +127,7 @@ export default class NeoExpressCommands {
   }
 
   static async createCheckpoint(
-    neoExpress: NeoExpress,
+    EpicChainExpress: EpicChainExpress,
     blockchainsTreeDataProvider: BlockchainsTreeDataProvider,
     commandArguments?: CommandArguments
   ) {
@@ -154,18 +154,18 @@ export default class NeoExpressCommands {
       i++;
       filename = posixPath(checkpointsFolder, `checkpoint-${i}`);
     }
-    const output = await neoExpress.run(
+    const output = await EpicChainExpress.run(
       "checkpoint",
       "create",
       "-i",
       identifier.configPath,
       filename
     );
-    NeoExpressCommands.showResult(output);
+    EpicChainExpressCommands.showResult(output);
   }
 
   static async customCommand(
-    neoExpress: NeoExpress,
+    EpicChainExpress: EpicChainExpress,
     blockchainsTreeDataProvider: BlockchainsTreeDataProvider,
     commandArguments?: CommandArguments
   ) {
@@ -179,13 +179,13 @@ export default class NeoExpressCommands {
     if (!command) {
       return;
     }
-    const output = await neoExpress.runUnsafe(
+    const output = await EpicChainExpress.runUnsafe(
       undefined,
       command,
       "-i",
       identifier.configPath
     );
-    NeoExpressCommands.showResult(output);
+    EpicChainExpressCommands.showResult(output);
   }
 
   static async exploreStorage(
@@ -193,7 +193,7 @@ export default class NeoExpressCommands {
     autoComplete: AutoComplete,
     blockchainMonitorPool: BlockchainMonitorPool,
     blockchainsTreeDataProvider: BlockchainsTreeDataProvider,
-    neoExpress: NeoExpress,
+    EpicChainExpress: EpicChainExpress,
     commandArguments?: CommandArguments
   ) {
     const identifier =
@@ -208,13 +208,13 @@ export default class NeoExpressCommands {
       autoComplete,
       blockchainMonitorPool,
       await identifier.selectRpcUrl(),
-      neoExpress
+      EpicChainExpress
     );
   }
 
   static async reset(
-    neoExpress: NeoExpress,
-    neoExpressInstanceManager: NeoExpressInstanceManager,
+    EpicChainExpress: EpicChainExpress,
+    EpicChainExpressInstanceManager: EpicChainExpressInstanceManager,
     blockchainsTreeDataProvider: BlockchainsTreeDataProvider,
     commandArguments?: CommandArguments
   ) {
@@ -231,22 +231,22 @@ export default class NeoExpressCommands {
       return;
     }
     const wasRunning =
-      neoExpressInstanceManager.runningInstance?.configPath ===
+      EpicChainExpressInstanceManager.runningInstance?.configPath ===
       blockchainIdentifier.configPath;
     if (wasRunning) {
-      await neoExpressInstanceManager.stopAll();
+      await EpicChainExpressInstanceManager.stopAll();
     }
     try {
-      const output = await neoExpress.run(
+      const output = await EpicChainExpress.run(
         "reset",
         "-f",
         "-i",
         blockchainIdentifier.configPath
       );
-      NeoExpressCommands.showResult(output);
+      EpicChainExpressCommands.showResult(output);
     } finally {
       if (wasRunning) {
-        await neoExpressInstanceManager.run(blockchainsTreeDataProvider, {
+        await EpicChainExpressInstanceManager.run(blockchainsTreeDataProvider, {
           blockchainIdentifier,
         });
       }
@@ -254,7 +254,7 @@ export default class NeoExpressCommands {
   }
 
   static async restoreCheckpoint(
-    neoExpress: NeoExpress,
+    EpicChainExpress: EpicChainExpress,
     blockchainsTreeDataProvider: BlockchainsTreeDataProvider,
     checkpointDetector: CheckpointDetector,
     commandArguments?: CommandArguments
@@ -278,7 +278,7 @@ export default class NeoExpressCommands {
     if (!confirmed) {
       return;
     }
-    const output = await neoExpress.run(
+    const output = await EpicChainExpress.run(
       "checkpoint",
       "restore",
       "-f",
@@ -286,11 +286,11 @@ export default class NeoExpressCommands {
       identifier.configPath,
       filename
     );
-    NeoExpressCommands.showResult(output);
+    EpicChainExpressCommands.showResult(output);
   }
 
   static async transfer(
-    neoExpress: NeoExpress,
+    EpicChainExpress: EpicChainExpress,
     blockchainsTreeDataProvider: BlockchainsTreeDataProvider,
     commandArguments?: CommandArguments
   ) {
@@ -346,7 +346,7 @@ export default class NeoExpressCommands {
     if (!receiver) {
       return;
     }
-    const output = await neoExpress.run(
+    const output = await EpicChainExpress.run(
       "transfer",
       "-i",
       identifier.configPath,
@@ -355,11 +355,11 @@ export default class NeoExpressCommands {
       sender,
       receiver
     );
-    NeoExpressCommands.showResult(output);
+    EpicChainExpressCommands.showResult(output);
   }
 
   static async walletCreate(
-    neoExpress: NeoExpress,
+    EpicChainExpress: EpicChainExpress,
     blockchainsTreeDataProvider: BlockchainsTreeDataProvider,
     commandArguments?: CommandArguments
   ) {
@@ -373,14 +373,14 @@ export default class NeoExpressCommands {
     if (!walletName) {
       return;
     }
-    const output = await neoExpress.run(
+    const output = await EpicChainExpress.run(
       "wallet",
       "create",
       walletName,
       "-i",
       identifier.configPath
     );
-    NeoExpressCommands.showResult(output);
+    EpicChainExpressCommands.showResult(output);
   }
 
   private static showResult(output: { message: string; isError?: boolean }) {

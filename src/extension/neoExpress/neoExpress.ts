@@ -3,7 +3,7 @@ import * as vscode from "vscode";
 import * as which from "which";
 
 import Log from "../util/log";
-import NeoExpressTerminal from "./neoExpressTerminal";
+import EpicChainExpressTerminal from "./EpicChainExpressTerminal";
 import posixPath from "../util/posixPath";
 
 type Command =
@@ -18,11 +18,11 @@ type Command =
   | "-v";
 
 const DOTNET_CHECK_EXPIRY_IN_MS = 60000;
-const LOG_PREFIX = "NeoExpress";
+const LOG_PREFIX = "EpicChainExpress";
 const TIMEOUT_IN_MS = 5000;
 const TIMEOUT_POLLING_INTERVAL_IN_MS = 2000;
 
-export default class NeoExpress {
+export default class EpicChainExpress {
   private readonly binaryPath: string;
   private readonly dotnetPath: string;
 
@@ -49,7 +49,7 @@ export default class NeoExpress {
       return null;
     }
     const dotNetArguments = [this.binaryPath, command, ...options];
-    const pty = new NeoExpressTerminal(this.dotnetPath, dotNetArguments);
+    const pty = new EpicChainExpressTerminal(this.dotnetPath, dotNetArguments);
     const terminal = vscode.window.createTerminal({ name, pty });
 
     const hasStarted: Promise<void> = new Promise((resolve) => {

@@ -28,15 +28,15 @@ export default class BlockchainIdentifier {
     );
   }
 
-  static async fromNeoExpressConfig(
+  static async fromEpicChainExpressConfig(
     extensionPath: string,
     configPath: string
   ): Promise<BlockchainIdentifier | undefined> {
     try {
-      const neoExpressConfig = JSONC.parse(
+      const EpicChainExpressConfig = JSONC.parse(
         (await fs.promises.readFile(configPath)).toString()
       );
-      const nodePorts = neoExpressConfig["consensus-nodes"]
+      const nodePorts = EpicChainExpressConfig["consensus-nodes"]
         ?.map((_: any) => parseInt(_["rpc-port"]))
         .filter((_: any) => !!_);
       if (!nodePorts.length) {
@@ -102,10 +102,10 @@ export default class BlockchainIdentifier {
     }
     let result: { [walletName: string]: string } = {};
     try {
-      const neoExpressConfig = JSONC.parse(
+      const EpicChainExpressConfig = JSONC.parse(
         (await fs.promises.readFile(this.configPath)).toString()
       );
-      for (const wallet of neoExpressConfig["wallets"]) {
+      for (const wallet of EpicChainExpressConfig["wallets"]) {
         if (
           wallet.name &&
           wallet.accounts &&
@@ -115,7 +115,7 @@ export default class BlockchainIdentifier {
           result[wallet.name] = wallet.accounts[0]["script-hash"];
         }
       }
-      for (const consensusNode of neoExpressConfig["consensus-nodes"]) {
+      for (const consensusNode of EpicChainExpressConfig["consensus-nodes"]) {
         if (consensusNode.wallet?.accounts) {
           for (const account of consensusNode.wallet.accounts) {
             if (

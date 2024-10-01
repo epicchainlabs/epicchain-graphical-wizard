@@ -1,7 +1,7 @@
 import * as childProcess from "child_process";
 import * as vscode from "vscode";
 
-export default class NeoExpressTerminal {
+export default class EpicChainExpressTerminal {
   private readonly closeEmitter: vscode.EventEmitter<void | number>;
   private readonly writeEmitter: vscode.EventEmitter<string>;
 

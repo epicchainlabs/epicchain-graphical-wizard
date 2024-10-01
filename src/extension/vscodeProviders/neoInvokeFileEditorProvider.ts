@@ -3,10 +3,11 @@ import * as vscode from "vscode";
 import ActiveConnection from "../activeConnection";
 import AutoComplete from "../autoComplete";
 import InvokeFilePanelController from "../panelControllers/invokeFilePanelController";
-import NeoExpress from "../neoExpress/neoExpress";
+import EpicChainExpress from "../EpicChainExpress/EpicChainExpress";
 
 export default class NeoInvokeFileEditorProvider
-  implements vscode.CustomTextEditorProvider {
+  implements vscode.CustomTextEditorProvider
+{
   // We store the timestamp of when we last opened an editor, and a reference to that editor.
   // This is part of a hacky way of knowing when we are rendering within a source-control "diff"
   // view.
@@ -30,7 +31,7 @@ export default class NeoInvokeFileEditorProvider
   constructor(
     private readonly context: vscode.ExtensionContext,
     private readonly activeConnection: ActiveConnection,
-    private readonly neoExpress: NeoExpress,
+    private readonly EpicChainExpress: EpicChainExpress,
     private readonly autoComplete: AutoComplete
   ) {}
 
@@ -54,7 +55,7 @@ export default class NeoInvokeFileEditorProvider
         this.context,
         isPartOfDiffView,
         isReadOnly,
-        this.neoExpress,
+        this.EpicChainExpress,
         document,
         this.activeConnection,
         this.autoComplete,

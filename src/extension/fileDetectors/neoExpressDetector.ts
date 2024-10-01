@@ -3,7 +3,7 @@ import DetectorBase from "./detectorBase";
 
 const SEARCH_PATTERN = "**/*.neo-express";
 
-export default class NeoExpressDetector extends DetectorBase {
+export default class EpicChainExpressDetector extends DetectorBase {
   private blockchainsSnapshot: BlockchainIdentifier[] = [];
 
   get blockchains(): BlockchainIdentifier[] {
@@ -18,7 +18,7 @@ export default class NeoExpressDetector extends DetectorBase {
     this.blockchainsSnapshot = (
       await Promise.all(
         this.files.map((_) =>
-          BlockchainIdentifier.fromNeoExpressConfig(this.extensionPath, _)
+          BlockchainIdentifier.fromEpicChainExpressConfig(this.extensionPath, _)
         )
       )
     ).filter((_) => !!_) as BlockchainIdentifier[];

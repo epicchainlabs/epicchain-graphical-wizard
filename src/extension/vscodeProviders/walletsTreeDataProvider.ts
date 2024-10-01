@@ -12,7 +12,7 @@ type WalletData = {
   address: string;
   name: string;
   path: string;
-  isNeoExpress: boolean;
+  isEpicChainExpress: boolean;
 };
 
 export default class WalletsTreeDataProvider
@@ -47,7 +47,7 @@ export default class WalletsTreeDataProvider
       description: wallet.address,
       label: wallet.name,
       tooltip: `${wallet.address}\n${wallet.path}`,
-      iconPath: wallet.isNeoExpress
+      iconPath: wallet.isEpicChainExpress
         ? posixPath(this.extensionPath, "resources", "blockchain-express.svg")
         : posixPath(this.extensionPath, "resources", "blockchain-private.svg"),
     };
@@ -66,7 +66,7 @@ export default class WalletsTreeDataProvider
           address: account.address,
           name: account.label,
           path: nep6Wallet.path,
-          isNeoExpress: false,
+          isEpicChainExpress: false,
         });
       }
     }
@@ -80,7 +80,7 @@ export default class WalletsTreeDataProvider
           address,
           name,
           path: blockchainIdentifier?.configPath || "",
-          isNeoExpress: true,
+          isEpicChainExpress: true,
         });
       }
     }
