@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>neodebug-3-adapter</AssemblyName>
+    <Authors>Neo Global Development Seattle</Authors>
+    <LangVersion>10</LangVersion>
+    <Nullable>enable</Nullable>
+    <OutputType>Exe</OutputType>
+    <PackageId>Neo.Debug3.Adapter</PackageId>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/neo-project/neo-debugger</PackageProjectUrl>
+    <PackageTags>Neo;Blockchain;Smart Contract;Debugger</PackageTags>
+    <PackAsTool>true</PackAsTool>
+    <RootNamespace>NeoDebug.Neo3</RootNamespace>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="4.0.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Shared.VsCodeDebugProtocol" Version="17.2.60629.1" />
+    <PackageReference Include="System.Linq.Async" Version="6.0.1" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <BlockchainToolkitLibraryVersion>3.5.29</BlockchainToolkitLibraryVersion>
+    <BlockchainToolkitLibraryLocalPath>..\..\..\lib-bctk</BlockchainToolkitLibraryLocalPath>
+    <!-- <BlockchainToolkitLibraryVersion>local</BlockchainToolkitLibraryVersion> -->
+  </PropertyGroup>
+
+
+  <Choose>
+    <When Condition=" '$(BlockchainToolkitLibraryVersion)' == 'local'">
+      <ItemGroup>
+        <ProjectReference Include="$(BlockchainToolkitLibraryLocalPath)\src\bctklib\bctklib.csproj" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <PackageReference Include="Neo.BlockchainToolkit.Library" Version="$(BlockchainToolkitLibraryVersion)" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+
+</Project>

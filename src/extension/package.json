@@ -1,0 +1,562 @@
+{
+    "name": "neo-contract-debug",
+    "license": "MIT",
+    "publisher": "ngd-seattle",
+    "version": "0.0.0",
+    "displayName": "Neo Smart Contract Debugger",
+    "description": "Debugger Extension for Neo Smart Contracts",
+    "icon": "neo-logo-256.png",
+    "galleryBanner": {
+        "color": "#242424",
+        "theme": "dark"
+    },
+    "author": "Neo Project",
+    "engines": {
+        "vscode": "^1.47.0"
+    },
+    "categories": [
+        "Debuggers"
+    ],
+    "bugs": {
+        "url": "https://github.com/neo-project/neo-debugger/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/neo-project/neo-debugger.git"
+    },
+    "keywords": [
+        "Neo",
+        "Blockchain",
+        "Smart Contract"
+    ],
+    "badges": [
+        {
+            "url": "https://github.com/neo-project/neo-debugger/actions/workflows/build-vscode.yml/badge.svg",
+            "href": "https://github.com/neo-project/neo-debugger/actions",
+            "description": "Build Status"
+        }
+    ],
+    "activationEvents": [
+        "onDebug"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "Neo Debugger",
+            "properties": {
+                "neo-debugger.log": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Enable debug adapter logging to %LOCALAPPDATA%/Neo-Debugger/logs"
+                },
+                "neo-debugger.debug": {
+                    "type": "boolean",
+                    "default": false,
+                    "markdownDescription": "Pass the `--debug` flag when launching the Neo debug adapter. Note, this setting is for developers who are _contributing_ to the Neo Debugger extension. If you're _using_ the Neo Debugger extension, this flag will **_cause the debugger to hang_**."
+                },
+                "neo-debugger.default-debug-view": {
+                    "type": "string",
+                    "enum": [
+                        "source",
+                        "disassembly"
+                    ],
+                    "default": "source",
+                    "description": "Specify the default debug view"
+                },
+                "neo-debugger.debug-adapter": {
+                    "type": "array",
+                    "items": "string",
+                    "description": "Path to the Neo debug adapter executable"
+                },
+                "neo-debugger.adapter-project": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Use debug adapter source project when debugging extension"
+                },
+                "neo-debugger.release-tag": {
+                    "type": "string",
+                    "default": null,
+                    "description": "GitHub release tag. Defaults to extension version"
+                }
+
+            }
+        },
+        "debuggers": [
+            {
+                "type": "neo-contract",
+                "label": "Neo Contract",
+                "configurationAttributes": {
+                    "launch": {
+                        "required": [
+                            "program",
+                            "invocation"
+                        ],
+                        "properties": {
+                            "program": {
+                                "type": "string",
+                                "description": "Absolute path to Neo smart contract (.avm/.nef)"
+                            },
+                            "invocation": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "deploy"
+                                        ]
+                                    },
+                                    {
+                                        "type": "object",
+                                        "required": [
+                                            "args"
+                                        ],
+                                        "properties": {
+                                            "contract": {
+                                                "type": "string"
+                                            },
+                                            "operation": {
+                                                "type": "string"
+                                            },
+                                            "args": {
+                                                "type": "array"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "object",
+                                        "required": [
+                                            "invoke-file"
+                                        ],
+                                        "properties": {
+                                            "invoke-file": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "object",
+                                        "required": [
+                                            "trace-file"
+                                        ],
+                                        "properties": {
+                                            "trace-file": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "object",
+                                        "required": [
+                                            "oracle-response"
+                                        ],
+                                        "properties": {
+                                            "oracle-response": {
+                                                "type": "object",
+                                                "required": [
+                                                    "url"
+                                                ],
+                                                "properties": {
+                                                    "url": {
+                                                        "type": "string"
+                                                    },
+                                                    "callback": {
+                                                        "type": "string"
+                                                    },
+                                                    "result": {},
+                                                    "result-file": {
+                                                        "type": "string"
+                                                    },
+                                                    "filter": {
+                                                        "type": "string"
+                                                    },
+                                                    "code": {
+                                                        "type": "string",
+                                                        "enum": [
+                                                            "Success",
+                                                            "ConsensusUnreachable",
+                                                            "NotFound",
+                                                            "Timeout",
+                                                            "Forbidden",
+                                                            "ResponseTooLarge",
+                                                            "InsufficientFunds",
+                                                            "Error"
+                                                        ]
+                                                    },
+                                                    "gas": {
+                                                        "type": "number"
+                                                    },
+                                                    "user-data": {}
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "sourceFileMap": {
+                                "type": "object",
+                                "description": "Optional source file mappings passed to the debug engine. Example: '{ \"C:\\foo\":\"/home/user/foo\" }'",
+                                "additionalProperties": {
+                                    "type": "string"
+                                }
+                            },
+                            "return-types": {
+                                "type": "array",
+                                "description": "Specifies the expected return type of the contract entry-point.",
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "addr",
+                                        "bool",
+                                        "byte[]",
+                                        "hex",
+                                        "int",
+                                        "string"
+                                    ]
+                                }
+                            },
+                            "neo-express": {
+                                "type": "string",
+                                "description": "Absolute path to Neo Express file (.neo-express / .neo-express.json)"
+                            },
+                            "address-version": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 255,
+                                "description": ""
+                            },
+                            "stored-contracts": {
+                                "type": "array",
+                                "description": "Optional additional contracts to load for dynamic invoke scenarios",
+                                "items": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "description": "Absolute path to Neo smart contract (.avm/.nef)"
+                                        },
+                                        {
+                                            "type": "object",
+                                            "description": "Additional contract with emulated storage",
+                                            "required": [
+                                                "program"
+                                            ],
+                                            "properties": {
+                                                "program": {
+                                                    "type": "string",
+                                                    "description": "Absolute path to Neo smart contract (.avm/.nef)"
+                                                },
+                                                "storage": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "description": "Key/value pairs used to populate debugger's emulated storage",
+                                                        "required": [
+                                                            "key",
+                                                            "value"
+                                                        ],
+                                                        "properties": {
+                                                            "key": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
+                                                            },
+                                                            "constant": {
+                                                                "type": "boolean"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            "operation": {
+                                "type": "string",
+                                "description": "Neo 3 contract operation to invoke"
+                            },
+                            "args": {
+                                "type": "array",
+                                "description": "Command line arguments passed to the program."
+                            },
+                            "invokeFile": {
+                                "type": "string",
+                                "description": "Optional .neo-invoke.json file used to specify contract parameters"
+                            },
+                            "checkpoint": {
+                                "type": "string",
+                                "description": "Optional neo-express checkpoint file used for contract execution"
+                            },
+                            "traceFile": {
+                                "type": "string",
+                                "description": "Absolute path to .neo-trace file"
+                            },
+                            "signers": {
+                                "type": "array",
+                                "description": "Optional transaction signers",
+                                "items": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string"
+                                        },
+                                        {
+                                            "type": "object",
+                                            "required": [
+                                                "account"
+                                            ],
+                                            "properties": {
+                                                "account": {
+                                                    "type": "string"
+                                                },
+                                                "scopes": {
+                                                    "type": "string"
+                                                },
+                                                "allowedcontracts": {
+                                                    "type": "array",
+                                                    "items": "string"
+                                                },
+                                                "allowedgroups": {
+                                                    "type": "array",
+                                                    "items": "string"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            "deploy-signer": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "object",
+                                        "required": [
+                                            "account"
+                                        ],
+                                        "properties": {
+                                            "account": {
+                                                "type": "string"
+                                            },
+                                            "scopes": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "None",
+                                                    "CalledByEntry",
+                                                    "CustomContracts",
+                                                    "CustomGroups",
+                                                    "Global"
+                                                ]
+                                            },
+                                            "allowedcontracts": {
+                                                "type": "array",
+                                                "items": "string"
+                                            },
+                                            "allowedgroups": {
+                                                "type": "array",
+                                                "items": "string"
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "utxo": {
+                                "type": "object",
+                                "description": "UTXO assets (aka NEO and GAS) to attach to the transaction being debugged",
+                                "properties": {
+                                    "inputs": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "required": [
+                                                "txid",
+                                                "n"
+                                            ],
+                                            "properties": {
+                                                "txid": {
+                                                    "type": "string"
+                                                },
+                                                "n": {
+                                                    "type": "number"
+                                                },
+                                                "value": {
+                                                    "type": "number"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "outputs": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "required": [
+                                                "asset",
+                                                "value",
+                                                "address"
+                                            ],
+                                            "properties": {
+                                                "asset": {
+                                                    "type": "string"
+                                                },
+                                                "value": {
+                                                    "type": "number"
+                                                },
+                                                "address": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "storage": {
+                                "type": "array",
+                                "description": "Key/value pairs used to populate debugger's emulated storage",
+                                "items": {
+                                    "type": "object",
+                                    "required": [
+                                        "key",
+                                        "value"
+                                    ],
+                                    "properties": {
+                                        "key": {},
+                                        "value": {},
+                                        "constant": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                }
+                            },
+                            "runtime": {
+                                "type": "object",
+                                "description": "Specifies behavior of Runtime.Trigger and Runtime.CheckWitness members.",
+                                "properties": {
+                                    "trigger": {
+                                        "type": "string",
+                                        "description": "Rutime.Trigger return value",
+                                        "enum": [
+                                            "verification",
+                                            "application"
+                                        ]
+                                    },
+                                    "witnesses": {
+                                        "oneOf": [
+                                            {
+                                                "type": "array",
+                                                "description": "Witnesses to check against",
+                                                "items": "string"
+                                            },
+                                            {
+                                                "type": "object",
+                                                "description": "Runtime.CheckWitness return value (no actual checking performed)",
+                                                "required": [
+                                                    "check-result"
+                                                ],
+                                                "properties": {
+                                                    "check-result": {
+                                                        "type": "boolean"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "configurationSnippets": [
+                    {
+                        "label": "Neo Contract: Launch",
+                        "description": "A new configuration for debugging a Neo Smart Contract",
+                        "body": {
+                            "name": "Neo Contract",
+                            "type": "neo-contract",
+                            "request": "launch",
+                            "program": "${workspaceFolder}",
+                            "invocation": {
+                                "operation": "<insert operation here>",
+                                "args": []
+                            },
+                            "storage": [],
+                            "signers": [],
+                            "stored-contracts": []
+                        }
+                    }
+                ]
+            }
+        ],
+        "languages": [
+            {
+                "id": "neovm.disassembly",
+                "aliases": [
+                    "Disassembly"
+                ],
+                "extensions": [
+                    ".neovm"
+                ]
+            }
+        ],
+        "commands": [
+            {
+                "category": "Neo Debugger",
+                "title": "Display source view",
+                "command": "neo-debugger.displaySourceView"
+            },
+            {
+                "category": "Neo Debugger",
+                "title": "Display disassembly view",
+                "command": "neo-debugger.displayDisassemblyView"
+            },
+            {
+                "category": "Neo Debugger",
+                "title": "Toggle Debug view",
+                "command": "neo-debugger.toggleDebugView",
+                "icon": {
+                    "light": "resources/light/tools.svg",
+                    "dark": "resources/dark/tools.svg"
+                }
+            }
+        ],
+        "menus": {
+            "debug/toolBar": [
+                {
+                    "command": "neo-debugger.toggleDebugView",
+                    "when": "debugType == 'neo-contract'"
+                }
+            ]
+        },
+        "grammars": [
+            {
+                "language": "neovm.disassembly",
+                "scopeName": "source.disassembly",
+                "path": "./syntaxes/disassembly.json"
+            }
+        ],
+        "breakpoints": [
+            {
+                "language": "neovm.disassembly"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile",
+        "test": "node ./out/test/runTest.js",
+        "pack-adapters-local": "dotnet pack ../adapter2 -o . && dotnet pack ../adapter3 -o .",
+        "package-local": "npm run pack-adapters-local && vsce package"
+    },
+    "dependencies": {
+        "@octokit/rest": "^19.0.5"
+    },
+    "devDependencies": {
+        "@types/node": "^18.0.0",
+        "@types/vscode": "^1.47.0",
+        "@vscode/vsce": "^2.15.0",
+        "nerdbank-gitversioning": "^3.5.119",
+        "tslint": "^6.1.3",
+        "typescript": "^4.9.4"
+    }
+}

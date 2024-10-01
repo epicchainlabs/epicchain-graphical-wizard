@@ -1,7 +1,5 @@
 {
-  "recommendations": [
-    "eamodio.tsl-problem-matcher",
-    "esbenp.prettier-vscode",
-    "epicchaingraphicalwizard.epicchaingraphicalwizard"
-  ]
+    "recommendations": [
+        "ngd-seattle.neo-contract-debug"
+    ]
 }

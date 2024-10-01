@@ -1,94 +1,54 @@
-# Change Log
+# EpicChain Graphical Wizard Change Log
 
-Welcome to the comprehensive Change Log for the EpicChain Graphical Wizard extension! This document is meticulously curated to keep you updated on all the significant updates, enhancements, and modifications made to the extension. It is designed to provide you with a clear understanding of new features, changes, and fixes that elevate the functionality and usability of the EpicChain Graphical Wizard. For more detailed guidance on structuring change logs, you can refer to [Keep a Changelog](http://keepachangelog.com/).
+This change log documents all notable changes to the EpicChain Graphical Wizard. It is structured according to the guidelines outlined in [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Unreleased
+The version numbers for this project are managed automatically using [NerdBank.GitVersioning](https://github.com/AArnott/Nerdbank.GitVersioning). This tool streamlines the versioning process by setting the Semantic Versioning Patch value based on the Git height of the commit that generates each build.
 
-### Added
-
-- **Python Smart Contract Template**: We are excited to introduce a new Python smart contract template! This feature is specifically designed to streamline the development process for Python developers by providing a pre-configured template. It supports the creation and deployment of smart contracts within the EpicChain ecosystem and includes essential scaffolding and examples to facilitate a smoother development workflow.
-
-### Changed
-
-- **EpicChain Express Update to Version 3.1.38**: EpicChain Express has been upgraded to version 3.1.38. This update brings various enhancements and bug fixes aimed at improving performance, stability, and compatibility with the latest EpicChain features. We highly encourage users to upgrade to this version to benefit from the latest improvements.
-
-### Changed
-
-- **EpicChain Express Update to Version 3.0.21**: We have updated EpicChain Express to version 3.0.21. This update introduces important changes and optimizations that enhance the platform’s performance and integration with the EpicChain ecosystem.
-
-### Removed
-
-- **Contract Deployment Support**: Support for deploying contracts to the EpicChain Graphical Wizard MainNet has been removed. This decision helps streamline the extension’s functionality and focus on enhancing other aspects of the deployment process.
-
-### Changed
-
-- **EpicChain Express Update to Version 3.0.13**: EpicChain Express has been updated to version 3.0.13, incorporating crucial fixes and enhancements. These updates are essential for maintaining compatibility and improving overall user experience.
-- **Configuration Update**: Adjustments have been made to the WELL_KNOWN_BLOCKCHAINS and SEED_URLS settings to support RC4/Final TestNet nodes. These changes ensure seamless connectivity and interaction with the latest TestNet configurations (#116).
+## [Unreleased] 
 
 ### Added
 
-- **Genesis Hash and Seed URLs**: We have added the genesis hash and known seed URLs for the EpicChain Graphical Wizard MainNet. These additions are crucial for setting up and connecting to the MainNet, providing users with the necessary information to initialize and connect to the network effectively.
+- **Extension Download Feature**: A significant enhancement has been implemented, allowing the debugger to automatically download the debug adapter from GitHub if it is not available locally on the user's machine. This change addresses the common issue of missing dependencies, ensuring that users can seamlessly access the necessary tools without additional manual steps. (See pull request [#178](https://github.com/epicchainlabs/EpicChain Graphical Wizard/pull/178) for more details.)
 
-### Changed
+### Changes
 
-- **EpicChain Express Update to Version 3.0.5**: Updated EpicChain Express to version 3.0.5, which includes several improvements and optimizations designed to enhance the platform’s performance and reliability.
+- **Debugger Update**: The debugger has undergone a comprehensive update tailored specifically for EpicChain. This update includes improvements in functionality and performance, ensuring that developers can debug their smart contracts more effectively.
+- **Removal of Legacy Debugger**: The legacy debugger for EpicChain has been removed from the VSIX package. This decision simplifies the user experience by eliminating outdated components and focusing on the latest and most effective debugging tools. This update is reflected in issue [#157](https://github.com/epicchainlabs/epicchain Graphical Wizard/issues/157).
 
-### Changed
+### Enhanced
 
-- **Release Support and Major Version Bump**: Support for the EpicChain Graphical Wizard release has been incorporated, and the major version number has been bumped to 3. This change ensures consistency with the release version of the EpicChain Graphical Wizard, aligning it with the project’s broader versioning strategy.
+- **Code Integration**: The BreakpointManager and DisassemblyManager have been integrated into the DebugSession. This integration streamlines the code structure and improves overall performance by consolidating related functionalities within the same module. (Refer to pull request [#161](https://github.com/epicchainlabs/EpicChain Graphical Wizard/issues/161) for more information.)
+- **Expression Evaluator Improvements**: The ExpressionEvaluator has been enhanced to handle arrays and maps more efficiently. This improvement allows for more complex data structures to be evaluated during debugging sessions, facilitating a deeper understanding of the smart contracts in question.
 
-### Changed
+### Improvements
 
-- **Invoke File Editor Enhancements**: The invoke file editor now supports editing invocation files that utilize arrays or objects as contract parameters. This enhancement improves flexibility and functionality, allowing users to manage more complex contract parameter configurations.
-- **Extension Logs Visibility**: Extension logs are now visible in the VS Code Output Panel, offering better visibility into the extension’s operations and making debugging and monitoring more efficient.
-- **Deployment Issue Fix**: An issue preventing contract deployment to the EpicChain Graphical Wizard TestNet has been resolved, ensuring successful contract deployments in the TestNet environment.
-- **Menu Item Removal**: The "Invoke Contract" menu item has been removed for non-Express blockchain networks. This feature was incomplete, and its removal simplifies the extension’s interface.
+- **Graphical Wizard Support**: The EpicChain Graphical Wizard has been updated to support version 2. This enhancement aligns the wizard with the latest features and capabilities, ensuring that users can effectively navigate and utilize the tools available to them. For more details on the current version 2 proposal, visit the documentation [here](https://github.com/devhawk/proposals/blob/devhawk/cd2l/nep-19.md).
+- **Startup Enhancements**: Upon startup, all known debug information will now be associated with the deployed contract hash, enhancing the accuracy and usability of the debugger. This improvement is particularly beneficial for developers as it provides immediate context when debugging.
+- **Script Loading Optimization**: All scripts will be loaded into the Disassembly Manager upon startup. This optimization ensures that all necessary scripts are readily available, improving the responsiveness and efficiency of the debugging process.
 
-### Changed
+### Fixed
 
-- **C# Smart Contract Template**: The C# smart contract template has been updated to include example unit tests. This addition provides users with practical examples of how to test their smart contracts, enhancing the development and quality assurance process.
-- **Deployment Fix**: An issue preventing contracts from being deployed to TestNet has been fixed, resulting in smoother deployment operations.
-- **EpicChain Express Update**: Updated to the latest RC3 build, incorporating recent fixes and improvements.
-- **Workspace Support**: Limited support has been enabled within untrusted VS Code workspaces, allowing users to work with the extension in less secure environments.
+- **Null Reference Exception**: A critical bug that caused a null reference exception when displaying the Disassembly view has been resolved. This fix enhances the stability of the debugger, ensuring that users can access the disassembly features without encountering unexpected errors. (This fix is associated with commit e5d22e179593a7c94598ef9d1bdd633dd0e3de50.)
 
-### Changed
+### Added Features
 
-- **C# Sample Contract**: The C# sample contract now includes scaffolding for a ContractUpdate method, providing users with a template for implementing contract updates and streamlining the development process.
-- **Hash Display Issue**: An issue where hashes were displayed in an unintuitive byte order in some contexts has been resolved, ensuring that hash values are presented in a more understandable format.
-- **EpicChain Express Update**: Updated to the latest RC3 build to enhance compatibility and performance.
-- **Asset Transfers**: Users can now transfer assets to arbitrary wallets, offering greater flexibility in managing assets within the EpicChain ecosystem.
+- **Storage Schema Support**: The debugger now includes comprehensive support for storage schemas. This feature allows developers to work with predefined structures for storing data on the blockchain, enhancing the organization and accessibility of stored information. For detailed information, please see the [overview](/docs/storage-schema-overview.md).
+- **Storage Key Display**: Users can now view the full hex-encoded storage key for non-schematized storage. Additionally, there is an option to switch back to the hashed key view for non-schematized storage, providing flexibility in how storage keys are displayed and managed.
 
-### Removed
+### Engineering Updates
 
-- **ms-dotnettools.vscode-dotnet-sdk Extension**: The usage of the ms-dotnettools.vscode-dotnet-sdk extension has been removed. This change simplifies the extension’s dependencies and aligns with updated best practices.
+- **Version Numbering Adoption**: The project has adopted recommendations from Visual Studio Code for managing version numbers. This change enables the distribution of pre-release versions of the debugger, providing users with early access to new features and improvements.
+- **GitHub Workflows**: New GitHub workflows have been implemented to streamline push and pull request processes. These workflows facilitate better collaboration among developers and improve the overall development workflow.
+- **Marketplace Publishing**: The release workflow for GitHub has been updated to publish the extension directly to the Visual Studio Code marketplace. This change simplifies the process of making new versions available to users, enhancing accessibility and usability.
+- **Removal of Azure DevOps Workflow**: The Azure DevOps workflow has been removed as this repository no longer utilizes Azure DevOps for build and release services. This decision reflects a shift towards a more streamlined development environment focused on GitHub.
 
-### Added
+### General Updates
 
-- **Smart Contract Panel**: A new panel has been introduced to display a list of all known smart contracts, allowing users to quickly access contract metadata. This feature enhances usability by providing easy access to contract information.
-- **Wallet Panel**: A new panel has been added to show a list of all known wallets, facilitating quick access to balance information and wallet details.
+- **Nep17 Debug Experience**: The debugging experience for Nep17 tokens has been significantly improved, providing users with better insights and control while working with these token standards. (Refer to issue #84 for details.)
+- **Script Hash Identification Change**: The debugger has been adapted to accommodate changes in script hash identification, ensuring compatibility with the latest standards and practices in the EpicChain ecosystem. (See issue #82 for more information.)
+- **Oracle Response Debugging**: New capabilities have been introduced for debugging oracle responses, allowing developers to more effectively analyze and troubleshoot interactions with external data sources. (Refer to issue #80 for additional context.)
+- **Development Mode Detection**: The extension now uses extension mode detection to identify when it is running in Development Mode. This enhancement improves the debugging experience by tailoring features and settings specifically for development scenarios. (See issue #79 for further details.)
 
-### Changed
+---
 
-- **Java Smart Contract**: The process of creating a Java smart contract now automatically targets the latest version of EpicChain as specified in Maven Central. This change ensures that Java contracts remain compatible with the latest platform updates.
-- **Dotnet Path Acquisition**: The extension now utilizes the ms-dotnettools.vscode-dotnet-sdk extension to acquire a path to dotnet, simplifying configuration and setup by eliminating the need for a global installation.
-- **EpicChain Express Update**: Upgraded to the latest RC2 build, incorporating recent improvements and optimizations.
-- **Dependency Updates**: Outdated npm package dependencies have been updated to the latest versions, including TypeScript 4, Node 14, React 17, and webpack 5. These updates ensure that the extension remains compatible with current technologies and standards.
-
-### Added
-
-- **Custom Block Time Option**: A new feature allows users to start EpicChain Express with a custom block time. This flexibility lets users configure the block time according to their specific needs and preferences.
-- **Application Logs**: Application logs are now visible in the transaction details view, offering users more detailed information about transactions and system operations.
-- **VS Code Command URIs**: Commands can now be invoked via VS Code Command URIs with arguments, enhancing the flexibility and automation of command execution.
-- **Checkpoint Creation/Restoration**: Support for creating and restoring checkpoints has been added, enabling users to save and recover specific states of their blockchain environment.
-- **UI Support for Stopping EpicChain Express**: User interface support for stopping EpicChain Express has been introduced, making it easier to manage and control the application.
-
-### Changed
-
-- **Contract Deployment Improvements**: Significant enhancements have been made to the contract deployment process, including the ability to right-click on nef files for deployment and improved messaging when debug info files are missing. These improvements aim to streamline the deployment workflow and provide clearer feedback.
-- **Performance Improvements**: Various performance enhancements have been implemented to optimize the extension’s operation and overall user experience.
-
-### Initial Release
-
-This marks the initial release of the EpicChain Graphical Wizard extension. It provides the foundational features and functionality required for users to begin working with the EpicChain platform, laying the groundwork for future updates and enhancements.
-
-We are committed to continuously improving the EpicChain Graphical Wizard extension and appreciate your feedback. Stay tuned for more updates and enhancements!
+This detailed changelog provides clarity and context for each modification made to the EpicChain Graphical Wizard, helping users understand the impact and significance of the changes. Let me know if you need further adjustments!

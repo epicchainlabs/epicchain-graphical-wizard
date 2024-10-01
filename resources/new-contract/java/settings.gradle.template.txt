@@ -1,1 +1,0 @@
-rootProject.name = '$_CLASSNAME_$'

@@ -1,75 +1,88 @@
-# EpicChain Graphical Wizard Extension for Visual Studio Code
+# EpicChain Graphical Wizard
 
-Welcome to the **EpicChain DevTracker Extension** for Visual Studio Code, an essential tool designed to elevate and streamline your blockchain development experience within the EpicChain ecosystem. This extension provides a robust, integrated solution that allows developers to efficiently track, manage, and organize their tasks directly within Visual Studio Code, eliminating the need for external task management tools. With seamless integration with EpicChain’s core development tools, the DevTracker extension offers a fully customizable workflow to adapt to your unique project requirements, empowering you to maximize productivity and achieve smoother development operations.
+[![](https://github.com/epicchainlabs/epicchain-graphical-wizard/actions/workflows/build-vscode.yml/badge.svg)](https://github.com/epicchainlabs/epicchain-graphical-wizard/actions)
 
-## Key Features
+---
 
-- **Task Tracking and Management**: This extension enables you to create, organize, and track your EpicChain development tasks directly within Visual Studio Code. Whether it's writing smart contracts, debugging, or managing a development sprint, you can seamlessly keep everything in one place.
-- **Deep Integration with EpicChain Development Tools**: By integrating directly with EpicChain's powerful development utilities, the extension allows you to optimize your workflow and directly interact with your EpicChain projects without leaving the editor. This ensures an enhanced development experience by automating repetitive tasks and improving efficiency.
+**Important Note:** The EpicChain Graphical Wizard **DOES NOT** use the same versioning scheme as the core EpicChain platform. For instance, Debugger v3.4 corresponds to EpicChain v3.3. The reasoning for this versioning strategy is detailed in our [Versioning Strategy documentation](https://github.com/epicchainlabs/epicchain-graphical-wizard#versioning-strategy).
 
-- **Customizable Workflow**: The extension is highly adaptable to any project size or type, providing flexibility to tailor the development environment according to the unique needs of your blockchain project. You can customize task categories, add priorities, set due dates, and create workflows that match your development approach.
+---
 
-- **User-Friendly Interface**: Featuring an intuitive and clean interface, the EpicChain DevTracker is designed for ease of use. Developers, whether novice or experienced, will find it simple to navigate, making task management and progress tracking a breeze, thereby reducing cognitive overhead and enabling focus on core development tasks.
+## Introduction
 
-## Why Use EpicChain DevTracker?
+The **EpicChain Graphical Wizard** is an essential tool designed specifically for EpicChain developers, allowing them to effectively debug their smart contracts within popular integrated development environments (IDEs) such as **Visual Studio** and **Visual Studio Code**. By leveraging these platforms, developers can streamline their workflow and enhance their productivity when working with smart contracts.
 
-This extension was developed with EpicChain developers in mind, offering a centralized hub for managing the complexities of blockchain projects. By integrating development tools with task management in a unified interface, it drastically reduces context switching between platforms, accelerates task completion, and ensures consistency in project management. From a single developer to an entire team, the DevTracker extension will support smoother collaboration and better visibility over development goals and milestones.
+### Purpose and Compatibility
 
-## Installation Instructions
+This graphical wizard is built with a primary focus on compatibility with the **core EpicChain project**. This ensures that the debugging process mirrors the execution of contracts in a production setting, thereby minimizing discrepancies between the development and production environments. The consistency in behavior is crucial for developers to trust that their contracts will perform as expected once deployed on the EpicChain network.
 
-Getting started with the EpicChain DevTracker extension is quick and simple:
+### Smart Contract Development
 
-1. **Open Visual Studio Code**: Ensure your version is 1.45.0 or higher to guarantee full compatibility.
-2. **Navigate to the Extensions View**: You can access this by clicking the square icon on the sidebar or by using the shortcut `Ctrl+Shift+X`.
-3. **Search for "EpicChain DevTracker"**: Once located, simply click the **Install** button to integrate the extension into your Visual Studio Code environment.
-4. **Activate and Start Using**: Upon installation, you can immediately start creating and managing tasks through the new extension panel, while also enjoying full integration with EpicChain development utilities.
+EpicChain supports the creation of smart contracts using a variety of programming languages, catering to a broad range of developers. However, it is important to note that for the debugger to function correctly, the smart contract compiler must emit additional information. This information is vital for the debugger, as it enables the mapping of **EpicChain Virtual Machine** instructions back to the original source code. This feature is supported by several compilers specifically designed for EpicChain smart contracts, providing developers with flexibility in their development choices.
 
-## Usage Guide
+## Versioning Strategy
 
-Once installed, the extension becomes your central hub for project management within the EpicChain ecosystem. To begin:
+As of **March 2022**, the EpicChain Graphical Wizard project has adopted the [recommended versioning guidelines by Visual Studio Code](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#prerelease-extensions). This approach allows the Visual Studio Code Marketplace to provide both production and pre-release versions of the extension, giving developers the freedom to choose which version to install. Furthermore, the marketplace will automatically keep the extension updated, ensuring users always have access to the latest features and fixes.
 
-1. Open the **EpicChain DevTracker** panel from within Visual Studio Code.
-2. Create new development tasks or update existing ones, assigning deadlines, priorities, and linking them to specific project modules.
-3. Leverage the integrated EpicChain tools to perform development tasks such as deploying contracts, running blockchain tests, or generating reports – all from within the same interface.
-4. Stay organized and keep a clear overview of your project's progress, using the extension to track your workflow, flag issues, and update task statuses in real-time.
+Going forward, the versioning strategy for this extension will have even minor versions for production releases and odd minor versions for preview releases. For instance, the initial production release under this new versioning system will be v3.2, while the first pre-release will be v3.3.
 
-## Requirements
+**Note:** This project employs **NerdBank Git Versioning** to manage release version numbers. Consequently, the patch versions of public releases may not follow a sequential order.
 
-To make the most of the EpicChain DevTracker, please ensure that:
+## Installation
 
-- You have **Visual Studio Code** version 1.45.0 or higher installed.
-- You are working within the **EpicChain development environment** to utilize the full set of integrated tools and features.
+To install the EpicChain Graphical Wizard, a compatible [.NET runtime](https://dotnet.microsoft.com/download/dotnet) must be installed on your system. The required version of .NET Core will depend on the specific version of the EpicChain Graphical Wizard you are using. The following table outlines the necessary .NET Core versions based on the Wizard version:
 
-## Known Issues
+| EpicChain Graphical Wizard Version | .NET Core Version |
+|------------------------------------|-------------------|
+| v3.1 and later                     | [v6.0](https://dotnet.microsoft.com/download/dotnet/6.0) (for EpicChain contracts) <br /> [v3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (for EpicChain Legacy Contracts) |
+| v3.0                               | [v5.0](https://dotnet.microsoft.com/download/dotnet/5.0) (for EpicChain contracts) <br /> [v3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (for EpicChain Legacy Contracts) |
+| v2.0 (unsupported)                 | [v5.0](https://dotnet.microsoft.com/download/dotnet/5.0) (for EpicChain contracts) <br /> [v3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (for EpicChain Legacy Contracts) |
+| v1.0                               | [v3.1](https://dotnet.microsoft.com/download/dotnet/3.1) |
+| v0.9 (unsupported)                 | [v3.0](https://dotnet.microsoft.com/download/dotnet/3.0) |
+| v0.5 (unsupported)                 | [v2.2](https://dotnet.microsoft.com/download/dotnet/2.2) |
 
-As with any tool, there may be minor issues or bugs, and we are actively working on improvements. Here are the known issues:
+### Visual Studio Code Installation
 
-- **Issue 1**: Sometimes tasks may not refresh instantly after creation. Workaround: manually refresh the panel or restart Visual Studio Code.
-- **Issue 2**: Integration with certain EpicChain tools might temporarily fail if not updated to the latest version. Workaround: ensure both the extension and EpicChain tools are updated to their latest versions.
+The EpicChain Graphical Wizard can be easily installed for Visual Studio Code via the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/vscode). Ensure that the appropriate [.NET runtime](https://dotnet.microsoft.com/download/dotnet-core) is installed prior to setup.
 
-For the latest updates on known issues or to report bugs, please visit our [GitHub repository](https://github.com/epicchainlabs/epicchain-graphical-wizard/issues).
+### Installation on Ubuntu
 
-## Release Notes
+For users operating on Ubuntu, the checkpoint functionality requires the installation of specific dependencies. These can be installed using the following command:
 
-### Version 1.0.0
+```shell
+sudo apt install libsnappy-dev libc6-dev -y
+```
 
-- **Initial Release**: The first version of the EpicChain DevTracker Extension includes full support for task tracking, project management, and seamless integration with EpicChain development tools.
+### Installation on macOS
 
-### Key Features:
+Users on macOS will need to install **RocksDB** using [Homebrew](https://brew.sh/). This can be accomplished with the following command:
 
-- Task creation, management, and tracking
-- Full integration with EpicChain's core development tools
-- Customizable workflows to suit different development needs
-- Simple, user-friendly interface optimized for blockchain developers
+```shell
+brew install rocksdb
+```
 
-Stay tuned for future updates as we plan to introduce more advanced features, including deeper collaboration tools, Git integration, and automated deployment workflows.
+### Installing Preview Releases
 
-## Feedback and Contributions
+The EpicChain Graphical Wizard has a public [build server](https://dev.azure.com/ngdenterprise/Build/_build?definitionId=4&_a=summary), where developers can access preview builds of the debugger. To install these builds, navigate to the desired build, click the “Artifacts” button in the upper right corner, and download the corresponding **VSIX-package** artifact. This artifact is a zip file containing the debugger VSIX file, which can be installed manually. For further instructions on installing VSIX extensions in Visual Studio Code, refer to the [official Visual Studio Code documentation](https://code.visualstudio.com/docs/editor/extension-gallery#_install-from-a-vsix).
 
-We highly value your input and want to ensure the EpicChain DevTracker evolves with the needs of its users. If you encounter any issues, have feature requests, or want to contribute to the project, please don’t hesitate to reach out through our [GitHub issues page](https://github.com/epicchainlabs/epicchain-graphical-wizard/issues) or submit a pull request. Together, we can continue to build the best tools for the EpicChain development community.
+### Visual Studio Installation
 
-## License
+Currently, the EpicChain Graphical Wizard for Visual Studio is in preview mode. To install, download a recent release of **epicchain-graphical-wizard-{version}.vsix** from the [GitHub release page](https://github.com/epicchainlabs/epicchain-graphical-wizard/releases) and double-click the downloaded file.
 
-The **EpicChain DevTracker Extension** is open-source and licensed under the [MIT License](https://github.com/epicchainlabs/epicchain-graphical-wizard/blob/main/LICENSE). Feel free to use, modify, and contribute to the project to help improve the development experience for all users of EpicChain.
+The EpicChain Graphical Wizard for Visual Studio is compatible with Visual Studio 2019 (Community, Professional, or Enterprise editions) but has not been tested with preview releases of Visual Studio 2022. Additionally, the Wizard requires [.NET v5.0](https://dotnet.microsoft.com/download/dotnet/5.0) to debug EpicChain contracts. It is important to note that debugging of EpicChain Legacy contracts is not supported within this version.
 
-Thank you for choosing the EpicChain DevTracker Extension! Happy coding!
+For comprehensive guidance on utilizing the EpicChain Graphical Wizard for Visual Studio, please refer to the [additional documentation](docs/visual-studio.md).
+
+## A Message from the Engineer
+
+Thank you for taking the time to explore the **EpicChain Graphical Wizard**! Your feedback is invaluable, and I am keen to hear your thoughts on this product.
+
+If you appreciate the debugger, please share your feedback on [EpicChain Twitter](https://twitter.com/epicchainlabs), reach out via [Email](mailto:devs@epic-chain.org), or join us on the [EpicChain Discord server](https://discord.com/invite/tzxDUxnYT8).
+
+Conversely, if there are aspects of the debugger that you find unsatisfactory, I encourage you to file issues in our [GitHub repository](https://github.com/epicchainlabs/epicchain-graphical-wizard/issues). While you can contact me through Twitter, Discord, or email, GitHub issues are our primary channel for tracking bugs and feature requests. Your input is crucial, so do not hesitate to voice your suggestions for improvements or new features.
+
+Software development is typically a collaborative effort, but the EpicChain Graphical Wizard has primarily been a solo endeavor. I am excited about the prospect of future contributions from other developers; however, my perspective has shaped the design of this tool. Although I find the debugger intuitive, I recognize that your experience may differ. The Wizard was created for the broader EpicChain developer community, and I genuinely want to make it more accessible, intuitive, and effective for all users. Your insights are essential to achieving this goal.
+
+Thank you once again for considering the **EpicChain Graphical Wizard**. I look forward to your feedback and suggestions for enhancement.
+
+\- Harry Pierson (aka [DevHawk](http://devhawk.net)), Chief Architect at ngd enterprise
