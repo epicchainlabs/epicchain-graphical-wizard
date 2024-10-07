@@ -1,11 +1,11 @@
 <!-- markdownlint-enable -->
-# Neo Legacy Smart Contract Debugger launch.config Reference
+# EpicChain  Legacy Smart Contract Debugger launch.config Reference
 
-> Note, this document is for Neo Legacy smart contract launch configurations (i.e. .AVM files).
-> For information about Neo N3 smart contract launch configurations, please see
+> Note, this document is for EpicChain  Legacy smart contract launch configurations (i.e. .AVM files).
+> For information about EpicChain   smart contract launch configurations, please see
 > [this document](debug-config-reference.md).
 
-The Neo Smart Contract Debugger enables fine grained execution control
+The EpicChain  Smart Contract Debugger enables fine grained execution control
 via custom configuration settings in [launch.json](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations).
 This document provides information on these settings.
 
@@ -36,12 +36,12 @@ are prefixed with `'@'` are treated a base-58 encoded address.
 Examples:
 
 ```json
-"args": ["register", ["neo.org", "Harry Pierson"]],
+"args": ["register", ["epic-chain.org", "Harry Pierson"]],
 
 // 0x prefixed strings are treated as hex-encoded byte arrays
 "args": ["getTxInfo", ["0xd2cbfbe9bec47318113e4d41c95174023851df74d7cb2a9e4049d5c84d2b2a6d"]],
 
-// '@' prefixed strings are treated as base-58 encoded Neo addresses
+// '@' prefixed strings are treated as base-58 encoded EpicChain  addresses
 "args": ["balanceOf", ["@AXwFY3qdGm6sYn8p59E7ckKWsZwdJyrHdn"]],
 ```
 
@@ -60,7 +60,7 @@ Specifies the expected return type of the contract entry-point. Particularly use
 when the contract entry-point returns a C# `object`, but the specific operation
 being invoked returns a strongly-typed value.
 
-Note, it is possible for Neo smart contracts to have multiple return values.
+Note, it is possible for EpicChain  smart contracts to have multiple return values.
 Smart contracts compiled from C# always have a single return value, but the
 configuration property name is plural and the value must be an array.
 
@@ -92,14 +92,14 @@ JSON Schema:
 
 ## checkpoint
 
-Path to a [Neo-Express](https://github.com/neo-project/neo-express)
-[checkpoint](https://github.com/neo-project/neo-express/blob/master/docs/command-reference.md#neo-express-checkpoint)
+Path to a [EpicChain-Trace-Visualizer](https://github.com/epicchainlabs/epicchain-trace-visualizer)
+[checkpoint](https://github.com/epicchainlabs/epicchain-trace-visualizer/blob/master/docs/command-reference.md#EpicChain-Trace-Visualizer-checkpoint)
 to use for blockchain data.
 
 Examples:
 
 ```json
-"checkpoint": "${workspaceFolder}\\checkpoints\\3-mint-tokens-invoked.neo-express-checkpoint",
+"checkpoint": "${workspaceFolder}\\checkpoints\\3-mint-tokens-invoked.EpicChain-Trace-Visualizer-checkpoint",
 ```
 
 JSON Schema:
@@ -119,8 +119,8 @@ byte arrays.
 If a specified key already exists in the checkpoint file, the value specified in
 the launch configuration takes precedence.
 
-JSON for the `storage` configuration setting can be generated via the Neo-Express
-[`contract storage` command](https://github.com/neo-project/neo-express/blob/master/docs/command-reference.md#neo-express-contract-storage)
+JSON for the `storage` configuration setting can be generated via the EpicChain-Trace-Visualizer
+[`contract storage` command](https://github.com/epicchainlabs/epicchain-trace-visualizer/blob/master/docs/command-reference.md#EpicChain-Trace-Visualizer-contract-storage)
 by using the `--json` argument.
 
 Examples:
@@ -128,8 +128,8 @@ Examples:
 ```json
 "storage": [
     {
-        "key": "neo.org",
-        "value": "Neo Foundation"
+        "key": "epic-chain.org",
+        "value": "EpicChain  Foundation"
     }
 ],
 
@@ -213,8 +213,8 @@ Example:
         "program": "${workspaceFolder}/Third/bin/Debug/netstandard2.0/Third.avm",
         "storage": [
             {
-                "key": "neo.org",
-                "value": "Neo Foundation"
+                "key": "epic-chain.org",
+                "value": "EpicChain  Foundation"
             }
         ],
     }
@@ -331,11 +331,11 @@ JSON Schema:
 
 ## utxo
 
-UTXO assets (aka NEO and GAS) to attach to the transaction being debugged. Objects
+UTXO assets (aka EpicChain  and GAS) to attach to the transaction being debugged. Objects
 in the `input` array are compatible with objects in the result.balance.unspent array
-of [`getunspents`](https://docs.neo.org/docs/en-us/reference/rpc/latest-version/api/getunspents.html)
-RPC endpoint. You can retrieve unspents information from Neo-Express via the
-[`show unspents` command](https://github.com/neo-project/neo-express/blob/master/docs/command-reference.md#neo-express-show).
+of [`getunspents`](https://epic-chain.org/)
+RPC endpoint. You can retrieve unspents information from EpicChain-Trace-Visualizer via the
+[`show unspents` command](https://github.com/epicchainlabs/epicchain-trace-visualizer/blob/master/docs/command-reference.md).
 The input.value property is permitted for compatibility with `getunspents` JSON
 response format but is not used by the debugger.
 
@@ -351,7 +351,7 @@ Examples:
     ],
     "outputs": [
         {
-            "asset": "neo",
+            "asset": "epicchain",
             "value": 1000,
             "address": "0x30f41a14ca6019038b055b585d002b287b5fdd47"
         }

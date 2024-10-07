@@ -1,17 +1,17 @@
 <!-- markdownlint-enable -->
-# Neo N3 Smart Contract Debugger launch.config Reference
+# EpicChain Graphical Wizard launch.config Reference
 
-> Note, this document is for Neo N3 smart contract launch configurations (i.e. .NEF files).
-> For information about Neo Legacy smart contract launch configurations, please see
+> Note, this document is for EpicChain smart contract launch configurations (i.e. .NEF files).
+> For information about EpicChain Legacy smart contract launch configurations, please see
 > [this document](debug-legacy-config-reference.md).
 
-The Neo Smart Contract Debugger enables fine grained execution control
+The EpicChain Graphical Wizard enables fine grained execution control
 via custom configuration settings in [launch.json](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations).
 This document provides information on these settings.
 
-> Remember, the Neo Smart Contract Debugger is in preview. You will find bugs
+> Remember, the EpicChain Graphical Wizard is in preview. You will find bugs
 > and/or missing functionality as you use it. Please let us know of any issues
-> you find or enhancements you would like to see via our [GitHub repo](https://github.com/neo-project/neo-debugger).
+> you find or enhancements you would like to see via our [GitHub repo](https://github.com/epicchainlabs/epicchain-graphical-wizard).
 
 ## program
 
@@ -21,12 +21,12 @@ expected to be located in the same folder.
 Example:
 
 ```json
-"program": "${workspaceFolder}/token-contract/bin/sc/NeoContributorTokens.nef",
+"program": "${workspaceFolder}/token-contract/bin/sc/EpicChainContributorTokens.nef",
 ```
 
 ## invocation
 
-Describes how the contract will be invoked. Neo N3 debugger supports multiple invocation mechanisms,
+Describes how the contract will be invoked. EpicChain debugger supports multiple invocation mechanisms,
 described below.
 
 ### invoke operation
@@ -42,8 +42,7 @@ operations that are invoked as a result of a transfer operation.
     "operation": "mint",
     "args": [
         "Da Hongfei",
-        "Founder of Neo, Chair of Neo Foundation, CEO of NGD",
-        "https://neo3.azureedge.net/images/discover/DaHongfei.jpg"
+        "Founder of EpicChain, Chair of EpicChain Foundation, CEO of EpicChain Lab's",
     ]
 }
 ```
@@ -51,10 +50,10 @@ operations that are invoked as a result of a transfer operation.
 ### invocation file
 
 With this invocation, the configuration specifies a path to an existing 
-[Neo invoke file](https://github.com/ngdenterprise/design-notes/blob/master/NDX-DN12%20-%20Neo%20Express%20Invoke%20Files.md).
+[EpicChain invoke file](https://github.com/ngdenterprise/design-notes/blob/master/NDX-DN12%20-%20Neo%20Express%20Invoke%20Files.md).
 Invoke files are JSON format files, similar in structure to the [operation invocation](#invoke-operation)
-described above. Invocation files are supported by both the Neo Smart Contract Debugger as well as by
-[Neo Express](https://github.com/neo-project/neo-express/blob/master/docs/command-reference.md#neoxp-contract-invoke).
+described above. Invocation files are supported by both the EpicChain Graphical Wizard as well as by
+[EpicChain Express](https://github.com/neo-project/neo-express/blob/master/docs/command-reference.md#neoxp-contract-invoke).
 
 ```json
 "invocation": {
@@ -96,7 +95,7 @@ Properties for this invocation type include:
 * `filter`: JSONPath filter value to use for synthesized oracle requests
 * `gas`: gasForResponse value to use for synthesized oracle requests
 
-> Neo Debugger will generate an oracle request for the contract specified in `program` property using
+> EpicChain Debugger will generate an oracle request for the contract specified in `program` property using
   the `url`, `callback`, `filter` and `gas` properties of the oracle response invocation object if
   there isn't an existing outstanding request in the specified `checkpoint`. If there is an existing
   oracle request for the specified `url`, the `callback`, `filter` and `gas` properties are ignored.
@@ -122,7 +121,7 @@ This invocation configuration is used to debug the `_deploy` method of a contrac
 
 Specifies the path to a NeoExpress file. Specifying this property enables accounts in other launch
 configuration properties (such as `signers` and operation `args`) to reference accounts from the
-.neo-express file via the `@` syntax (aka `@alice`) instead of requiring a Neo N3 address (aka
+.neo-express file via the `@` syntax (aka `@alice`) instead of requiring a EpicChain address (aka
 `NViTnvofZYshnqppD6ksCtUzBDn54an5hM`) or hex encoded 20 byte array (such as `0xccc907b1d386a52071285e580322a612e508a4f2`).
 
 ```json
@@ -134,11 +133,11 @@ configuration properties (such as `signers` and operation `args`) to reference a
 Specifies the path to a NeoExpress checkpoint file. Specifying this property enables the debugger to 
 use real blockchain data while debugging.
 
-> Note, Neo Debugger *NEVER* updates an actual NeoExpress node instance. Contract storage changes are
+> Note, EpicChain Debugger *NEVER* updates an actual NeoExpress node instance. Contract storage changes are
   stored in memory and discarded when the debugging session ends. Each individual launch of the debugger
   starts from the same initial state. 
 
-If this property is not set, Neo Debugger creates a stub Neo Blockchain with only the genesis block.
+If this property is not set, EpicChain Debugger creates a stub EpicChain Blockchain with only the genesis block.
 The debugger ensures the contract specified in `program` is deployed on the chain, but adds no other
 contract storage information. By specifying a `checkpoint`, the developer can debug scenarios with
 representative data stored in an actual instance of a NeoExpress node.
@@ -156,9 +155,9 @@ representative data stored in an actual instance of a NeoExpress node.
 
 > For more information about signers / witnesses, please see 
   [Thou shalt check their witnesses](https://neospcc.medium.com/thou-shalt-check-their-witnesses-485d2bf8375d)
-  by the good folks at the [NEO SPCC](https://nspcc.io/)
+  by the good folks at the [EpicChain SPCC](https://nspcc.io/)
 
-Every Neo transaction that executes on the blockchain must be signed by one or more accounts. The
+Every EpicChain transaction that executes on the blockchain must be signed by one or more accounts. The
 `signers` configuration property is used to specify signing information for the transaction executing
 in the debugger.
 
@@ -167,7 +166,7 @@ as a JSON object that supports additional properties.
 
 Properties for a `signers` object include:
 
-* `account` specifies a wallet account, as a Neo N3 address (such as `NViTnvofZYshnqppD6ksCtUzBDn54an5hM`),
+* `account` specifies a wallet account, as a EpicChain address (such as `NViTnvofZYshnqppD6ksCtUzBDn54an5hM`),
   a hex encoded 20 byte array (such as `0xccc907b1d386a52071285e580322a612e508a4f2`) or an `@` prefixed
   NeoExpress wallet name such as `@alice`. The `@` prefixed syntax is only supported if the `neo-express`
   property is specified. This property is required. If the default values are sufficient for the other
@@ -177,7 +176,7 @@ Properties for a `signers` object include:
   Contract hashes can be specified by hex encoded string or deployed contract name.
 * `allowedgroups` specifies the list of custom group hex-encoded public keys allowed by the `WitnessScope.CustomGroups` scope.
 
-> Note, at this time `WitnessScope.WitnessRules` is not supported by the Neo debugger.
+> Note, at this time `WitnessScope.WitnessRules` is not supported by the EpicChain debugger.
 
 If no `signers` are specified, a single signer with a dummy account value and `WitnessScope.None` scope
 is used. The dummy account signer will fail all `Runtime.CheckWitness` calls unless the `check-result`
@@ -242,7 +241,7 @@ This property specifies a list of paths to other .NEF files that a given launch 
 interact with. This property enables the debugger to load the debug info for these additional contracts
 to enable stepping across contract boundaries.
 
-Note, unlike the contract specified in `program`, the Neo Debugger does NOT ensure the latest version
+Note, unlike the contract specified in `program`, the EpicChain Debugger does NOT ensure the latest version
 of the `stored-contracts` are deployed to the stub debug chain. This property is only useful in conjunction
 with the `checkpoint` property, assuming the contracts listed in `stored-contracts` were deployed before
 the checkpoint was created.
@@ -275,7 +274,7 @@ Examples:
 "storage": [
     {
         "key": "neo.org",
-        "value": "Neo Foundation"
+        "value": "EpicChain Foundation"
     }
 ],
 
@@ -301,7 +300,7 @@ Specifies the expected return type of the contract entry-point. Particularly use
 when the contract entry-point returns a C# `object`, but the specific operation
 being invoked returns a strongly-typed value.
 
-Note, it is possible for Neo smart contracts to have multiple return values.
+Note, it is possible for EpicChain smart contracts to have multiple return values.
 Smart contracts compiled from C# always have a single return value, but the
 configuration property name is plural and the value must be an array.
 

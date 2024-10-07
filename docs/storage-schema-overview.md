@@ -1,6 +1,6 @@
-# Neo Smart Contract Debugger Storage Schema
+# EpicChain Smart Contract Debugger Storage Schema
 
-Version 3.3 of the Neo Smart Contract Debugger adds support for decoding the key/item byte streams
+Version 3.3 of the EpicChain Smart Contract Debugger adds support for decoding the key/item byte streams
 in contract storage into higher-order types. This makes it easier for developers to understand what
 is happening inside their contracts.
 
@@ -8,8 +8,6 @@ You can see an example of how schematized storage looks in the debugger via this
 
 ![Storage Schema Screenshot](images/StorageSchemaScreenshot.png)
 
-This screenshot comes from the [Neo Contributor NFT sample](https://github.com/ngdenterprise/neo-contrib-token)
-which has been updated to enable Storage Schema. In particular, note the following:
 
 * Single value storages are displayed in the debugger as a simple variable name + value pair. 
   For example, notice that the `TotalSupply` storage contains a single integer value 3.
@@ -26,7 +24,7 @@ which has been updated to enable Storage Schema. In particular, note the followi
   types such as structures, arrays and maps. For example, notice how the `Token` storage values are
   `TokenState` instances, with fields such as `Owner` and `Name`.
 * Storage Schema includes a primitive `Address` type. For example, notice that the `ContractOwner`
-  storage item is the Neo address of the account that deployed the contract.
+  storage item is the EpicChain address of the account that deployed the contract.
 * The Storage Schema type model is also available for runtime types. You get a similar rich
   inspection experience for both storage and runtime types.
 * Storage Schema information is included in the [debugger info](https://github.com/devhawk/proposals/blob/devhawk/cd2l/nep-19.md)
@@ -34,37 +32,27 @@ which has been updated to enable Storage Schema. In particular, note the followi
 
 ## Getting Started
 
-To get the new Storage Schema experience, you need the pre-release versions of the Neo Smart Contract
-Debugger and the Neo C# compiler. You also need to update your smart contract project to reference the
-pre-release version of the Neo Smart Contract Framework.
+To get the new Storage Schema experience, you need the pre-release versions of the EpicChain Smart Contract
+Debugger and the EpicChain C# compiler. You also need to update your smart contract project to reference the
+pre-release version of the EpicChain Smart Contract Framework.
 
-> Note, at this time only pre-release Neo C# compiler has been updated to generate the debug information
-  needed for the Storage Schema experience. Other Neo compilers - including the current production
-  release version of the Neo C# compiler - do not support the new experience yet. The debugger team
-  is reaching out to help the other Neo compiler teams update their tools to support the new format. The
-  goal is for all Neo developers - regardless of their language of choice - to get the full Storage
+> Note, at this time only pre-release EpicChain C# compiler has been updated to generate the debug information
+  needed for the Storage Schema experience. Other EpicChain compilers - including the current production
+  release version of the EpicChain C# compiler - do not support the new experience yet. The debugger team
+  is reaching out to help the other EpicChain compiler teams update their tools to support the new format. The
+  goal is for all EpicChain developers - regardless of their language of choice - to get the full Storage
   Schema experience. It's just going to take time to update all the various tools.
 
-If you want to try out the new experience before writing any code, the 
-[`neo-contrib-token` NFT sample](https://github.com/ngdenterprise/neo-contrib-token) has been updated
-to support the Storage Schema preview. To test drive the Storage Schema experience with the
-NFT sample:
 
-* Install Neo Smart Contract Debugger Pre-Release Extension (described below)
-* Clone the [`neo-contrib-token` repo](https://github.com/ngdenterprise/neo-contrib-token)
+* Install EpicChain Smart Contract Debugger Pre-Release Extension (described below)
 * Open the repo in VSCode
-* Check out the [`storage-schema-preview` branch](https://github.com/ngdenterprise/neo-contrib-token/tree/storage-schema-preview)
-* Run the `reset neo express` build task. This task will install the right tools,
-  compile the contracts in the repo and create the Neo-Express checkpoints needed
+* Check out the `storage-schema-preview`
+* Run the `reset EpicChain express` build task. This task will install the right tools,
+  compile the contracts in the repo and create the EpicChain-Trace-Visualizer checkpoints needed
   for the debug launch configurations. Build tasks can be accessed via the VSCode
   `Terminal` menu.
 * Switch to the Run and Debug view, select `mint (succeed)` launch configuration and Start Debugging
 
-### Install Neo Smart Contract Debugger Pre-Release Extension
-
-To install the debugger preview - even if you already have the debugger installed - visit the Neo Smart
-Contract Debugger page in the 
-[VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=ngd-seattle.neo-contract-debug)
 Press the install button to launch the debugger extension management UI inside VSCode.
 
 If you already have the debugger installed, there will be a button labeled "Switch to Pre-Release Version".
@@ -76,20 +64,20 @@ At any time, you can switch back to the release version of the debugger extensio
 debugger extension management UI inside VSCode and pushing the "Switch to Release Version" button
 
 > Note, the pre-release version of the debugger still supports the older debug information format. Even
-  if you don't update your Neo C# compiler to generate the new debug information format, the debugger
+  if you don't update your EpicChain C# compiler to generate the new debug information format, the debugger
   will still work (albeit with the older non-schematized view of contract storage).
 
 As of v3.2, production releases of the debugger have even numbered minor version numbers while pre-releases
-have odd minor version numbers. v3.3 of the Neo Smart Contract Debugger includes Storage Schema support.
+have odd minor version numbers. v3.3 of the EpicChain Smart Contract Debugger includes Storage Schema support.
 
-### Install Storage Schema Neo C# Preview Compiler 
+### Install Storage Schema EpicChain C# Preview Compiler 
 
 > Note, while the preview debugger will work with older debug information generated by the release
-  Neo C# compiler and other Neo contract compilers, the preview compiler is **NOT COMPATIBLE** with
+  EpicChain C# compiler and other EpicChain contract compilers, the preview compiler is **NOT COMPATIBLE** with
   the release debugger. If you want your project to work with the release debugger, you **MUST** use
   the release version of the compiler.
 
-The Neo C# compiler is distributed as a [.NET tool](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools).
+The EpicChain C# compiler is distributed as a [.NET tool](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools).
 .NET tools are distributed as NuGet packages, typically downloaded from [nuget.org](http://nuget.org).
 However, the Storage Schema preview version of the compiler (and framework, described below) are **NOT**
 published on the central nuget.org repository. We have chosen to create a private NuGet repository to
@@ -114,9 +102,9 @@ in your contract project root folder. Here are the contents of the NFT sample's 
 This file basically tells NuGet tools to look in the `ngd-ent-nuget` package repository if it can't
 find a given package in the global nuget.org repository. 
 
-#### Installing the Preview Neo C# Compiler 
+#### Installing the Preview EpicChain C# Compiler 
 
-.NET tools like the Neo C# compiler can be installed globally on a machine or locally to a project
+.NET tools like the EpicChain C# compiler can be installed globally on a machine or locally to a project
 folder. Since the Storage Schema enabled compiler is a preview release, we recommend installing
 the compiler as a local tool. The NFT sample installs the preview compiler as a local tool.
 
@@ -132,7 +120,7 @@ your project doesn't already have one, you can create a tool manifest via the `d
 command. To install or update the preview compiler, run this command:
 
 ``` shell
-> dotnet tool update Neo.Compiler.CSharp --prerelease
+> dotnet tool update EpicChain.Compiler.CSharp --prerelease
 ```
 
 To install the compiler as a global tool run the following command from the folder where you created
@@ -140,7 +128,7 @@ the `nuget.config` as described above. This command will ensure you have the lat
 prerelease versions downloaded from the private nuget repository referenced in the nuget.config file
 
 ``` shell
-> dotnet tool update --global Neo.Compiler.csharp --prerelease
+> dotnet tool update --global EpicChain.Compiler.csharp --prerelease
 ```
 
 Regardless if the preview compiler is installed as global or local tool, the version installed should
@@ -153,11 +141,11 @@ If the dotnet tool update command reports an installed version that doesn't have
 tag, you will not get the Storage Schema Experience. If this happens, your `nuget.config` file is likely
 invalid or missing.
 
-### Using the Neo SmartContract Framework Preview Package
+### Using the EpicChain SmartContract Framework Preview Package
 
-Like the Neo C# compiler, Storage Schema uses an updated SmartContract Framework that's available as a
+Like the EpicChain C# compiler, Storage Schema uses an updated SmartContract Framework that's available as a
 preview from the private NuGet repository described above. The version of the SmartContract Framework
-referenced in your project should match the version of the Neo C# Compiler you have installed.
+referenced in your project should match the version of the EpicChain C# Compiler you have installed.
 
 The preview version of the SmartContract Framework can be added to an existing C# project via the 
 `dotnet add package` command. The `add package` command must be run from the command line while
@@ -166,7 +154,7 @@ installing the preview version from the private NuGet repository requires the `n
 file be configured as described above.
 
 ``` shell
-> dotnet add package neo.smartcontract.framework --prerelease
+> dotnet add package epicchain.smartcontract.framework --prerelease
 ```
 
 > Note, like .NET tools, package references are not updated automatically. You can use the 
@@ -177,11 +165,11 @@ file be configured as described above.
 ### Storage Schema Preview Attributes
 
 > Note, the attributes described in this section should be considered a first draft design. More information
-  about the conceptual storage model that informed this design is [available below](#neo-contract-storage-conceptual-model).
+  about the conceptual storage model that informed this design is [available below](#epicchain-contract-storage-conceptual-model).
   Other designs that are better integrated with contract storage imperative code or that leverage compile-time
   source generation will be considered before final release of the Storage Schema feature. If you have any
   feedback or suggestions regarding this design, please feel free to let us know by opening issues in the 
-  [debugger GitHub repo](https://github.com/neo-project/neo-debugger/issues).
+  [debugger GitHub repo](https://github.com/epicchainlabs/epicchain-debugger/issues).
 
 Once you install the preview debugger and C# compiler and the Smart Contract Framework package reference
 has been updated to the latest version, you should be able to get the new rich Storage Schema experience
@@ -197,9 +185,7 @@ provides a raw view of the storage keys and items that can be inspected the same
 of the debugger.
 
 The Smart Contract Framework preview includes two new attributes used to generate Storage Schema information:
-`StorageGroup` and `StorageKeySegment`. Here is an 
-[example](https://github.com/ngdenterprise/neo-contrib-token/blob/storage-schema-preview/token-contract/NeoContributorToken.cs#L33-L53)
-of their use from the NFT sample:
+`StorageGroup` and `StorageKeySegment`. 
 
 ``` cs
 [StorageGroup(typeof(BigInteger))]
@@ -263,11 +249,11 @@ All key segments except the last one must be fixed size in order to be decoded. 
 key segment can be of variable length (ByteArray and Integer).
 
 These are the allowed storage key segment types. With the exception of `Address`, they all match values
-from the [`ContractParameterType` enumeration](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/ContractParameterType.cs)
-from the core Neo platform. `Address` is an alias for `Hash160`. The only difference is how they are
+from the [`ContractParameterType` enumeration](https://github.com/epicchainlabs/epicchain/blob/master/src/epicchain/SmartContract/ContractParameterType.cs)
+from the core EpicChain platform. `Address` is an alias for `Hash160`. The only difference is how they are
 displayed in the debugger. `Hash160` values are displayed as hex encoded byte arrays while `Address`
-values are displayed as standard Neo N3 addresses. The 
-[Primitive Type section](https://github.com/neo-project/neo-debugger/blob/master/docs/storage-schema-overview.md#primitive-type)
+values are displayed as standard EpicChain N3 addresses. The 
+[Primitive Type section](https://github.com/epicchainlabs/epicchain-debugger/blob/master/docs/storage-schema-overview.md#primitive-type)
 below has more details on how the debugger handles address encoding.
 
 * Boolean
@@ -280,31 +266,29 @@ below has more details on how the debugger handles address encoding.
 * Signature
 * Address
 
-> Note, a future version of the Neo SmartContract Framework Preview will include a mechanism to
-  declare type fields as `Address` as well. `Address` type fields will be displayed as Neo N3
+> Note, a future version of the EpicChain SmartContract Framework Preview will include a mechanism to
+  declare type fields as `Address` as well. `Address` type fields will be displayed as EpicChain N3
   addresses like `Address` key segments are. 
 
-## Neo Contract Storage Conceptual Model
+## EpicChain Contract Storage Conceptual Model
 
 In order to understand how Storage Schema works, it is useful to understand the underlying
-model of Neo contract storage. If you are an experienced Neo contract developer, you may wish to
+model of EpicChain contract storage. If you are an experienced EpicChain contract developer, you may wish to
 skim or skip this section.
 
-Neo contract storage is a key/value byte array store. Each key and value is stored as a raw array
+EpicChain contract storage is a key/value byte array store. Each key and value is stored as a raw array
 of bytes. Any additional structure of the key or value is provided by code and is unavailable via
 the storage engine.
 
-Neo contracts typically use hard coded key prefixes to group different types of data together.
+EpicChain contracts typically use hard coded key prefixes to group different types of data together.
 Multi-byte prefixes are also supported, but are typically only needed for contacts with more than
 255 prefixes. Otherwise multi-byte prefixes are just extra storage (and associated GAS cost) with
 little additional value.
 
-> Note, there are a variety of Neo N3 samples that use strings for storage prefixes. Such samples
+> Note, there are a variety of EpicChain N3 samples that use strings for storage prefixes. Such samples
   should not be considered best practice. Minimizing prefix length is considered the best practice
-  for Neo contract storage.
+  for EpicChain contract storage.
 
-As an example, the Neo Contributor NFT sample stores six different groups of data, each with its own
-[unique single byte prefix](https://github.com/ngdenterprise/neo-contrib-token/blob/main/token-contract/NeoContributorToken.cs#L32). 
 
 ``` cs
 const byte Prefix_TotalSupply = 0x00;
@@ -331,7 +315,7 @@ Storage.Put(context, key, totalSupply + 1);
 Of course, contracts often need to store multiple pieces of data in a single group. In these cases
 each data item has its own unique key. The data item's key is pre-pended with the associated hard
 coded prefix in order to group all related data together in storage. The pre-pended prefix also serves
-to avoid key collisions, since the the key prefix is unique to the group. Neo contract languages
+to avoid key collisions, since the the key prefix is unique to the group. EpicChain contract languages
 typically include helper classes to make it easy to manage multiple key/value pairs within a single
 prefixed group. For example, the C# Smart Contract Framework provides the `StorageMap` to simplify the
 management of related data under a common key prefix.
@@ -383,27 +367,27 @@ owner (specified via method parameter). The list returned by Find is further ref
 the `KeysOnly` and `RemovePrefix` options. Note, Find removes the entire prefix it used for the 
 search (i.e. `Prefix_AccountToken` and `owner` in this case)
 
-### Unified Neo Contract Type Model
+### Unified EpicChain Contract Type Model
 
 As stated above, Storage Schema objects reference information about Contract Types. Contract Types
 is a new richer model for describing type information than has been used in the debugger previously.
 This section describes this model (along with providing a road map for upcoming improvements).
 
-> Note, the Contract Type Model only describe information about NeoVM and storage items in order to 
-  provide a better debugger experience. This model does not modify the behavior of NeoVM or how
+> Note, the Contract Type Model only describe information about EpicChainVM and storage items in order to 
+  provide a better debugger experience. This model does not modify the behavior of EpicChainVM or how
   contract storage works in any way.
 
-Neo compilers generate debug info that is used by the debugger. This primarily consists of information
-that the NeoVM doesn't need when executing contracts. For example, the NeoVM does not need to know
+EpicChain compilers generate debug info that is used by the debugger. This primarily consists of information
+that the EpicChainVM doesn't need when executing contracts. For example, the EpicChainVM does not need to know
 the names of method parameters and variables. However, it's easier for the developer if the debugger
-can automatically map NeoVM stack items back to the associated variables defined by the developer.
+can automatically map EpicChainVM stack items back to the associated variables defined by the developer.
 The debug information generated by the compiler enables this mapping.
 
 Debug info also contains information about a variable's type. This can be used in cases to modify how
 a given variable is displayed in the debugger. For example, a string variable is stored as an
-immutable byte array by NeoVM. By including variable type information in the debug info, the debugger
-can convert the underling NeoVM stack item into a display format more closely aligned to the code written
-by the developer. For example, the immutable byte array stored by NeoVM can be converted to a string
+immutable byte array by EpicChainVM. By including variable type information in the debug info, the debugger
+can convert the underling EpicChainVM stack item into a display format more closely aligned to the code written
+by the developer. For example, the immutable byte array stored by EpicChainVM can be converted to a string
 value by the debugger.
 
 Unfortunately, the original type model used by the debugger today was not rich enough to capture the
@@ -411,14 +395,12 @@ details needed to provide the schematized storage view shown in the screen shot 
 richer model for contract type information was developed. Eventually, this new contract type model will
 also be used to provide richer type information for runtime items in addition to storage items.
 
-> Note: C# declarations for the new Contract Type Model are available in the 
-  [Blockchain Toolkit Library project](https://github.com/ngdenterprise/neo-blockchaintoolkit-library/blob/master/src/bctklib/models/ContractTypes.cs)
 
 #### Primitive Type
 
-NeoVM supports three primitive types: booleans, arbitrary sized integers and immutable byte arrays.
+EpicChainVM supports three primitive types: booleans, arbitrary sized integers and immutable byte arrays.
 While booleans and integers instances have clear debugger representations, byte arrays often
-represent some type of higher level type, such as a 256 bit hash, a Neo address or a string.
+represent some type of higher level type, such as a 256 bit hash, a EpicChain address or a string.
 
 The Contract Type model defines the following primitive types. These types can be directly represented
 as byte arrays and thus can be stored in contract storage directly without serialization
@@ -433,14 +415,14 @@ as byte arrays and thus can be stored in contract storage directly without seria
 * Signature
 * Address
 
-Most of these types should be familiar to Neo contract developers. Many of these primitive types overlap
-with [ContractParameterType](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/ContractParameterType.cs)
+Most of these types should be familiar to EpicChain contract developers. Many of these primitive types overlap
+with [ContractParameterType](https://github.com/epicchainlabs/epicchain/blob/master/src/epicchain/SmartContract/ContractParameterType.cs)
 values.
 
 One primitive type to note is the `Address` type. Under the hood, `Address` is a 160 bit hash code, just as 
-`Hash160` is. However, `Address` is rendered in the debugger UI using the standard Neo address encoding, leading
+`Hash160` is. However, `Address` is rendered in the debugger UI using the standard EpicChain address encoding, leading
 to values such as `NaTtKdE8nt1E9FKKhH6hScXmDGPjgjpdhi` instead of hex encoded byte arrays. Given the prevalence
-of Neo addresses in contract code, it made sense to include a specific primitive type to represent addresses and
+of EpicChain addresses in contract code, it made sense to include a specific primitive type to represent addresses and
 for them to render in the most developer friendly manner possible.
 
 One other thing to note about `Address`: Some contracts use an all-zero 160 bit hash code to represent "no
@@ -448,9 +430,9 @@ address". As an example, the NFT sample uses the all-zero address to represent a
 the all-zero address value typically has special meaning, the debugger displays the all-zero address value in
 a special way to make it easy to identify. You can see an example of this in the `TokenState.Owner` value in
 the screen shot from the start of this document. The `Erik Zhang` token has `N000000000000000000000000000000000`
-for the owner value. Neo addresses are base58 encoded and zero (i.e. `0`) is not a valid address character. So
+for the owner value. EpicChain addresses are base58 encoded and zero (i.e. `0`) is not a valid address character. So
 by encoding what is typically an invalid address this way, it is easy to identify without risk of colliding with
-a valid Neo address.
+a valid EpicChain address.
 
 When string encoding a primitive type, the name of the primitive type is used directly. If there is a conflict
 with a user defined struct name, a '#' character can be used as a prefix to disambiguate. For example, `Address`
@@ -473,7 +455,7 @@ Structs are string encoded simply by their name. As an example, see the StorageD
   the debugger and will be displayed as if they have Unspecified type. Display of Array&lt;T>  types will
   be implemented in a future version of the debugger.
 
-An Array&lt;T> is a homogeneous collection of items. While the underlying NeoVM Array stack type is heterogenous,
+An Array&lt;T> is a homogeneous collection of items. While the underlying EpicChainVM Array stack type is heterogenous,
 it is common for developers to consistently store a given type in a given array. The C# Smart Contract
 Framework even provides a generic List&lt;T> type for homogeneous collections.
 
@@ -498,7 +480,7 @@ including primitives, unspecified, structs or even other generic array and map t
 
 #### Interop Type
 
-NeoVM uses a special `InteropInterface` type to integrate contract and platform code. An `InteropInterface` 
+EpicChainVM uses a special `InteropInterface` type to integrate contract and platform code. An `InteropInterface` 
 stack item wraps a .NET object such as a storage context or an iterator. The runtime `InteropInterface` item
 does not provide any interrogation mechanism - you can retrieve the wrapped .NET object if you already know
 its type. However, the compiler knows the type of the wrapped objects type at compile time and includes the
@@ -514,7 +496,7 @@ type can be used. Like primitive types, the Unspecified type is simply the strin
 hash character prefix to handle potential name collisions.
 
 The debugger does a small amount of type validation when displaying storage and stack items. For example, if a
-given item has an associated Struct type, the debugger will validate the underlying NeoVM item is an array object
-(array and structs are stored the same in NeoVM) and that the struct field count matches the array count. If
+given item has an associated Struct type, the debugger will validate the underlying EpicChainVM item is an array object
+(array and structs are stored the same in EpicChainVM) and that the struct field count matches the array count. If
 there is a mismatch, the debugger will discard the type information and display the value as if the type 
 were Unspecified. 
