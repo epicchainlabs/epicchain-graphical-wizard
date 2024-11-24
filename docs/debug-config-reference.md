@@ -57,7 +57,7 @@ described above. Invocation files are supported by both the EpicChain Graphical 
 
 ```json
 "invocation": {
-    "invoke-file": "${workspaceFolder}/invoke-files/list-nft.neo-invoke.json"
+    "invoke-file": "${workspaceFolder}/invoke-files/list-nft.epicchain-invoke.json"
 },
 ```
 

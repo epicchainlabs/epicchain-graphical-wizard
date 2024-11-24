@@ -281,7 +281,7 @@
                             },
                             "invokeFile": {
                                 "type": "string",
-                                "description": "Optional .neo-invoke.json file used to specify contract parameters"
+                                "description": "Optional .epicchain-invoke.json file used to specify contract parameters"
                             },
                             "checkpoint": {
                                 "type": "string",
