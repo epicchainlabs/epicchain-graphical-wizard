@@ -5,7 +5,7 @@
     "version": "0.0.0",
     "displayName": "EpicChain Smart Contract Debugger",
     "description": "Debugger Extension for EpicChain Smart Contracts",
-    "icon": "neo-logo-256.png",
+    "icon": "epicchain-logo-256.png",
     "galleryBanner": {
         "color": "#242424",
         "theme": "dark"
