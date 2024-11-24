@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 namespace EpicChainTraceVisualizer.EpicChain
 {
     using epicchainArray = EpicChain.VM.Types.Array;
-    using NeoStruct = EpicChain.VM.Types.Struct;
+    using EpicChainStruct = EpicChain.VM.Types.Struct;
 
     class EpicChainArrayContainer : IVariableContainer
     {
@@ -17,7 +17,7 @@ namespace EpicChainTraceVisualizer.EpicChain
 
         public static Variable Create(IVariableManager manager, epicchainArray array, string name)
         {
-            var typeName = array is NeoStruct ? "Struct" : "Array";
+            var typeName = array is EpicChainStruct ? "Struct" : "Array";
             var container = new EpicChainArrayContainer(array);
             return new Variable()
             {

@@ -50,7 +50,7 @@ operations that are invoked as a result of a transfer operation.
 ### invocation file
 
 With this invocation, the configuration specifies a path to an existing 
-[EpicChain invoke file](https://github.com/ngdenterprise/design-notes/blob/master/NDX-DN12%20-%20Neo%20Express%20Invoke%20Files.md).
+[EpicChain invoke file](https://github.com/ngdenterprise/design-notes/blob/master/NDX-DN12%20-%20EpicChain%20Express%20Invoke%20Files.md).
 Invoke files are JSON format files, similar in structure to the [operation invocation](#invoke-operation)
 described above. Invocation files are supported by both the EpicChain Graphical Wizard as well as by
 [EpicChain Express](https://github.com/epicchainlabs/epicchain-trace-visualizer/blob/master/docs/command-reference.md#epicchainxp-contract-invoke).
