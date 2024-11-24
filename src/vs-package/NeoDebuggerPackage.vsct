@@ -59,7 +59,7 @@
         <Parent guid="guidNeoDebuggerPackageCmdSet" id="MyMenuGroup" />
         <Icon guid="guidImages" id="bmpPic1" />
         <Strings>
-          <ButtonText>Launch Neo Smart Contract Debugger</ButtonText>
+          <ButtonText>Launch EpicChain Smart Contract Debugger</ButtonText>
         </Strings>
       </Button>
     </Buttons>

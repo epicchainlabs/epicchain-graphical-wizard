@@ -113,10 +113,10 @@ namespace NeoDebug
             {
                 if (config.TryGetValue("invocation", out var invocation))
                 {
-                    if (invocation["traceFile"] != null) throw new InvalidOperationException("traceFile invocation only supported on Neo 3 contracts");
-                    if (invocation["oracleResponse"] != null) throw new InvalidOperationException("oracleResponse invocation only supported on Neo 3 contracts");
+                    if (invocation["traceFile"] != null) throw new InvalidOperationException("traceFile invocation only supported on EpicChain 3 contracts");
+                    if (invocation["oracleResponse"] != null) throw new InvalidOperationException("oracleResponse invocation only supported on EpicChain 3 contracts");
                     // TODO: invoke file support
-                    if (invocation["invokeFile"] != null) throw new InvalidOperationException("invokeFile invocation only supported on Neo 3 contracts");
+                    if (invocation["invokeFile"] != null) throw new InvalidOperationException("invokeFile invocation only supported on EpicChain 3 contracts");
 
                     var operation = invocation["operation"];
                     var args = invocation["args"];

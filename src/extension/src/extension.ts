@@ -205,7 +205,7 @@ function downloadAsset(asset: GithubReleaseAsset, path: string, url?: string) {
 // your extension is activated the very first time the command is executed
 export async function activate(context: vscode.ExtensionContext) {
 
-    let neoDebugChannel = vscode.window.createOutputChannel('Neo Debugger Log');
+    let neoDebugChannel = vscode.window.createOutputChannel('EpicChain Debugger Log');
 
     const configProvider = new NeoContractDebugConfigurationProvider();
     context.subscriptions.push(vscode.debug.registerDebugConfigurationProvider("neo-contract", configProvider));
@@ -245,12 +245,12 @@ class NeoContractDebugConfigurationProvider implements vscode.DebugConfiguration
             }) : undefined;
 
             return {
-                name: programPath ? path.basename(programPath) : "Neo Contract",
+                name: programPath ? path.basename(programPath) : "EpicChain Contract",
                 type: "neo-contract",
                 request: "launch",
                 "neo-express": neoxpConfig && folder
                     ? slash(path.join("${workspaceFolder}", neoxpConfig))
-                    : "${workspaceFolder}/<insert path to neo express config here>",
+                    : "${workspaceFolder}/<insert path to EpicChain express config here>",
                 program: programPath && folder
                     ? slash(path.join("${workspaceFolder}", path.relative(folder.uri.fsPath, programPath)))
                     : "${workspaceFolder}/<insert path to contract here>",
@@ -413,7 +413,7 @@ class NeoContractDebugAdapterDescriptorFactory implements vscode.DebugAdapterDes
                 case '.avm':
                     return 'EpicChain.Debug2.Adapter';
                 default:
-                    throw new Error(`Unexpected Neo contract extension ${path.extname(program)}`);
+                    throw new Error(`Unexpected EpicChain contract extension ${path.extname(program)}`);
             }
         }
 
@@ -511,21 +511,21 @@ class NeoContractDebugAdapterDescriptorFactory implements vscode.DebugAdapterDes
         switch (path.extname(program)) {
             case '.nef': {
                 if (config["utxo"]) {
-                    throw new Error("utxo configuration not supported in Neo 3");
+                    throw new Error("utxo configuration not supported in EpicChain 3");
                 }
                 break;
             }
             case '.avm': {
                 if (config["traceFile"]) {
-                    throw new Error("traceFile configuration not supported in Neo 2");
+                    throw new Error("traceFile configuration not supported in EpicChain 2");
                 }
                 if (config["operation"]) {
-                    throw new Error("operation configuration not supported in Neo 2");
+                    throw new Error("operation configuration not supported in EpicChain 2");
                 }
                 break;
             }
             default:
-                throw new Error(`Unexpected Neo contract extension {ext}`);
+                throw new Error(`Unexpected EpicChain contract extension {ext}`);
         }
     }
 }

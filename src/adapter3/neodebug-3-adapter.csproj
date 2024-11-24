@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AssemblyName>neodebug-3-adapter</AssemblyName>
-    <Authors>Neo Global Development Seattle</Authors>
+    <Authors>EpicChain Global Development Seattle</Authors>
     <LangVersion>10</LangVersion>
     <Nullable>enable</Nullable>
     <OutputType>Exe</OutputType>

@@ -4,7 +4,7 @@ const process = require('process');
 
 /*
 
-The Neo Smart Contract Debugger works with VS Code v1.47.0 and later. However, the new VSCode pre-release
+The EpicChain Smart Contract Debugger works with VS Code v1.47.0 and later. However, the new VSCode pre-release
 extension support requires v1.63.0 or later. In order to continue to support developers running older
 versions of VS code, the VSCode engine version in package.json is only set to v1.63.0 in pre-release branches.
 

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:vsui="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0" 
              mc:Ignorable="d" 
-             Title="Launch Neo Smart Contract Debugger"
+             Title="Launch EpicChain Smart Contract Debugger"
              ResizeMode="NoResize"
              ShowInTaskbar="False"
              WindowStartupLocation="CenterOwner"

@@ -3,14 +3,14 @@
     "license": "MIT",
     "publisher": "ngd-seattle",
     "version": "0.0.0",
-    "displayName": "Neo Smart Contract Debugger",
-    "description": "Debugger Extension for Neo Smart Contracts",
+    "displayName": "EpicChain Smart Contract Debugger",
+    "description": "Debugger Extension for EpicChain Smart Contracts",
     "icon": "neo-logo-256.png",
     "galleryBanner": {
         "color": "#242424",
         "theme": "dark"
     },
-    "author": "Neo Project",
+    "author": "EpicChain Project",
     "engines": {
         "vscode": "^1.47.0"
     },
@@ -43,7 +43,7 @@
     "contributes": {
         "configuration": {
             "type": "object",
-            "title": "Neo Debugger",
+            "title": "EpicChain Debugger",
             "properties": {
                 "neo-debugger.log": {
                     "type": "boolean",
@@ -53,7 +53,7 @@
                 "neo-debugger.debug": {
                     "type": "boolean",
                     "default": false,
-                    "markdownDescription": "Pass the `--debug` flag when launching the Neo debug adapter. Note, this setting is for developers who are _contributing_ to the Neo Debugger extension. If you're _using_ the Neo Debugger extension, this flag will **_cause the debugger to hang_**."
+                    "markdownDescription": "Pass the `--debug` flag when launching the EpicChain debug adapter. Note, this setting is for developers who are _contributing_ to the EpicChain Debugger extension. If you're _using_ the EpicChain Debugger extension, this flag will **_cause the debugger to hang_**."
                 },
                 "neo-debugger.default-debug-view": {
                     "type": "string",
@@ -67,7 +67,7 @@
                 "neo-debugger.debug-adapter": {
                     "type": "array",
                     "items": "string",
-                    "description": "Path to the Neo debug adapter executable"
+                    "description": "Path to the EpicChain debug adapter executable"
                 },
                 "neo-debugger.adapter-project": {
                     "type": "boolean",
@@ -85,7 +85,7 @@
         "debuggers": [
             {
                 "type": "neo-contract",
-                "label": "Neo Contract",
+                "label": "EpicChain Contract",
                 "configurationAttributes": {
                     "launch": {
                         "required": [
@@ -95,7 +95,7 @@
                         "properties": {
                             "program": {
                                 "type": "string",
-                                "description": "Absolute path to Neo smart contract (.avm/.nef)"
+                                "description": "Absolute path to EpicChain smart contract (.avm/.nef)"
                             },
                             "invocation": {
                                 "oneOf": [
@@ -216,7 +216,7 @@
                             },
                             "neo-express": {
                                 "type": "string",
-                                "description": "Absolute path to Neo Express file (.neo-express / .neo-express.json)"
+                                "description": "Absolute path to EpicChain Express file (.neo-express / .neo-express.json)"
                             },
                             "address-version": {
                                 "type": "integer",
@@ -231,7 +231,7 @@
                                     "oneOf": [
                                         {
                                             "type": "string",
-                                            "description": "Absolute path to Neo smart contract (.avm/.nef)"
+                                            "description": "Absolute path to EpicChain smart contract (.avm/.nef)"
                                         },
                                         {
                                             "type": "object",
@@ -242,7 +242,7 @@
                                             "properties": {
                                                 "program": {
                                                     "type": "string",
-                                                    "description": "Absolute path to Neo smart contract (.avm/.nef)"
+                                                    "description": "Absolute path to EpicChain smart contract (.avm/.nef)"
                                                 },
                                                 "storage": {
                                                     "type": "array",
@@ -273,7 +273,7 @@
                             },
                             "operation": {
                                 "type": "string",
-                                "description": "Neo 3 contract operation to invoke"
+                                "description": "EpicChain 3 contract operation to invoke"
                             },
                             "args": {
                                 "type": "array",
@@ -362,7 +362,7 @@
                             },
                             "utxo": {
                                 "type": "object",
-                                "description": "UTXO assets (aka NEO and GAS) to attach to the transaction being debugged",
+                                "description": "UTXO assets (aka EpicChain and GAS) to attach to the transaction being debugged",
                                 "properties": {
                                     "inputs": {
                                         "type": "array",
@@ -467,10 +467,10 @@
                 },
                 "configurationSnippets": [
                     {
-                        "label": "Neo Contract: Launch",
-                        "description": "A new configuration for debugging a Neo Smart Contract",
+                        "label": "EpicChain Contract: Launch",
+                        "description": "A new configuration for debugging a EpicChain Smart Contract",
                         "body": {
-                            "name": "Neo Contract",
+                            "name": "EpicChain Contract",
                             "type": "neo-contract",
                             "request": "launch",
                             "program": "${workspaceFolder}",
@@ -499,17 +499,17 @@
         ],
         "commands": [
             {
-                "category": "Neo Debugger",
+                "category": "EpicChain Debugger",
                 "title": "Display source view",
                 "command": "neo-debugger.displaySourceView"
             },
             {
-                "category": "Neo Debugger",
+                "category": "EpicChain Debugger",
                 "title": "Display disassembly view",
                 "command": "neo-debugger.displayDisassemblyView"
             },
             {
-                "category": "Neo Debugger",
+                "category": "EpicChain Debugger",
                 "title": "Toggle Debug view",
                 "command": "neo-debugger.toggleDebugView",
                 "icon": {

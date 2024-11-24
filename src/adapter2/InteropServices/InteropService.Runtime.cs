@@ -164,7 +164,7 @@ namespace NeoDebug
             return false;
         }
 
-        // This code is nearly identical to the code from neo code base. As much as I would like to rewrite it 
+        // This code is nearly identical to the code from EpicChain code base. As much as I would like to rewrite it 
         // for efficiency, compatibility with existing implementation is higher priority.
 
         static bool TrySerialize(StackItem stackItem, uint maxItemSize, [NotNullWhen(true)] out byte[]? array)

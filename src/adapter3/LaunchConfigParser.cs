@@ -141,7 +141,7 @@ namespace NeoDebug.Neo3
 
             // TODO: load other contracts
             //          Not sure supporting other contracts is a good idea anymore. Since there's no way to calculate the 
-            //          contract id hash prior to deployment in Neo 3, I'm thinking the better approach would be to simply
+            //          contract id hash prior to deployment in EpicChain 3, I'm thinking the better approach would be to simply
             //          deploy whatever contracts you want and take a snapshot rather than deploying multiple contracts 
             //          during launch configuration.
 
