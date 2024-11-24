@@ -92,7 +92,7 @@ namespace NeoDebug.Neo3
             var program = ParseProgram(config);
             var launchNefFile = await LoadNefFileAsync(program).ConfigureAwait(false);
             var launchManifest = await LoadContractManifestAsync(program).ConfigureAwait(false);
-            var chain = LoadNeoExpress(config);
+            var chain = LoadEpicChainTraceVisualizer(config);
             var invocation = ParseInvocation(jsonInvocation);
 
             var checkpoint = LoadBlockchainCheckpoint(config, chain?.Network, chain?.AddressVersion);
@@ -192,12 +192,12 @@ namespace NeoDebug.Neo3
             return ContractManifest.Parse(bytesManifest);
         }
 
-        static ExpressChain? LoadNeoExpress(ConfigProps config)
+        static ExpressChain? LoadEpicChainTraceVisualizer(ConfigProps config)
         {
-            if (config.TryGetValue("epicchain-trace-visualizer", out var neoExpressPath))
+            if (config.TryGetValue("epicchain-trace-visualizer", out var EpicChainTraceVisualizerPath))
             {
                 var fs = new System.IO.Abstractions.FileSystem();
-                return fs.LoadChain(neoExpressPath.Value<string>()
+                return fs.LoadChain(EpicChainTraceVisualizerPath.Value<string>()
                     ?? throw new JsonException("invalid string"));
             }
             else
