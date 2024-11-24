@@ -252,7 +252,7 @@ These are the allowed storage key segment types. With the exception of `Address`
 from the [`ContractParameterType` enumeration](https://github.com/epicchainlabs/epicchain/blob/master/src/epicchain/SmartContract/ContractParameterType.cs)
 from the core EpicChain platform. `Address` is an alias for `Hash160`. The only difference is how they are
 displayed in the debugger. `Hash160` values are displayed as hex encoded byte arrays while `Address`
-values are displayed as standard EpicChain N3 addresses. The 
+values are displayed as standard EpicChain  addresses. The 
 [Primitive Type section](https://github.com/epicchainlabs/epicchain-debugger/blob/master/docs/storage-schema-overview.md#primitive-type)
 below has more details on how the debugger handles address encoding.
 
@@ -267,7 +267,7 @@ below has more details on how the debugger handles address encoding.
 * Address
 
 > Note, a future version of the EpicChain SmartContract Framework Preview will include a mechanism to
-  declare type fields as `Address` as well. `Address` type fields will be displayed as EpicChain N3
+  declare type fields as `Address` as well. `Address` type fields will be displayed as EpicChain 
   addresses like `Address` key segments are. 
 
 ## EpicChain Contract Storage Conceptual Model
@@ -285,7 +285,7 @@ Multi-byte prefixes are also supported, but are typically only needed for contac
 255 prefixes. Otherwise multi-byte prefixes are just extra storage (and associated GAS cost) with
 little additional value.
 
-> Note, there are a variety of EpicChain N3 samples that use strings for storage prefixes. Such samples
+> Note, there are a variety of EpicChain  samples that use strings for storage prefixes. Such samples
   should not be considered best practice. Minimizing prefix length is considered the best practice
   for EpicChain contract storage.
 

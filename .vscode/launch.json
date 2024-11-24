@@ -18,7 +18,7 @@
             // "preLaunchTask": "build all"
         },
         {
-            "name": "Attach N3 Debug Adapter",
+            "name": "Attach  Debug Adapter",
             "type": "coreclr",
             "request": "attach",
             "processName": "neodebug-3-adapter"

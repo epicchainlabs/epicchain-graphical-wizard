@@ -30,7 +30,7 @@ jobs:
 
     - name: Install adapter dependencies
       run: dotnet restore
-    - name: publish Neo N3 debug adapter
+    - name: publish Neo  debug adapter
       run: dotnet publish ./src/adapter3/neodebug-3-adapter.csproj -c Release --output ./src/vs-package/adapter/ --runtime win-x64 --no-self-contained
     - uses: ilammy/msvc-dev-cmd@v1
     - name: Install extension dependencies
