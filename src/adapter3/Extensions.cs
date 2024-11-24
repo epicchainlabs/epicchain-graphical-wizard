@@ -269,7 +269,7 @@ namespace EpicChainTraceVisualizer.Neo3
                 EpicChain.VM.Types.ByteString byteString => ByteArrayContainer.Create(manager, byteString, name),
                 EpicChain.VM.Types.Integer @int => new Variable { Name = name, Value = $"{@int.GetInteger()}", Type = "Boolean" },
                 EpicChain.VM.Types.InteropInterface _ => new Variable { Name = name, Value = "InteropInterface" },
-                EpicChain.VM.Types.Map map => NeoMapContainer.Create(manager, map, name),
+                EpicChain.VM.Types.Map map => EpicChainMapContainer.Create(manager, map, name),
                 EpicChain.VM.Types.Null _ => new Variable { Name = name, Value = "<null>", Type = "Null" },
                 EpicChain.VM.Types.Pointer _ => new Variable { Name = name, Value = "Pointer" },
                 _ => throw new NotSupportedException(),

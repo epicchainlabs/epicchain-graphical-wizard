@@ -159,7 +159,7 @@ namespace EpicChainTraceVisualizer
                     Type = "InteropInterface",
                     Value = string.Empty
                 },
-                EpicChain.VM.Types.Map map => NeoMapContainer.Create(session, map, name),
+                EpicChain.VM.Types.Map map => EpicChainMapContainer.Create(session, map, name),
                 // EpicChainArrayContainer.Create will detect Struct (which inherits from Array)
                 // and distinguish accordingly
                 EpicChain.VM.Types.Array array => EpicChainArrayContainer.Create(session, array, name),

@@ -7,18 +7,18 @@ namespace EpicChainTraceVisualizer.Neo3
 {
     using NeoMap = EpicChain.VM.Types.Map;
 
-    class NeoMapContainer : IVariableContainer
+    class EpicChainMapContainer : IVariableContainer
     {
         private readonly NeoMap map;
 
-        public NeoMapContainer(NeoMap map)
+        public EpicChainMapContainer(NeoMap map)
         {
             this.map = map;
         }
 
         public static Variable Create(IVariableManager manager, NeoMap map, string name)
         {
-            var container = new NeoMapContainer(map);
+            var container = new EpicChainMapContainer(map);
             return new Variable()
             {
                 Name = name,

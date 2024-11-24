@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace EpicChainTraceVisualizer.VariableContainers
 {
-    class NeoMapContainer : IVariableContainer
+    class EpicChainMapContainer : IVariableContainer
     {
         class KvpContainer : IVariableContainer
         {
@@ -30,7 +30,7 @@ namespace EpicChainTraceVisualizer.VariableContainers
         private readonly IVariableContainerSession session;
         private readonly EpicChain.VM.Types.Map map;
 
-        public NeoMapContainer(IVariableContainerSession session, EpicChain.VM.Types.Map map)
+        public EpicChainMapContainer(IVariableContainerSession session, EpicChain.VM.Types.Map map)
         {
             this.session = session;
             this.map = map;
@@ -38,7 +38,7 @@ namespace EpicChainTraceVisualizer.VariableContainers
 
         public static Variable Create(IVariableContainerSession session, EpicChain.VM.Types.Map map, string? name)
         {
-            var container = new NeoMapContainer(session, map);
+            var container = new EpicChainMapContainer(session, map);
             var containerID = session.AddVariableContainer(container);
 
             return new Variable()
