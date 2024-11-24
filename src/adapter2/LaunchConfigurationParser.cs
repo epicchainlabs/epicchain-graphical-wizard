@@ -38,7 +38,7 @@ namespace NeoDebug
 
             static byte[] BuildInvokeScript(UInt160 scriptHash, IEnumerable<ContractArgument> arguments)
             {
-                using var builder = new Neo.VM.ScriptBuilder();
+                using var builder = new EpicChain.VM.ScriptBuilder();
                 foreach (var argument in arguments.Reverse())
                 {
                     argument.EmitPush(builder);

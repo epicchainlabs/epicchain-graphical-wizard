@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Neo;
-using Neo.Persistence;
-using Neo.SmartContract;
+using EpicChain.Persistence;
+using EpicChain.SmartContract;
 
 namespace NeoDebug.Neo3
 {
@@ -17,7 +17,7 @@ namespace NeoDebug.Neo3
             public StorageContainer(UInt160 scriptHash, DataCache snapshot)
             {
                 this.snapshot = snapshot;
-                contractId = Neo.SmartContract.Native.NativeContract.ContractManagement.GetContract(snapshot, scriptHash)?.Id;
+                contractId = EpicChain.SmartContract.Native.NativeContract.ContractManagement.GetContract(snapshot, scriptHash)?.Id;
             }
 
             protected override IEnumerable<(ReadOnlyMemory<byte>, StorageItem)> GetStorages()

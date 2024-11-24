@@ -1,4 +1,4 @@
-﻿using Neo.VM;
+﻿using EpicChain.VM;
 using NeoDebug.ModelAdapters;
 using System;
 
@@ -10,12 +10,12 @@ namespace NeoDebug
     {
         public static void RegisterContract(Action<string, Func<ExecutionEngine, bool>, int> register)
         {
-            register("Neo.Contract.Create", Contract_Create, 0);
-            register("Neo.Contract.Migrate", Contract_Migrate, 0);
-            register("Neo.Contract.Destroy", Contract_Destroy, 1);
-            register("Neo.Contract.GetScript", Contract_GetScript, 1);
-            register("Neo.Contract.IsPayable", Contract_IsPayable, 1);
-            register("Neo.Contract.GetStorageContext", Contract_GetStorageContext, 1);
+            register("EpicChain.Contract.Create", Contract_Create, 0);
+            register("EpicChain.Contract.Migrate", Contract_Migrate, 0);
+            register("EpicChain.Contract.Destroy", Contract_Destroy, 1);
+            register("EpicChain.Contract.GetScript", Contract_GetScript, 1);
+            register("EpicChain.Contract.IsPayable", Contract_IsPayable, 1);
+            register("EpicChain.Contract.GetStorageContext", Contract_GetStorageContext, 1);
 
             register("System.Contract.Destroy", Contract_Destroy, 1);
             register("System.Contract.GetStorageContext", Contract_GetStorageContext, 1);

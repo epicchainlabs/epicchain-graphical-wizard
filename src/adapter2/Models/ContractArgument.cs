@@ -1,4 +1,4 @@
-﻿using Neo.VM;
+﻿using EpicChain.VM;
 using NeoFx.Models;
 using System;
 using System.Linq;

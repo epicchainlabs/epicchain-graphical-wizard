@@ -1,4 +1,4 @@
-using Neo.Network.P2P.Payloads;
+using EpicChain.Network.P2P.Payloads;
 using Newtonsoft.Json.Linq;
 using System;
 

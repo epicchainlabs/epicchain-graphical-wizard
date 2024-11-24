@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
-using Neo.SmartContract;
-using StackItem = Neo.VM.Types.StackItem;
+using EpicChain.SmartContract;
+using StackItem = EpicChain.VM.Types.StackItem;
 
 namespace NeoDebug.Neo3
 {

@@ -1,7 +1,7 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 using Neo;
-using Neo.BlockchainToolkit;
+using EpicChain.BlockchainToolkit;
 
 namespace NeoDebug.Neo3
 {

@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
-using Neo.BlockchainToolkit.Models;
-using Neo.SmartContract;
+using EpicChain.BlockchainToolkit.Models;
+using EpicChain.SmartContract;
 
 namespace NeoDebug.Neo3
 {
-    using StackItem = Neo.VM.Types.StackItem;
+    using StackItem = EpicChain.VM.Types.StackItem;
 
     class ExecutionContextContainer : IVariableContainer
     {

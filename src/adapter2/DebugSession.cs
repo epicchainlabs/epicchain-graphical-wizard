@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
-using Neo.VM;
+using EpicChain.VM;
 using NeoDebug.Models;
 using NeoDebug.VariableContainers;
 using NeoFx;
@@ -538,7 +538,7 @@ namespace NeoDebug
                     continue;
 
                 var locals = method.GetLocals().ToArray();
-                var variables = (Neo.VM.Types.Array)context.AltStack.Peek(0);
+                var variables = (EpicChain.VM.Types.Array)context.AltStack.Peek(0);
 
                 for (int varIndex = 0; varIndex < Math.Min(variables.Count, locals.Length); varIndex++)
                 {
@@ -565,7 +565,7 @@ namespace NeoDebug
             {
                 if (index.HasValue)
                 {
-                    if (item is Neo.VM.Types.Array neoArray
+                    if (item is EpicChain.VM.Types.Array neoArray
                         && index.Value < neoArray.Count)
                     {
                         return neoArray[(int)index.Value].GetVariable(this, local.name + $"[{index.Value}]", typeHint);

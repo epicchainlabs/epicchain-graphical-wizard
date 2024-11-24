@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Neo.SmartContract;
-using StackItem = Neo.VM.Types.StackItem;
+using EpicChain.SmartContract;
+using StackItem = EpicChain.VM.Types.StackItem;
 using Neo;
-using Neo.VM;
-using Neo.BlockchainToolkit;
+using EpicChain.VM;
+using EpicChain.BlockchainToolkit;
 
 namespace NeoDebug.Neo3
 {
@@ -49,7 +49,7 @@ namespace NeoDebug.Neo3
             public UInt160 ScriptHash { get; }
             public UInt160 ScriptIdentifier { get; }
 
-            static IReadOnlyList<StackItem> Coalese(Neo.VM.Slot? slot) => (slot == null) ? Array.Empty<StackItem>() : slot;
+            static IReadOnlyList<StackItem> Coalese(EpicChain.VM.Slot? slot) => (slot == null) ? Array.Empty<StackItem>() : slot;
         }
 
     }

@@ -10,24 +10,24 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 using Neo;
-using Neo.BlockchainToolkit;
-using Neo.BlockchainToolkit.Models;
-using Neo.BlockchainToolkit.Persistence;
-using Neo.BlockchainToolkit.SmartContract;
-using Neo.Cryptography.ECC;
-using Neo.IO;
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
-using Neo.SmartContract;
-using Neo.SmartContract.Manifest;
-using Neo.SmartContract.Native;
-using Neo.VM;
-using Neo.Wallets;
+using EpicChain.BlockchainToolkit;
+using EpicChain.BlockchainToolkit.Models;
+using EpicChain.BlockchainToolkit.Persistence;
+using EpicChain.BlockchainToolkit.SmartContract;
+using EpicChain.Cryptography.ECC;
+using EpicChain.IO;
+using EpicChain.Network.P2P.Payloads;
+using EpicChain.Persistence;
+using EpicChain.SmartContract;
+using EpicChain.SmartContract.Manifest;
+using EpicChain.SmartContract.Native;
+using EpicChain.VM;
+using EpicChain.Wallets;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OneOf;
-using Script = Neo.VM.Script;
-using StackItem = Neo.VM.Types.StackItem;
+using Script = EpicChain.VM.Script;
+using StackItem = EpicChain.VM.Types.StackItem;
 
 namespace NeoDebug.Neo3
 {
@@ -306,9 +306,9 @@ namespace NeoDebug.Neo3
             // following logic lifted from ContractManagement.Deploy
             static ContractState Deploy(DataCache snapshot, Signer deploySigner, NefFile nefFile, ContractManifest manifest, ProtocolSettings settings)
             {
-                Neo.SmartContract.Helper.Check(nefFile.Script, manifest.Abi);
+                EpicChain.SmartContract.Helper.Check(nefFile.Script, manifest.Abi);
 
-                var hash = Neo.SmartContract.Helper.GetContractHash(deploySigner.Account, nefFile.CheckSum, manifest.Name);
+                var hash = EpicChain.SmartContract.Helper.GetContractHash(deploySigner.Account, nefFile.CheckSum, manifest.Name);
                 var key = new KeyBuilder(NativeContract.ContractManagement.Id, Prefix_Contract).Add(hash);
 
                 if (snapshot.Contains(key)) throw new InvalidOperationException($"Contract Already Exists: {hash}");
@@ -331,7 +331,7 @@ namespace NeoDebug.Neo3
             // following logic lifted from ContractManagement.Update
             static void Update(DataCache snapshot, Signer deploySigner, UInt160 contractHash, NefFile nefFile, ContractManifest manifest, ProtocolSettings settings)
             {
-                Neo.SmartContract.Helper.Check(nefFile.Script, manifest.Abi);
+                EpicChain.SmartContract.Helper.Check(nefFile.Script, manifest.Abi);
 
                 var key = new KeyBuilder(NativeContract.ContractManagement.Id, Prefix_Contract).Add(contractHash);
                 var contract = snapshot.GetAndChange(key)?.GetInteroperable<ContractState>();
@@ -437,11 +437,11 @@ namespace NeoDebug.Neo3
             static byte[] Filter(string filter, string result)
             {
                 if (string.IsNullOrEmpty(filter))
-                    return Neo.Utility.StrictUTF8.GetBytes(result);
+                    return EpicChain.Utility.StrictUTF8.GetBytes(result);
 
                 var beforeObject = Newtonsoft.Json.Linq.JObject.Parse(result);
                 var afterObjects = new Newtonsoft.Json.Linq.JArray(beforeObject.SelectTokens(filter));
-                return Neo.Utility.StrictUTF8.GetBytes(afterObjects.ToString(Newtonsoft.Json.Formatting.None));
+                return EpicChain.Utility.StrictUTF8.GetBytes(afterObjects.ToString(Newtonsoft.Json.Formatting.None));
             }
 
             static (ulong requestId, OracleRequest request) GetOracleRequestId(IStore store, in OracleResponseInvocation invocation, UInt160 contractHash, ContractParameterParser paramParser)
@@ -461,7 +461,7 @@ namespace NeoDebug.Neo3
                 // If there's no outstanding request for this URL/contract, create one
                 // following logic lifted from OracleContract.Request
                 var userData = invocation.UserData == null
-                    ? Neo.VM.Types.Null.Null
+                    ? EpicChain.VM.Types.Null.Null
                     : paramParser.ParseParameter(invocation.UserData).ToStackItem();
 
                 using (var snapshot = new SnapshotCache(store.GetSnapshot()))
@@ -474,9 +474,9 @@ namespace NeoDebug.Neo3
                     const int MaxUrlLength = 256;
                     const int MaxUserDataLength = 512;
 
-                    if (Neo.Utility.StrictUTF8.GetByteCount(invocation.Url) > MaxUrlLength) throw new ArgumentException("Invalid URL Length");
-                    if (Neo.Utility.StrictUTF8.GetByteCount(invocation.Filter) > MaxFilterLength) throw new ArgumentException("Invalid Filter Length");
-                    if (Neo.Utility.StrictUTF8.GetByteCount(invocation.Callback) > MaxCallbackLength) throw new ArgumentException("Invalid Callback Length");
+                    if (EpicChain.Utility.StrictUTF8.GetByteCount(invocation.Url) > MaxUrlLength) throw new ArgumentException("Invalid URL Length");
+                    if (EpicChain.Utility.StrictUTF8.GetByteCount(invocation.Filter) > MaxFilterLength) throw new ArgumentException("Invalid Filter Length");
+                    if (EpicChain.Utility.StrictUTF8.GetByteCount(invocation.Callback) > MaxCallbackLength) throw new ArgumentException("Invalid Callback Length");
                     if (invocation.Callback.StartsWith('_')) throw new ArgumentException($"Invalid Callback {invocation.Callback}");
 
                     var idKey = new KeyBuilder(NativeContract.Oracle.Id, Prefix_RequestId);
@@ -497,7 +497,7 @@ namespace NeoDebug.Neo3
                     };
                     snapshot.Add(requestKey, new StorageItem(request));
 
-                    var urlHash = Neo.Cryptography.Crypto.Hash160(Neo.Utility.StrictUTF8.GetBytes(invocation.Url));
+                    var urlHash = EpicChain.Cryptography.Crypto.Hash160(EpicChain.Utility.StrictUTF8.GetBytes(invocation.Url));
                     var listKey = new KeyBuilder(NativeContract.Oracle.Id, Prefix_IdList).Add(urlHash);
                     var list = snapshot.GetAndChange(listKey, () => new StorageItem(new IdList())).GetInteroperable<IdList>();
                     if (list.Count >= 256)
@@ -514,13 +514,13 @@ namespace NeoDebug.Neo3
         {
             public void FromStackItem(StackItem stackItem)
             {
-                foreach (StackItem item in (Neo.VM.Types.Array)stackItem)
+                foreach (StackItem item in (EpicChain.VM.Types.Array)stackItem)
                     Add((ulong)item.GetInteger());
             }
 
             public StackItem ToStackItem(ReferenceCounter referenceCounter)
             {
-                return new Neo.VM.Types.Array(referenceCounter, this.Select(p => (Neo.VM.Types.Integer)p));
+                return new EpicChain.VM.Types.Array(referenceCounter, this.Select(p => (EpicChain.VM.Types.Integer)p));
             }
         }
 
@@ -705,7 +705,7 @@ namespace NeoDebug.Neo3
                 {
                     var account = nodeWallet.Accounts[i];
                     var script = Convert.FromHexString(account.Contract?.Script ?? "");
-                    if (Neo.SmartContract.Helper.IsMultiSigContract(script))
+                    if (EpicChain.SmartContract.Helper.IsMultiSigContract(script))
                     {
                         return account.ScriptHash.ToScriptHash(version);
                     }

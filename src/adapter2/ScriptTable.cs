@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace NeoDebug
 {
-    class ScriptTable : Neo.VM.IScriptTable
+    class ScriptTable : EpicChain.VM.IScriptTable
     {
         private readonly Dictionary<UInt160, byte[]> scripts = new Dictionary<UInt160, byte[]>();
 

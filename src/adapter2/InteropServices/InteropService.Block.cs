@@ -1,4 +1,4 @@
-﻿using Neo.VM;
+﻿using EpicChain.VM;
 using NeoDebug.ModelAdapters;
 using System;
 
@@ -10,9 +10,9 @@ namespace NeoDebug
     {
         public void RegisterBlock(Action<string, Func<ExecutionEngine, bool>, int> register)
         {
-            register("Neo.Block.GetTransactionCount", Block_GetTransactionCount, 1);
-            register("Neo.Block.GetTransactions", Block_GetTransactions, 1);
-            register("Neo.Block.GetTransaction", Block_GetTransaction, 1);
+            register("EpicChain.Block.GetTransactionCount", Block_GetTransactionCount, 1);
+            register("EpicChain.Block.GetTransactions", Block_GetTransactions, 1);
+            register("EpicChain.Block.GetTransaction", Block_GetTransaction, 1);
 
             register("System.Block.GetTransactionCount", Block_GetTransactionCount, 1);
             register("System.Block.GetTransactions", Block_GetTransactions, 1);

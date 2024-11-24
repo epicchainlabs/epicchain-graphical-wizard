@@ -166,13 +166,13 @@
     <Content Include="adapter\neo-bctklib.dll">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="adapter\Neo.dll">
+    <Content Include="adapter\EpicChain.dll">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="adapter\Neo.Json.dll">
+    <Content Include="adapter\EpicChain.Json.dll">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="adapter\Neo.VM.dll">
+    <Content Include="adapter\EpicChain.VM.dll">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="adapter\neodebug-3-adapter.deps.json">

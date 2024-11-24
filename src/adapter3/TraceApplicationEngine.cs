@@ -1,15 +1,15 @@
 using System;
 using System.Collections.Generic;
-using Neo.SmartContract;
-using StackItem = Neo.VM.Types.StackItem;
-using NeoArray = Neo.VM.Types.Array;
+using EpicChain.SmartContract;
+using StackItem = EpicChain.VM.Types.StackItem;
+using NeoArray = EpicChain.VM.Types.Array;
 using Neo;
-using Neo.VM;
+using EpicChain.VM;
 using System.Diagnostics.CodeAnalysis;
-using Neo.BlockchainToolkit.TraceDebug;
+using EpicChain.BlockchainToolkit.TraceDebug;
 using System.Linq;
 using System.IO;
-using Neo.SmartContract.Native;
+using EpicChain.SmartContract.Native;
 
 namespace NeoDebug.Neo3
 {
@@ -23,7 +23,7 @@ namespace NeoDebug.Neo3
 
         public TraceApplicationEngine(string traceFilePath, IEnumerable<NefFile> contracts)
         {
-            this.contracts = contracts.ToDictionary(c => Neo.SmartContract.Helper.ToScriptHash(c.Script.Span), c => (Script)c.Script);
+            this.contracts = contracts.ToDictionary(c => EpicChain.SmartContract.Helper.ToScriptHash(c.Script.Span), c => (Script)c.Script);
             traceFile = new TraceFile(traceFilePath, this.contracts);
 
             while (traceFile.TryGetNext(out var record))

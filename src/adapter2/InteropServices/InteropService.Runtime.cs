@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
-using Neo.VM;
+using EpicChain.VM;
 using NeoDebug.Models;
 using NeoFx;
 using Newtonsoft.Json;
@@ -17,13 +17,13 @@ namespace NeoDebug
     {
         private void RegisterRuntime(Action<string, Func<ExecutionEngine, bool>, int> register)
         {
-            register("Neo.Runtime.GetTrigger", Runtime_GetTrigger, 1);
-            register("Neo.Runtime.CheckWitness", Runtime_CheckWitness, 200);
-            register("Neo.Runtime.Notify", Runtime_Notify, 1);
-            register("Neo.Runtime.Log", Runtime_Log, 1);
-            register("Neo.Runtime.GetTime", Runtime_GetTime, 1);
-            register("Neo.Runtime.Serialize", Runtime_Serialize, 1);
-            register("Neo.Runtime.Deserialize", Runtime_Deserialize, 1);
+            register("EpicChain.Runtime.GetTrigger", Runtime_GetTrigger, 1);
+            register("EpicChain.Runtime.CheckWitness", Runtime_CheckWitness, 200);
+            register("EpicChain.Runtime.Notify", Runtime_Notify, 1);
+            register("EpicChain.Runtime.Log", Runtime_Log, 1);
+            register("EpicChain.Runtime.GetTime", Runtime_GetTime, 1);
+            register("EpicChain.Runtime.Serialize", Runtime_Serialize, 1);
+            register("EpicChain.Runtime.Deserialize", Runtime_Deserialize, 1);
 
             register("System.Runtime.Platform", Runtime_Platform, 1);
             register("System.Runtime.GetTrigger", Runtime_GetTrigger, 1);
@@ -94,7 +94,7 @@ namespace NeoDebug
 
             string GetOutput(UInt160 scriptHash, StackItem state)
             {
-                if (state is Neo.VM.Types.Array array && array.Count >= 1)
+                if (state is EpicChain.VM.Types.Array array && array.Count >= 1)
                 {
                     var name = Encoding.UTF8.GetString(array[0].GetByteArray());
                     if (events.TryGetValue((scriptHash, name), out var @event))
@@ -122,10 +122,10 @@ namespace NeoDebug
                     "String" => item.GetString(),
                     _ => item switch
                     {
-                        Neo.VM.Types.Boolean _ => item.GetBoolean().ToString(),
-                        Neo.VM.Types.ByteArray _ => $"{item.GetBigInteger().ToHexString()} ({item.GetString()})",
-                        Neo.VM.Types.Integer _ => item.GetBigInteger().ToString(),
-                        Neo.VM.Types.Array array => new JArray(array.Select(i => StackItemToJson(i, null))),
+                        EpicChain.VM.Types.Boolean _ => item.GetBoolean().ToString(),
+                        EpicChain.VM.Types.ByteArray _ => $"{item.GetBigInteger().ToHexString()} ({item.GetString()})",
+                        EpicChain.VM.Types.Integer _ => item.GetBigInteger().ToString(),
+                        EpicChain.VM.Types.Array array => new JArray(array.Select(i => StackItemToJson(i, null))),
                         _ => throw new NotSupportedException(item.GetType().Name),
                     }
                 };
@@ -204,25 +204,25 @@ namespace NeoDebug
                 item = unserialized.Pop();
                 switch (item)
                 {
-                    case Neo.VM.Types.ByteArray _:
+                    case EpicChain.VM.Types.ByteArray _:
                         writer.Write((byte)StackItemType.ByteArray);
                         writer.WriteVarBytes(item.GetByteArray());
                         break;
-                    case Neo.VM.Types.Boolean _:
+                    case EpicChain.VM.Types.Boolean _:
                         writer.Write((byte)StackItemType.Boolean);
                         writer.Write(item.GetBoolean());
                         break;
-                    case Neo.VM.Types.Integer _:
+                    case EpicChain.VM.Types.Integer _:
                         writer.Write((byte)StackItemType.Integer);
                         writer.WriteVarBytes(item.GetByteArray());
                         break;
-                    case Neo.VM.Types.InteropInterface _:
+                    case EpicChain.VM.Types.InteropInterface _:
                         throw new NotSupportedException();
-                    case Neo.VM.Types.Array array:
+                    case EpicChain.VM.Types.Array array:
                         if (serialized.Any(p => ReferenceEquals(p, array)))
                             throw new NotSupportedException();
                         serialized.Add(array);
-                        if (array is Neo.VM.Types.Struct)
+                        if (array is EpicChain.VM.Types.Struct)
                             writer.Write((byte)StackItemType.Struct);
                         else
                             writer.Write((byte)StackItemType.Array);
@@ -230,7 +230,7 @@ namespace NeoDebug
                         for (int i = array.Count - 1; i >= 0; i--)
                             unserialized.Push(array[i]);
                         break;
-                    case Neo.VM.Types.Map map:
+                    case EpicChain.VM.Types.Map map:
                         if (serialized.Any(p => ReferenceEquals(p, map)))
                             throw new NotSupportedException();
                         serialized.Add(map);
@@ -278,13 +278,13 @@ namespace NeoDebug
                 switch (type)
                 {
                     case StackItemType.ByteArray:
-                        deserialized.Push(new Neo.VM.Types.ByteArray(reader.ReadVarBytes()));
+                        deserialized.Push(new EpicChain.VM.Types.ByteArray(reader.ReadVarBytes()));
                         break;
                     case StackItemType.Boolean:
-                        deserialized.Push(new Neo.VM.Types.Boolean(reader.ReadBoolean()));
+                        deserialized.Push(new EpicChain.VM.Types.Boolean(reader.ReadBoolean()));
                         break;
                     case StackItemType.Integer:
-                        deserialized.Push(new Neo.VM.Types.Integer(new System.Numerics.BigInteger(reader.ReadVarBytes())));
+                        deserialized.Push(new EpicChain.VM.Types.Integer(new System.Numerics.BigInteger(reader.ReadVarBytes())));
                         break;
                     case StackItemType.Array:
                     case StackItemType.Struct:
@@ -322,19 +322,19 @@ namespace NeoDebug
                     switch (placeholder.Type)
                     {
                         case StackItemType.Array:
-                            var array = new Neo.VM.Types.Array();
+                            var array = new EpicChain.VM.Types.Array();
                             for (int i = 0; i < placeholder.ElementCount; i++)
                                 array.Add(stack_temp.Pop());
                             item = array;
                             break;
                         case StackItemType.Struct:
-                            var @struct = new Neo.VM.Types.Struct();
+                            var @struct = new EpicChain.VM.Types.Struct();
                             for (int i = 0; i < placeholder.ElementCount; i++)
                                 @struct.Add(stack_temp.Pop());
                             item = @struct;
                             break;
                         case StackItemType.Map:
-                            var map = new Neo.VM.Types.Map();
+                            var map = new EpicChain.VM.Types.Map();
                             for (int i = 0; i < placeholder.ElementCount; i++)
                             {
                                 StackItem key = stack_temp.Pop();

@@ -4,16 +4,16 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
 using Neo;
-using Neo.BlockchainToolkit.Persistence;
-using Neo.BlockchainToolkit.SmartContract;
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
-using Neo.SmartContract;
-using Neo.SmartContract.Native;
-using Neo.VM;
+using EpicChain.BlockchainToolkit.Persistence;
+using EpicChain.BlockchainToolkit.SmartContract;
+using EpicChain.Network.P2P.Payloads;
+using EpicChain.Persistence;
+using EpicChain.SmartContract;
+using EpicChain.SmartContract.Native;
+using EpicChain.VM;
 
-using NeoArray = Neo.VM.Types.Array;
-using StackItem = Neo.VM.Types.StackItem;
+using NeoArray = EpicChain.VM.Types.Array;
+using StackItem = EpicChain.VM.Types.StackItem;
 
 namespace NeoDebug.Neo3
 {

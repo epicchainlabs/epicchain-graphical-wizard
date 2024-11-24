@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
-using Neo.VM;
-using StackItem = Neo.VM.Types.StackItem;
+using EpicChain.VM;
+using StackItem = EpicChain.VM.Types.StackItem;
 
 namespace NeoDebug.Neo3
 {

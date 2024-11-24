@@ -1,4 +1,4 @@
-using Neo.VM;
+using EpicChain.VM;
 using NeoDebug.Models;
 using NeoFx;
 using System.Collections.Generic;

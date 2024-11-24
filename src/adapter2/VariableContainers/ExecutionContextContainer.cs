@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
-using Neo.VM;
+using EpicChain.VM;
 using NeoDebug.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +28,7 @@ namespace NeoDebug.VariableContainers
         {
             if (context.AltStack.Count > 0)
             {
-                var variables = (Neo.VM.Types.Array)context.AltStack.Peek(0);
+                var variables = (EpicChain.VM.Types.Array)context.AltStack.Peek(0);
 
                 for (int i = 0; i < variables.Count; i++)
                 {

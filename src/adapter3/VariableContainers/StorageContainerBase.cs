@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
-using Neo.SmartContract;
+using EpicChain.SmartContract;
 
 namespace NeoDebug.Neo3
 {
-    using StackItem = Neo.VM.Types.StackItem;
+    using StackItem = EpicChain.VM.Types.StackItem;
 
     internal abstract class StorageContainerBase : IVariableContainer
     {

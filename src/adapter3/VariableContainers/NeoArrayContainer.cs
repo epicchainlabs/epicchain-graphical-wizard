@@ -3,8 +3,8 @@ using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 
 namespace NeoDebug.Neo3
 {
-    using NeoArray = Neo.VM.Types.Array;
-    using NeoStruct = Neo.VM.Types.Struct;
+    using NeoArray = EpicChain.VM.Types.Array;
+    using NeoStruct = EpicChain.VM.Types.Struct;
 
     class NeoArrayContainer : IVariableContainer
     {

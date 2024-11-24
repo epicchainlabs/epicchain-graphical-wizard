@@ -5,16 +5,16 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 using Neo;
-using Neo.BlockchainToolkit.Models;
-using Neo.SmartContract;
-using Neo.VM;
+using EpicChain.BlockchainToolkit.Models;
+using EpicChain.SmartContract;
+using EpicChain.VM;
 
 namespace NeoDebug.Neo3
 {
-    using ByteString = Neo.VM.Types.ByteString;
-    using NeoArray = Neo.VM.Types.Array;
-    using StackItem = Neo.VM.Types.StackItem;
-    using StackItemType = Neo.VM.Types.StackItemType;
+    using ByteString = EpicChain.VM.Types.ByteString;
+    using NeoArray = EpicChain.VM.Types.Array;
+    using StackItem = EpicChain.VM.Types.StackItem;
+    using StackItemType = EpicChain.VM.Types.StackItemType;
 
     internal class DebugSession : IDebugSession, IDisposable
     {
@@ -76,7 +76,7 @@ namespace NeoDebug.Neo3
             engine.Dispose();
         }
 
-        private bool TryGetScript(UInt160 scriptHash, [MaybeNullWhen(false)] out Neo.VM.Script script)
+        private bool TryGetScript(UInt160 scriptHash, [MaybeNullWhen(false)] out EpicChain.VM.Script script)
         {
             if (engine.TryGetContract(scriptHash, out var contractScript))
             {
@@ -327,9 +327,9 @@ namespace NeoDebug.Neo3
                 {
                     var newItem = item switch
                     {
-                        Neo.VM.Types.Buffer buffer => (int)buffer.InnerBuffer.Span[index],
-                        Neo.VM.Types.ByteString byteString => (int)byteString.GetSpan()[index],
-                        Neo.VM.Types.Array array => array[index],
+                        EpicChain.VM.Types.Buffer buffer => (int)buffer.InnerBuffer.Span[index],
+                        EpicChain.VM.Types.ByteString byteString => (int)byteString.GetSpan()[index],
+                        EpicChain.VM.Types.Array array => array[index],
                         _ => throw new InvalidOperationException(),
                     };
 
@@ -422,7 +422,7 @@ namespace NeoDebug.Neo3
                     if (span.Length == UInt160.Length)
                     {
                         var uint160 = new UInt160(span);
-                        return Neo.Wallets.Helper.ToAddress(uint160, version);
+                        return EpicChain.Wallets.Helper.ToAddress(uint160, version);
                     }
                 }
                 catch { }

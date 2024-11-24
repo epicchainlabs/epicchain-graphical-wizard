@@ -1,7 +1,7 @@
 using NeoDebug.Models;
 using System;
 using System.Text;
-using OpCode = Neo.VM.OpCode;
+using OpCode = EpicChain.VM.OpCode;
 
 namespace NeoDebug
 {

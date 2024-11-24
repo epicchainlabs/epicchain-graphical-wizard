@@ -1,4 +1,4 @@
-﻿using Neo.VM;
+﻿using EpicChain.VM;
 using NeoDebug.ModelAdapters;
 using System;
 
@@ -8,10 +8,10 @@ namespace NeoDebug
     {
         public void RegisterAccount(Action<string, Func<ExecutionEngine, bool>, int> register)
         {
-            register("Neo.Account.GetScriptHash", Account_GetScriptHash, 1);
-            register("Neo.Account.GetVotes", Account_GetVotes, 1);
-            register("Neo.Account.GetBalance", Account_GetBalance, 1);
-            register("Neo.Account.IsStandard", Account_IsStandard, 100);
+            register("EpicChain.Account.GetScriptHash", Account_GetScriptHash, 1);
+            register("EpicChain.Account.GetVotes", Account_GetVotes, 1);
+            register("EpicChain.Account.GetBalance", Account_GetBalance, 1);
+            register("EpicChain.Account.IsStandard", Account_IsStandard, 100);
 
             register("AntShares.Account.GetScriptHash", Account_GetScriptHash, 1);
             register("AntShares.Account.GetVotes", Account_GetVotes, 1);

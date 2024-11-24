@@ -5,7 +5,7 @@ using Neo;
 
 namespace NeoDebug.Neo3
 {
-    using NeoMap = Neo.VM.Types.Map;
+    using NeoMap = EpicChain.VM.Types.Map;
 
     class NeoMapContainer : IVariableContainer
     {
@@ -34,9 +34,9 @@ namespace NeoDebug.Neo3
             {
                 var keyString = key switch
                 {
-                    Neo.VM.Types.Boolean @bool => @bool.GetBoolean().ToString(),
-                    Neo.VM.Types.ByteString byteString => byteString.GetSpan().ToHexString(),
-                    Neo.VM.Types.Integer @int => @int.GetInteger().ToString(),
+                    EpicChain.VM.Types.Boolean @bool => @bool.GetBoolean().ToString(),
+                    EpicChain.VM.Types.ByteString byteString => byteString.GetSpan().ToHexString(),
+                    EpicChain.VM.Types.Integer @int => @int.GetInteger().ToString(),
                     _ => throw new NotImplementedException($"Unknown primitive type {key.GetType()}"),
                 };
 

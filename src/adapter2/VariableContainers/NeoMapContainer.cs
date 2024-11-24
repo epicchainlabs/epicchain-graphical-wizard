@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
-using Neo.VM;
+using EpicChain.VM;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -28,15 +28,15 @@ namespace NeoDebug.VariableContainers
         }
 
         private readonly IVariableContainerSession session;
-        private readonly Neo.VM.Types.Map map;
+        private readonly EpicChain.VM.Types.Map map;
 
-        public NeoMapContainer(IVariableContainerSession session, Neo.VM.Types.Map map)
+        public NeoMapContainer(IVariableContainerSession session, EpicChain.VM.Types.Map map)
         {
             this.session = session;
             this.map = map;
         }
 
-        public static Variable Create(IVariableContainerSession session, Neo.VM.Types.Map map, string? name)
+        public static Variable Create(IVariableContainerSession session, EpicChain.VM.Types.Map map, string? name)
         {
             var container = new NeoMapContainer(session, map);
             var containerID = session.AddVariableContainer(container);

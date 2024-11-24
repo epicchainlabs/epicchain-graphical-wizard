@@ -4,8 +4,8 @@ using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 
 namespace NeoDebug.Neo3
 {
-    using ByteString = Neo.VM.Types.ByteString;
-    using Buffer = Neo.VM.Types.Buffer;
+    using ByteString = EpicChain.VM.Types.ByteString;
+    using Buffer = EpicChain.VM.Types.Buffer;
 
     class ByteArrayContainer : IVariableContainer
     {

@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol;
 using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
-using Neo.VM;
+using EpicChain.VM;
 using NeoDebug.Models;
 using Newtonsoft.Json.Linq;
 using System;

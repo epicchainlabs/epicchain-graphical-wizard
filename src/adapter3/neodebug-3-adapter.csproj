@@ -5,7 +5,7 @@
     <LangVersion>10</LangVersion>
     <Nullable>enable</Nullable>
     <OutputType>Exe</OutputType>
-    <PackageId>Neo.Debug3.Adapter</PackageId>
+    <PackageId>EpicChain.Debug3.Adapter</PackageId>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/neo-project/neo-debugger</PackageProjectUrl>
     <PackageTags>Neo;Blockchain;Smart Contract;Debugger</PackageTags>
@@ -36,7 +36,7 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="Neo.BlockchainToolkit.Library" Version="$(BlockchainToolkitLibraryVersion)" />
+        <PackageReference Include="EpicChain.BlockchainToolkit.Library" Version="$(BlockchainToolkitLibraryVersion)" />
       </ItemGroup>
     </Otherwise>
   </Choose>

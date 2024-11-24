@@ -6,21 +6,21 @@ namespace NeoDebug.VariableContainers
     class NeoArrayContainer : IVariableContainer
     {
         private readonly IVariableContainerSession session;
-        private readonly Neo.VM.Types.Array array;
+        private readonly EpicChain.VM.Types.Array array;
         private readonly string? name;
 
-        private NeoArrayContainer(IVariableContainerSession session, Neo.VM.Types.Array array, string name)
+        private NeoArrayContainer(IVariableContainerSession session, EpicChain.VM.Types.Array array, string name)
         {
             this.session = session;
             this.array = array;
             this.name = name;
         }
 
-        public static Variable Create(IVariableContainerSession session, Neo.VM.Types.Array array, string name)
+        public static Variable Create(IVariableContainerSession session, EpicChain.VM.Types.Array array, string name)
         {
             var container = new NeoArrayContainer(session, array, name);
             var containerID = session.AddVariableContainer(container);
-            var typeName = array is Neo.VM.Types.Struct
+            var typeName = array is EpicChain.VM.Types.Struct
                 ? "Struct" : "Array";
             return new Variable()
             {

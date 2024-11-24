@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Neo.SmartContract;
+using EpicChain.SmartContract;
 
 namespace NeoDebug.Neo3
 {

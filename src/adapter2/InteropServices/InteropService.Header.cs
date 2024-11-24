@@ -1,4 +1,4 @@
-﻿using Neo.VM;
+﻿using EpicChain.VM;
 using NeoDebug.ModelAdapters;
 using System;
 
@@ -10,14 +10,14 @@ namespace NeoDebug
     {
         public void RegisterHeader(Action<string, Func<ExecutionEngine, bool>, int> Register)
         {
-            Register("Neo.Header.GetHash", Header_GetHash, 1);
-            Register("Neo.Header.GetVersion", Header_GetVersion, 1);
-            Register("Neo.Header.GetPrevHash", Header_GetPrevHash, 1);
-            Register("Neo.Header.GetMerkleRoot", Header_GetMerkleRoot, 1);
-            Register("Neo.Header.GetTimestamp", Header_GetTimestamp, 1);
-            Register("Neo.Header.GetIndex", Header_GetIndex, 1);
-            Register("Neo.Header.GetConsensusData", Header_GetConsensusData, 1);
-            Register("Neo.Header.GetNextConsensus", Header_GetNextConsensus, 1);
+            Register("EpicChain.Header.GetHash", Header_GetHash, 1);
+            Register("EpicChain.Header.GetVersion", Header_GetVersion, 1);
+            Register("EpicChain.Header.GetPrevHash", Header_GetPrevHash, 1);
+            Register("EpicChain.Header.GetMerkleRoot", Header_GetMerkleRoot, 1);
+            Register("EpicChain.Header.GetTimestamp", Header_GetTimestamp, 1);
+            Register("EpicChain.Header.GetIndex", Header_GetIndex, 1);
+            Register("EpicChain.Header.GetConsensusData", Header_GetConsensusData, 1);
+            Register("EpicChain.Header.GetNextConsensus", Header_GetNextConsensus, 1);
 
             Register("System.Header.GetIndex", Header_GetIndex, 1);
             Register("System.Header.GetHash", Header_GetHash, 1);

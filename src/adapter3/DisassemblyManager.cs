@@ -8,11 +8,11 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using Neo;
-using Neo.BlockchainToolkit;
-using Neo.BlockchainToolkit.Models;
-using Neo.SmartContract;
-using Neo.VM;
-using Helper = Neo.SmartContract.Helper;
+using EpicChain.BlockchainToolkit;
+using EpicChain.BlockchainToolkit.Models;
+using EpicChain.SmartContract;
+using EpicChain.VM;
+using Helper = EpicChain.SmartContract.Helper;
 
 namespace NeoDebug.Neo3
 {

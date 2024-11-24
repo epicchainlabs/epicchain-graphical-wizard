@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using StackItem = Neo.VM.Types.StackItem;
+using StackItem = EpicChain.VM.Types.StackItem;
 using Neo;
-using Neo.VM;
-using Neo.BlockchainToolkit.TraceDebug;
-using Neo.SmartContract.Native;
-using Neo.SmartContract;
+using EpicChain.VM;
+using EpicChain.BlockchainToolkit.TraceDebug;
+using EpicChain.SmartContract.Native;
+using EpicChain.SmartContract;
 
 namespace NeoDebug.Neo3
 {

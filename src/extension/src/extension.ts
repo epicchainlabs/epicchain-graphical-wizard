@@ -409,9 +409,9 @@ class NeoContractDebugAdapterDescriptorFactory implements vscode.DebugAdapterDes
         function getAdapterPackageId(program: string) {
             switch (path.extname(program)) {
                 case '.nef':
-                    return 'Neo.Debug3.Adapter';
+                    return 'EpicChain.Debug3.Adapter';
                 case '.avm':
-                    return 'Neo.Debug2.Adapter';
+                    return 'EpicChain.Debug2.Adapter';
                 default:
                     throw new Error(`Unexpected Neo contract extension ${path.extname(program)}`);
             }
@@ -446,9 +446,9 @@ class NeoContractDebugAdapterDescriptorFactory implements vscode.DebugAdapterDes
     private getAdapterProjectPath(packageId: string): string {
         const segments = [this.extensionPath, ".."];
         switch (packageId) {
-            case 'Neo.Debug3.Adapter':
+            case 'EpicChain.Debug3.Adapter':
                 segments.push('adapter3'); break;
-            case 'Neo.Debug2.Adapter':
+            case 'EpicChain.Debug2.Adapter':
                 segments.push('adapter2'); break;
             default:
                 throw new Error(`Unexpected adapter package ${packageId}`);
@@ -461,10 +461,10 @@ class NeoContractDebugAdapterDescriptorFactory implements vscode.DebugAdapterDes
         const segments = [adapterProjectPath, "bin", "Debug"];
 
         switch (packageId) {
-            case 'Neo.Debug3.Adapter':
+            case 'EpicChain.Debug3.Adapter':
                 segments.push("net6.0");
                 break;
-            case 'Neo.Debug2.Adapter':
+            case 'EpicChain.Debug2.Adapter':
                 segments.push("netcoreapp3.1");
                 break;
             default:
@@ -479,10 +479,10 @@ class NeoContractDebugAdapterDescriptorFactory implements vscode.DebugAdapterDes
 
         let path: string;
         switch (packageId) {
-            case 'Neo.Debug3.Adapter':
+            case 'EpicChain.Debug3.Adapter':
                 path = 'neodebug-3-adapter';
                 break;
-            case 'Neo.Debug2.Adapter':
+            case 'EpicChain.Debug2.Adapter':
                 path = 'neodebug-2-adapter';
                 break;
             default:

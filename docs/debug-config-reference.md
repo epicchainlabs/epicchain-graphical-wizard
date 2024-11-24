@@ -273,7 +273,7 @@ Examples:
 ```json
 "storage": [
     {
-        "key": "neo.org",
+        "key": "EpicChain.org",
         "value": "EpicChain Foundation"
     }
 ],

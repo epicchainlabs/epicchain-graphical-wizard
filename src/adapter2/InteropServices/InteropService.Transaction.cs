@@ -1,5 +1,5 @@
 ﻿using System;
-using Neo.VM;
+using EpicChain.VM;
 using NeoDebug.ModelAdapters;
 
 
@@ -10,23 +10,23 @@ namespace NeoDebug
     {
         public void RegisterTransaction(Action<string, Func<ExecutionEngine, bool>, int> register)
         {
-            register("Neo.Transaction.GetHash", Transaction_GetHash, 1);
-            register("Neo.Transaction.GetType", Transaction_GetType, 1);
-            register("Neo.Transaction.GetAttributes", Transaction_GetAttributes, 1);
-            register("Neo.Transaction.GetInputs", Transaction_GetInputs, 1);
-            register("Neo.Transaction.GetOutputs", Transaction_GetOutputs, 1);
-            register("Neo.Transaction.GetReferences", Transaction_GetReferences, 200);
-            register("Neo.Transaction.GetUnspentCoins", Transaction_GetUnspentCoins, 200);
-            register("Neo.Transaction.GetWitnesses", Transaction_GetWitnesses, 200);
-            register("Neo.InvocationTransaction.GetScript", InvocationTransaction_GetScript, 1);
-            register("Neo.Input.GetHash", Input_GetHash, 1);
-            register("Neo.Input.GetIndex", Input_GetIndex, 1);
-            register("Neo.Output.GetAssetId", Output_GetAssetId, 1);
-            register("Neo.Output.GetValue", Output_GetValue, 1);
-            register("Neo.Output.GetScriptHash", Output_GetScriptHash, 1);
-            register("Neo.Witness.GetVerificationScript", Witness_GetVerificationScript, 100);
-            register("Neo.Attribute.GetUsage", Attribute_GetUsage, 1);
-            register("Neo.Attribute.GetData", Attribute_GetData, 1);
+            register("EpicChain.Transaction.GetHash", Transaction_GetHash, 1);
+            register("EpicChain.Transaction.GetType", Transaction_GetType, 1);
+            register("EpicChain.Transaction.GetAttributes", Transaction_GetAttributes, 1);
+            register("EpicChain.Transaction.GetInputs", Transaction_GetInputs, 1);
+            register("EpicChain.Transaction.GetOutputs", Transaction_GetOutputs, 1);
+            register("EpicChain.Transaction.GetReferences", Transaction_GetReferences, 200);
+            register("EpicChain.Transaction.GetUnspentCoins", Transaction_GetUnspentCoins, 200);
+            register("EpicChain.Transaction.GetWitnesses", Transaction_GetWitnesses, 200);
+            register("EpicChain.InvocationTransaction.GetScript", InvocationTransaction_GetScript, 1);
+            register("EpicChain.Input.GetHash", Input_GetHash, 1);
+            register("EpicChain.Input.GetIndex", Input_GetIndex, 1);
+            register("EpicChain.Output.GetAssetId", Output_GetAssetId, 1);
+            register("EpicChain.Output.GetValue", Output_GetValue, 1);
+            register("EpicChain.Output.GetScriptHash", Output_GetScriptHash, 1);
+            register("EpicChain.Witness.GetVerificationScript", Witness_GetVerificationScript, 100);
+            register("EpicChain.Attribute.GetUsage", Attribute_GetUsage, 1);
+            register("EpicChain.Attribute.GetData", Attribute_GetData, 1);
 
             register("System.Transaction.GetHash", Transaction_GetHash, 1);
 

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Neo.SmartContract;
-using StackItem = Neo.VM.Types.StackItem;
-using NeoArray = Neo.VM.Types.Array;
+using EpicChain.SmartContract;
+using StackItem = EpicChain.VM.Types.StackItem;
+using NeoArray = EpicChain.VM.Types.Array;
 using Neo;
-using Neo.VM;
+using EpicChain.VM;
 using System.Diagnostics.CodeAnalysis;
 
 namespace NeoDebug.Neo3

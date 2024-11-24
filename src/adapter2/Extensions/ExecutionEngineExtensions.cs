@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
-using Neo.VM;
-using Neo.VM.Types;
+using EpicChain.VM;
+using EpicChain.VM.Types;
 using NeoDebug.VariableContainers;
 using NeoFx;
 
@@ -140,29 +140,29 @@ namespace NeoDebug
             return item switch
             {
                 IVariableProvider provider => provider.GetVariable(session, name),
-                Neo.VM.Types.Boolean _ => new Variable()
+                EpicChain.VM.Types.Boolean _ => new Variable()
                 {
                     Name = name,
                     Value = item.GetBoolean().ToString(),
                     Type = "Boolean"
                 },
-                Neo.VM.Types.Integer _ => new Variable()
+                EpicChain.VM.Types.Integer _ => new Variable()
                 {
                     Name = name,
                     Value = item.GetBigInteger().ToString(),
                     Type = "Integer"
                 },
-                Neo.VM.Types.ByteArray byteArray => ByteArrayContainer.Create(session, byteArray, name),
-                Neo.VM.Types.InteropInterface _ => new Variable()
+                EpicChain.VM.Types.ByteArray byteArray => ByteArrayContainer.Create(session, byteArray, name),
+                EpicChain.VM.Types.InteropInterface _ => new Variable()
                 {
                     Name = name,
                     Type = "InteropInterface",
                     Value = string.Empty
                 },
-                Neo.VM.Types.Map map => NeoMapContainer.Create(session, map, name),
+                EpicChain.VM.Types.Map map => NeoMapContainer.Create(session, map, name),
                 // NeoArrayContainer.Create will detect Struct (which inherits from Array)
                 // and distinguish accordingly
-                Neo.VM.Types.Array array => NeoArrayContainer.Create(session, array, name),
+                EpicChain.VM.Types.Array array => NeoArrayContainer.Create(session, array, name),
                 _ => throw new NotImplementedException($"GetStackItemValue {item.GetType().FullName}"),
             };
         }

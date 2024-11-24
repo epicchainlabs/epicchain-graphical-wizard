@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
-using Neo.VM;
+using EpicChain.VM;
 using NeoDebug.VariableContainers;
 using NeoFx;
 using NeoFx.Models;
@@ -34,13 +34,13 @@ namespace NeoDebug
 
         public void RegisterStorage(Action<string, Func<ExecutionEngine, bool>, int> register)
         {
-            register("Neo.Storage.GetContext", Storage_GetContext, 1);
-            register("Neo.Storage.GetReadOnlyContext", Storage_GetReadOnlyContext, 1);
-            register("Neo.Storage.Get", Storage_Get, 100);
-            register("Neo.Storage.Put", Storage_Put, 0);
-            register("Neo.Storage.Delete", Storage_Delete, 100);
-            register("Neo.Storage.Find", Storage_Find, 1);
-            register("Neo.StorageContext.AsReadOnly", StorageContext_AsReadOnly, 1);
+            register("EpicChain.Storage.GetContext", Storage_GetContext, 1);
+            register("EpicChain.Storage.GetReadOnlyContext", Storage_GetReadOnlyContext, 1);
+            register("EpicChain.Storage.Get", Storage_Get, 100);
+            register("EpicChain.Storage.Put", Storage_Put, 0);
+            register("EpicChain.Storage.Delete", Storage_Delete, 100);
+            register("EpicChain.Storage.Find", Storage_Find, 1);
+            register("EpicChain.StorageContext.AsReadOnly", StorageContext_AsReadOnly, 1);
 
             register("System.Storage.GetContext", Storage_GetContext, 1);
             register("System.Storage.GetReadOnlyContext", Storage_GetReadOnlyContext, 1);

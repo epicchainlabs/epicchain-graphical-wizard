@@ -1,4 +1,4 @@
-﻿using Neo.VM;
+﻿using EpicChain.VM;
 using NeoFx;
 using NeoFx.Models;
 using System;
@@ -11,15 +11,15 @@ namespace NeoDebug
     {
         public void RegisterBlockchain(Action<string, Func<ExecutionEngine, bool>, int> register)
         {
-            register("Neo.Blockchain.GetHeight", Blockchain_GetHeight, 1);
-            register("Neo.Blockchain.GetHeader", Blockchain_GetHeader, 100);
-            register("Neo.Blockchain.GetBlock", Blockchain_GetBlock, 200);
-            register("Neo.Blockchain.GetTransaction", Blockchain_GetTransaction, 100);
-            register("Neo.Blockchain.GetTransactionHeight", Blockchain_GetTransactionHeight, 100);
-            register("Neo.Blockchain.GetAccount", Blockchain_GetAccount, 100);
-            register("Neo.Blockchain.GetValidators", Blockchain_GetValidators, 200);
-            register("Neo.Blockchain.GetAsset", Blockchain_GetAsset, 100);
-            register("Neo.Blockchain.GetContract", Blockchain_GetContract, 100);
+            register("EpicChain.Blockchain.GetHeight", Blockchain_GetHeight, 1);
+            register("EpicChain.Blockchain.GetHeader", Blockchain_GetHeader, 100);
+            register("EpicChain.Blockchain.GetBlock", Blockchain_GetBlock, 200);
+            register("EpicChain.Blockchain.GetTransaction", Blockchain_GetTransaction, 100);
+            register("EpicChain.Blockchain.GetTransactionHeight", Blockchain_GetTransactionHeight, 100);
+            register("EpicChain.Blockchain.GetAccount", Blockchain_GetAccount, 100);
+            register("EpicChain.Blockchain.GetValidators", Blockchain_GetValidators, 200);
+            register("EpicChain.Blockchain.GetAsset", Blockchain_GetAsset, 100);
+            register("EpicChain.Blockchain.GetContract", Blockchain_GetContract, 100);
 
             register("System.Blockchain.GetHeight", Blockchain_GetHeight, 1);
             register("System.Blockchain.GetHeader", Blockchain_GetHeader, 100);
