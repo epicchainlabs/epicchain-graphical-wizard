@@ -1,9 +1,9 @@
 ﻿using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 using EpicChain.VM;
 using EpicChainTraceVisualizer.VariableContainers;
-using NeoFx;
-using NeoFx.Models;
-using NeoFx.Storage;
+using EpicChainFx;
+using EpicChainFx.Models;
+using EpicChainFx.Storage;
 using System.Buffers;
 using System.Collections.Generic;
 using System.Diagnostics;

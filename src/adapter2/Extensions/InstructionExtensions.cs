@@ -60,7 +60,7 @@ namespace EpicChainTraceVisualizer
                 case OpCode.TAILCALL:
                 case OpCode.APPCALL:
                     {
-                        var scriptHash = new NeoFx.UInt160(@this.Operand.Span);
+                        var scriptHash = new EpicChainFx.UInt160(@this.Operand.Span);
                         return scriptHash.ToString();
                     }
                 case OpCode.CALL_I:
@@ -77,7 +77,7 @@ namespace EpicChainTraceVisualizer
                     {
                         var returnCount = @this.Operand.Span[0];
                         var paramCount = @this.Operand.Span[1];
-                        var scriptHash = new NeoFx.UInt160(@this.Operand.Span.Slice(2));
+                        var scriptHash = new EpicChainFx.UInt160(@this.Operand.Span.Slice(2));
                         return $"hash: {scriptHash}, param count: {paramCount}, return count: {returnCount}";
                     }
                 case OpCode.CALL_ED:

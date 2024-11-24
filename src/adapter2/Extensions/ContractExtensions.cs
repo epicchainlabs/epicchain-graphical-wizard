@@ -1,6 +1,6 @@
 using EpicChain.VM;
 using EpicChainTraceVisualizer.Models;
-using NeoFx;
+using EpicChainFx;
 using System.Collections.Generic;
 using System.Linq;
 

@@ -1,5 +1,5 @@
 ﻿using EpicChain.VM;
-using NeoFx;
+using EpicChainFx;
 using System;
 
 namespace EpicChainTraceVisualizer

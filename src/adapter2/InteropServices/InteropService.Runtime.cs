@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 using EpicChain.VM;
 using EpicChainTraceVisualizer.Models;
-using NeoFx;
+using EpicChainFx;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;

@@ -1,6 +1,6 @@
 ﻿using EpicChain.VM;
-using NeoFx;
-using NeoFx.Models;
+using EpicChainFx;
+using EpicChainFx.Models;
 using System;
 
 

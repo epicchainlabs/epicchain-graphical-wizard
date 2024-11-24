@@ -2,7 +2,7 @@
 using EpicChain.VM;
 using EpicChainTraceVisualizer.Models;
 using EpicChainTraceVisualizer.VariableContainers;
-using NeoFx;
+using EpicChainFx;
 using System;
 using System.Buffers;
 using System.Collections.Generic;

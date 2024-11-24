@@ -9,9 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 using EpicChainTraceVisualizer.Models;
-using NeoFx;
-using NeoFx.Models;
-using NeoFx.Storage;
+using EpicChainFx;
+using EpicChainFx.Models;
+using EpicChainFx.Storage;
 using Newtonsoft.Json.Linq;
 
 namespace EpicChainTraceVisualizer
@@ -82,7 +82,7 @@ namespace EpicChainTraceVisualizer
         {
             if (config.TryGetValue("checkpoint", out var checkpoint))
             {
-                return NeoFx.RocksDb.RocksDbStore.OpenCheckpoint(checkpoint.Value<string>());
+                return EpicChainFx.RocksDb.RocksDbStore.OpenCheckpoint(checkpoint.Value<string>());
             }
 
             return null;

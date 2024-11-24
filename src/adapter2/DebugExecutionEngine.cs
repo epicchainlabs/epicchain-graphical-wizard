@@ -2,9 +2,9 @@
 using EpicChain.VM;
 using EpicChainTraceVisualizer.Models;
 using EpicChainTraceVisualizer.VariableContainers;
-using NeoFx;
-using NeoFx.Models;
-using NeoFx.Storage;
+using EpicChainFx;
+using EpicChainFx.Models;
+using EpicChainFx.Storage;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;

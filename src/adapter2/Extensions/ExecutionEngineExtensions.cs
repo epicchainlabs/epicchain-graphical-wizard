@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 using EpicChain.VM;
 using EpicChain.VM.Types;
 using EpicChainTraceVisualizer.VariableContainers;
-using NeoFx;
+using EpicChainFx;
 
 namespace EpicChainTraceVisualizer
 {

@@ -1,5 +1,5 @@
 ﻿using EpicChainTraceVisualizer.Models;
-using NeoFx;
+using EpicChainFx;
 using System;
 using System.Collections.Generic;
 

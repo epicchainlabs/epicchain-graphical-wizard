@@ -1,5 +1,5 @@
 ﻿using EpicChain.VM;
-using NeoFx.Models;
+using EpicChainFx.Models;
 using System;
 using System.Linq;
 using System.Numerics;
