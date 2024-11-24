@@ -289,7 +289,7 @@
                             },
                             "traceFile": {
                                 "type": "string",
-                                "description": "Absolute path to .neo-trace file"
+                                "description": "Absolute path to .epicchain-trace file"
                             },
                             "signers": {
                                 "type": "array",
