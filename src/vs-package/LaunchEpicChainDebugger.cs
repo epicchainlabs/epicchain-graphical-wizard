@@ -96,14 +96,14 @@ namespace NeoDebug.VS
             var dte = ServiceProvider.GetService<SDTE, DTE2>();
             var launchConfigs = GetLaunchJsonFiles(dte.Solution)
                 .SelectMany(ParseLaunchJsonFile)
-                .Where(t => t.config.TryGetValue("type", out JToken type) && type.Value<string>() == "neo-contract")
+                .Where(t => t.config.TryGetValue("type", out JToken type) && type.Value<string>() == "epicchain-contract")
                 .ToList();
 
             if (launchConfigs.Count == 0)
             {
                 _ = VsShellUtilities.ShowMessageBox(
                     package,
-                    "No neo-contract Launch Configurations Found",
+                    "No epicchain-contract Launch Configurations Found",
                     nameof(LaunchEpicChainDebugger),
                     OLEMSGICON.OLEMSGICON_INFO,
                     OLEMSGBUTTON.OLEMSGBUTTON_OK,

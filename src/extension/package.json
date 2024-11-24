@@ -84,7 +84,7 @@
         },
         "debuggers": [
             {
-                "type": "neo-contract",
+                "type": "epicchain-contract",
                 "label": "EpicChain Contract",
                 "configurationAttributes": {
                     "launch": {
@@ -471,7 +471,7 @@
                         "description": "A new configuration for debugging a EpicChain Smart Contract",
                         "body": {
                             "name": "EpicChain Contract",
-                            "type": "neo-contract",
+                            "type": "epicchain-contract",
                             "request": "launch",
                             "program": "${workspaceFolder}",
                             "invocation": {
@@ -522,7 +522,7 @@
             "debug/toolBar": [
                 {
                     "command": "epicchain-graphical-wizard.toggleDebugView",
-                    "when": "debugType == 'neo-contract'"
+                    "when": "debugType == 'epicchain-contract'"
                 }
             ]
         },

@@ -208,10 +208,10 @@ export async function activate(context: vscode.ExtensionContext) {
     let neoDebugChannel = vscode.window.createOutputChannel('EpicChain Graphical Wizard Log');
 
     const configProvider = new NeoContractDebugConfigurationProvider();
-    context.subscriptions.push(vscode.debug.registerDebugConfigurationProvider("neo-contract", configProvider));
+    context.subscriptions.push(vscode.debug.registerDebugConfigurationProvider("epicchain-contract", configProvider));
 
     const factory = new EpicChainContractDebugAdapterDescriptorFactory(context, neoDebugChannel);
-    context.subscriptions.push(vscode.debug.registerDebugAdapterDescriptorFactory("neo-contract", factory));
+    context.subscriptions.push(vscode.debug.registerDebugAdapterDescriptorFactory("epicchain-contract", factory));
 
     context.subscriptions.push(vscode.commands.registerCommand("epicchain-graphical-wizard.displaySourceView",
         async () => await changeDebugView("source")));
@@ -230,7 +230,7 @@ async function changeDebugView(debugView: 'source' | 'disassembly' | 'toggle') {
         debugView: debugView
     };
 
-    if (vscode.debug.activeDebugSession && vscode.debug.activeDebugSession.type === 'neo-contract') {
+    if (vscode.debug.activeDebugSession && vscode.debug.activeDebugSession.type === 'epicchain-contract') {
         await vscode.debug.activeDebugSession.customRequest("debugview", settings);
     }
 }
@@ -246,7 +246,7 @@ class NeoContractDebugConfigurationProvider implements vscode.DebugConfiguration
 
             return {
                 name: programPath ? path.basename(programPath) : "EpicChain Contract",
-                type: "neo-contract",
+                type: "epicchain-contract",
                 request: "launch",
                 "epicchain-trace-visualizer": epicchainxpConfig && folder
                     ? slash(path.join("${workspaceFolder}", epicchainxpConfig))
