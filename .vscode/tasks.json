@@ -10,7 +10,7 @@
             "command": "dotnet",
             "args": [
                 "publish",
-                 "${workspaceFolder}/src/adapter3/neodebug-3-adapter.csproj",
+                 "${workspaceFolder}/src/adapter3/epicchaindebug-3-adapter.csproj",
                  "--output",
                  "${workspaceFolder}/src/vs-package/adapter",
                  "--runtime",

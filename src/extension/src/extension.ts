@@ -10,7 +10,7 @@ import { createWriteStream, stat, unlink, WriteStream } from 'fs';
 import { Octokit } from "@octokit/rest";
 
 const OWNER = 'neo-project';
-const REPO = 'neo-debugger';
+const REPO = 'epicchain-graphical-wizard';
 
 interface GithubReleaseAsset {
     url: string;
@@ -205,7 +205,7 @@ function downloadAsset(asset: GithubReleaseAsset, path: string, url?: string) {
 // your extension is activated the very first time the command is executed
 export async function activate(context: vscode.ExtensionContext) {
 
-    let neoDebugChannel = vscode.window.createOutputChannel('EpicChain Debugger Log');
+    let neoDebugChannel = vscode.window.createOutputChannel('EpicChain Graphical Wizard Log');
 
     const configProvider = new NeoContractDebugConfigurationProvider();
     context.subscriptions.push(vscode.debug.registerDebugConfigurationProvider("neo-contract", configProvider));
@@ -213,11 +213,11 @@ export async function activate(context: vscode.ExtensionContext) {
     const factory = new NeoContractDebugAdapterDescriptorFactory(context, neoDebugChannel);
     context.subscriptions.push(vscode.debug.registerDebugAdapterDescriptorFactory("neo-contract", factory));
 
-    context.subscriptions.push(vscode.commands.registerCommand("neo-debugger.displaySourceView",
+    context.subscriptions.push(vscode.commands.registerCommand("epicchain-graphical-wizard.displaySourceView",
         async () => await changeDebugView("source")));
-    context.subscriptions.push(vscode.commands.registerCommand("neo-debugger.displayDisassemblyView",
+    context.subscriptions.push(vscode.commands.registerCommand("epicchain-graphical-wizard.displayDisassemblyView",
         async () => await changeDebugView("disassembly")));
-    context.subscriptions.push(vscode.commands.registerCommand("neo-debugger.toggleDebugView",
+    context.subscriptions.push(vscode.commands.registerCommand("epicchain-graphical-wizard.toggleDebugView",
         async () => await changeDebugView("toggle")));
 }
 
@@ -241,14 +241,14 @@ class NeoContractDebugConfigurationProvider implements vscode.DebugConfiguration
         function createConfig(programPath: string | undefined = undefined): vscode.DebugConfiguration {
             var fs = require('fs');
             const neoxpConfig: string | undefined = folder ? fs.readdirSync(folder.uri.fsPath).find(function (x: string) {
-                return x.endsWith(".neo-express")
+                return x.endsWith(".epicchain-trace-visualizer")
             }) : undefined;
 
             return {
                 name: programPath ? path.basename(programPath) : "EpicChain Contract",
                 type: "neo-contract",
                 request: "launch",
-                "neo-express": neoxpConfig && folder
+                "epicchain-trace-visualizer": neoxpConfig && folder
                     ? slash(path.join("${workspaceFolder}", neoxpConfig))
                     : "${workspaceFolder}/<insert path to EpicChain express config here>",
                 program: programPath && folder
@@ -291,7 +291,7 @@ class NeoContractDebugAdapterDescriptorFactory implements vscode.DebugAdapterDes
         const program: string = session.configuration["program"];
         this.validateDebugConfig(program, session.configuration);
 
-        const config = vscode.workspace.getConfiguration("neo-debugger");
+        const config = vscode.workspace.getConfiguration("epicchain-graphical-wizard");
         const adapterCmd = await this.getDebugAdapterCommand(program, config);
         if (!adapterCmd) return null;
         const { cmd, args } = adapterCmd;
@@ -480,7 +480,7 @@ class NeoContractDebugAdapterDescriptorFactory implements vscode.DebugAdapterDes
         let path: string;
         switch (packageId) {
             case 'EpicChain.Debug3.Adapter':
-                path = 'neodebug-3-adapter';
+                path = 'epicchaindebug-3-adapter';
                 break;
             case 'EpicChain.Debug2.Adapter':
                 path = 'neodebug-2-adapter';

@@ -18,11 +18,11 @@
         "Debuggers"
     ],
     "bugs": {
-        "url": "https://github.com/neo-project/neo-debugger/issues"
+        "url": "https://github.com/epicchainlabs/epicchain-graphical-wizard/issues"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/neo-project/neo-debugger.git"
+        "url": "https://github.com/epicchainlabs/epicchain-graphical-wizard.git"
     },
     "keywords": [
         "Neo",
@@ -31,8 +31,8 @@
     ],
     "badges": [
         {
-            "url": "https://github.com/neo-project/neo-debugger/actions/workflows/build-vscode.yml/badge.svg",
-            "href": "https://github.com/neo-project/neo-debugger/actions",
+            "url": "https://github.com/epicchainlabs/epicchain-graphical-wizard/actions/workflows/build-vscode.yml/badge.svg",
+            "href": "https://github.com/epicchainlabs/epicchain-graphical-wizard/actions",
             "description": "Build Status"
         }
     ],
@@ -43,19 +43,19 @@
     "contributes": {
         "configuration": {
             "type": "object",
-            "title": "EpicChain Debugger",
+            "title": "EpicChain Graphical Wizard",
             "properties": {
-                "neo-debugger.log": {
+                "epicchain-graphical-wizard.log": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Enable debug adapter logging to %LOCALAPPDATA%/Neo-Debugger/logs"
+                    "description": "Enable debug adapter logging to %LOCALAPPDATA%/epicchain-graphical-wizard/logs"
                 },
-                "neo-debugger.debug": {
+                "epicchain-graphical-wizard.debug": {
                     "type": "boolean",
                     "default": false,
-                    "markdownDescription": "Pass the `--debug` flag when launching the EpicChain debug adapter. Note, this setting is for developers who are _contributing_ to the EpicChain Debugger extension. If you're _using_ the EpicChain Debugger extension, this flag will **_cause the debugger to hang_**."
+                    "markdownDescription": "Pass the `--debug` flag when launching the EpicChain debug adapter. Note, this setting is for developers who are _contributing_ to the EpicChain Graphical Wizard extension. If you're _using_ the EpicChain Graphical Wizard extension, this flag will **_cause the debugger to hang_**."
                 },
-                "neo-debugger.default-debug-view": {
+                "epicchain-graphical-wizard.default-debug-view": {
                     "type": "string",
                     "enum": [
                         "source",
@@ -64,17 +64,17 @@
                     "default": "source",
                     "description": "Specify the default debug view"
                 },
-                "neo-debugger.debug-adapter": {
+                "epicchain-graphical-wizard.debug-adapter": {
                     "type": "array",
                     "items": "string",
                     "description": "Path to the EpicChain debug adapter executable"
                 },
-                "neo-debugger.adapter-project": {
+                "epicchain-graphical-wizard.adapter-project": {
                     "type": "boolean",
                     "default": true,
                     "description": "Use debug adapter source project when debugging extension"
                 },
-                "neo-debugger.release-tag": {
+                "epicchain-graphical-wizard.release-tag": {
                     "type": "string",
                     "default": null,
                     "description": "GitHub release tag. Defaults to extension version"
@@ -214,9 +214,9 @@
                                     ]
                                 }
                             },
-                            "neo-express": {
+                            "epicchain-trace-visualizer": {
                                 "type": "string",
-                                "description": "Absolute path to EpicChain Express file (.neo-express / .neo-express.json)"
+                                "description": "Absolute path to EpicChain Express file (.epicchain-trace-visualizer / .epicchain-trace-visualizer.json)"
                             },
                             "address-version": {
                                 "type": "integer",
@@ -285,7 +285,7 @@
                             },
                             "checkpoint": {
                                 "type": "string",
-                                "description": "Optional neo-express checkpoint file used for contract execution"
+                                "description": "Optional epicchain-trace-visualizer checkpoint file used for contract execution"
                             },
                             "traceFile": {
                                 "type": "string",
@@ -499,19 +499,19 @@
         ],
         "commands": [
             {
-                "category": "EpicChain Debugger",
+                "category": "EpicChain Graphical Wizard",
                 "title": "Display source view",
-                "command": "neo-debugger.displaySourceView"
+                "command": "epicchain-graphical-wizard.displaySourceView"
             },
             {
-                "category": "EpicChain Debugger",
+                "category": "EpicChain Graphical Wizard",
                 "title": "Display disassembly view",
-                "command": "neo-debugger.displayDisassemblyView"
+                "command": "epicchain-graphical-wizard.displayDisassemblyView"
             },
             {
-                "category": "EpicChain Debugger",
+                "category": "EpicChain Graphical Wizard",
                 "title": "Toggle Debug view",
-                "command": "neo-debugger.toggleDebugView",
+                "command": "epicchain-graphical-wizard.toggleDebugView",
                 "icon": {
                     "light": "resources/light/tools.svg",
                     "dark": "resources/dark/tools.svg"
@@ -521,7 +521,7 @@
         "menus": {
             "debug/toolBar": [
                 {
-                    "command": "neo-debugger.toggleDebugView",
+                    "command": "epicchain-graphical-wizard.toggleDebugView",
                     "when": "debugType == 'neo-contract'"
                 }
             ]

@@ -175,16 +175,16 @@
     <Content Include="adapter\EpicChain.VM.dll">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="adapter\neodebug-3-adapter.deps.json">
+    <Content Include="adapter\epicchaindebug-3-adapter.deps.json">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-      <Content Include="adapter\neodebug-3-adapter.dll">
+      <Content Include="adapter\epicchaindebug-3-adapter.dll">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="adapter\neodebug-3-adapter.exe">
+    <Content Include="adapter\epicchaindebug-3-adapter.exe">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="adapter\neodebug-3-adapter.runtimeconfig.json">
+    <Content Include="adapter\epicchaindebug-3-adapter.runtimeconfig.json">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="adapter\Nerdbank.Streams.dll">

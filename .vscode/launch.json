@@ -21,7 +21,7 @@
             "name": "Attach  Debug Adapter",
             "type": "coreclr",
             "request": "attach",
-            "processName": "neodebug-3-adapter"
+            "processName": "epicchaindebug-3-adapter"
         }
     ]
 }

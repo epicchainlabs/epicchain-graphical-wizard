@@ -53,7 +53,7 @@ jobs:
     #   minor version. So if current prodution release is 3.2.x, develop branch will be 3.3-preview
     # Master branch minor version will always be one higher than develop branch. So if current develop
     #   branch is 3.3-preview, master branch version will be 3.4-preview   
-    # Details: https://github.com/neo-project/neo-debugger#versioning-strategy
+    # Details: https://github.com/epicchainlabs/epicchain-graphical-wizard#versioning-strategy
 
     # relInfo step calculates release information for later use in the workflow
     #   * preRelease is true for develop branch builds and false otherwise

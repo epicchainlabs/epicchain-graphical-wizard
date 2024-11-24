@@ -194,7 +194,7 @@ namespace NeoDebug.Neo3
 
         static ExpressChain? LoadNeoExpress(ConfigProps config)
         {
-            if (config.TryGetValue("neo-express", out var neoExpressPath))
+            if (config.TryGetValue("epicchain-trace-visualizer", out var neoExpressPath))
             {
                 var fs = new System.IO.Abstractions.FileSystem();
                 return fs.LoadChain(neoExpressPath.Value<string>()
@@ -643,7 +643,7 @@ namespace NeoDebug.Neo3
         {
             if (text[0] == '@')
             {
-                if (chain == null) throw new FormatException($"You must specify a neo-express file in your launch config in order to use {text} as an address");
+                if (chain == null) throw new FormatException($"You must specify a epicchain-trace-visualizer file in your launch config in order to use {text} as an address");
                 var account = text[1..];
 
                 if (chain.Wallets != null && chain.Wallets.Count > 0)

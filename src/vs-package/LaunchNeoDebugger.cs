@@ -283,7 +283,7 @@ namespace NeoDebug.VS
         {
             string codebase = typeof(NeoDebuggerPackage).Assembly.CodeBase;
             var uri = new Uri(codebase, UriKind.Absolute);
-            return Path.Combine(Path.GetDirectoryName(uri.LocalPath), "adapter\\neodebug-3-adapter.exe");
+            return Path.Combine(Path.GetDirectoryName(uri.LocalPath), "adapter\\epicchaindebug-3-adapter.exe");
         }
     }
 }

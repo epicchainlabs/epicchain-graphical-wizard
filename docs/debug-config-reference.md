@@ -26,7 +26,7 @@ Example:
 
 ## invocation
 
-Describes how the contract will be invoked. EpicChain debugger supports multiple invocation mechanisms,
+Describes how the contract will be invoked. EpicChain Graphical Wizard supports multiple invocation mechanisms,
 described below.
 
 ### invoke operation
@@ -95,7 +95,7 @@ Properties for this invocation type include:
 * `filter`: JSONPath filter value to use for synthesized oracle requests
 * `gas`: gasForResponse value to use for synthesized oracle requests
 
-> EpicChain Debugger will generate an oracle request for the contract specified in `program` property using
+> EpicChain Graphical Wizard will generate an oracle request for the contract specified in `program` property using
   the `url`, `callback`, `filter` and `gas` properties of the oracle response invocation object if
   there isn't an existing outstanding request in the specified `checkpoint`. If there is an existing
   oracle request for the specified `url`, the `callback`, `filter` and `gas` properties are ignored.
@@ -133,11 +133,11 @@ configuration properties (such as `signers` and operation `args`) to reference a
 Specifies the path to a NeoExpress checkpoint file. Specifying this property enables the debugger to 
 use real blockchain data while debugging.
 
-> Note, EpicChain Debugger *NEVER* updates an actual NeoExpress node instance. Contract storage changes are
+> Note, EpicChain Graphical Wizard *NEVER* updates an actual NeoExpress node instance. Contract storage changes are
   stored in memory and discarded when the debugging session ends. Each individual launch of the debugger
   starts from the same initial state. 
 
-If this property is not set, EpicChain Debugger creates a stub EpicChain Blockchain with only the genesis block.
+If this property is not set, EpicChain Graphical Wizard creates a stub EpicChain Blockchain with only the genesis block.
 The debugger ensures the contract specified in `program` is deployed on the chain, but adds no other
 contract storage information. By specifying a `checkpoint`, the developer can debug scenarios with
 representative data stored in an actual instance of a NeoExpress node.
@@ -176,7 +176,7 @@ Properties for a `signers` object include:
   Contract hashes can be specified by hex encoded string or deployed contract name.
 * `allowedgroups` specifies the list of custom group hex-encoded public keys allowed by the `WitnessScope.CustomGroups` scope.
 
-> Note, at this time `WitnessScope.WitnessRules` is not supported by the EpicChain debugger.
+> Note, at this time `WitnessScope.WitnessRules` is not supported by the EpicChain Graphical Wizard.
 
 If no `signers` are specified, a single signer with a dummy account value and `WitnessScope.None` scope
 is used. The dummy account signer will fail all `Runtime.CheckWitness` calls unless the `check-result`
@@ -241,7 +241,7 @@ This property specifies a list of paths to other .NEF files that a given launch 
 interact with. This property enables the debugger to load the debug info for these additional contracts
 to enable stepping across contract boundaries.
 
-Note, unlike the contract specified in `program`, the EpicChain Debugger does NOT ensure the latest version
+Note, unlike the contract specified in `program`, the EpicChain Graphical Wizard does NOT ensure the latest version
 of the `stored-contracts` are deployed to the stub debug chain. This property is only useful in conjunction
 with the `checkpoint` property, assuming the contracts listed in `stored-contracts` were deployed before
 the checkpoint was created.
@@ -273,7 +273,7 @@ Examples:
 ```json
 "storage": [
     {
-        "key": "EpicChain.org",
+        "key": "epic-chain.org",
         "value": "EpicChain Foundation"
     }
 ],

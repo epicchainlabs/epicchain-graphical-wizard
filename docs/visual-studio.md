@@ -47,9 +47,9 @@ This line informs the wizard that the project is an **EpicChain smart contract**
 
 ---
 
-### 4. EpicChain Debugger – Simple and Efficient
+### 4. EpicChain Graphical Wizard – Simple and Efficient
 
-Once your project and configurations are set up, you can easily launch the **EpicChain Debugger** by selecting the **"Launch EpicChain Graphical Wizard"** option from Visual Studio’s top-level **Debug menu**. 
+Once your project and configurations are set up, you can easily launch the **EpicChain Graphical Wizard** by selecting the **"Launch EpicChain Graphical Wizard"** option from Visual Studio’s top-level **Debug menu**. 
 
 This feature brings a robust debugging environment to your project, with tools that allow you to:
 

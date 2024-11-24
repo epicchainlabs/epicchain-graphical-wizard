@@ -169,7 +169,7 @@ file be configured as described above.
   Other designs that are better integrated with contract storage imperative code or that leverage compile-time
   source generation will be considered before final release of the Storage Schema feature. If you have any
   feedback or suggestions regarding this design, please feel free to let us know by opening issues in the 
-  [debugger GitHub repo](https://github.com/epicchainlabs/epicchain-debugger/issues).
+  [debugger GitHub repo](https://github.com/epicchainlabs/epicchain-graphical-wizard/issues).
 
 Once you install the preview debugger and C# compiler and the Smart Contract Framework package reference
 has been updated to the latest version, you should be able to get the new rich Storage Schema experience
@@ -253,7 +253,7 @@ from the [`ContractParameterType` enumeration](https://github.com/epicchainlabs/
 from the core EpicChain platform. `Address` is an alias for `Hash160`. The only difference is how they are
 displayed in the debugger. `Hash160` values are displayed as hex encoded byte arrays while `Address`
 values are displayed as standard EpicChain  addresses. The 
-[Primitive Type section](https://github.com/epicchainlabs/epicchain-debugger/blob/master/docs/storage-schema-overview.md#primitive-type)
+[Primitive Type section](https://github.com/epicchainlabs/epicchain-graphical-wizard/blob/master/docs/storage-schema-overview.md#primitive-type)
 below has more details on how the debugger handles address encoding.
 
 * Boolean

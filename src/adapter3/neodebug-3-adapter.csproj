@@ -1,16 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <AssemblyName>neodebug-3-adapter</AssemblyName>
+    <AssemblyName>epicchain-graphical-wizard</AssemblyName>
     <Authors>EpicChain Global Development Seattle</Authors>
     <LangVersion>10</LangVersion>
     <Nullable>enable</Nullable>
     <OutputType>Exe</OutputType>
     <PackageId>EpicChain.Debug3.Adapter</PackageId>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/neo-project/neo-debugger</PackageProjectUrl>
-    <PackageTags>Neo;Blockchain;Smart Contract;Debugger</PackageTags>
+    <PackageProjectUrl>https://github.com/epicchainlabs/epicchain-graphical-wizard</PackageProjectUrl>
+    <PackageTags>EpicChain;Blockchain;Smart Contract;Debugger</PackageTags>
     <PackAsTool>true</PackAsTool>
-    <RootNamespace>NeoDebug.Neo3</RootNamespace>
+    <RootNamespace>EpicChainGraphicalWizard.EpicChain</RootNamespace>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>

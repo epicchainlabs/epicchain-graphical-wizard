@@ -21,7 +21,7 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
     - name: publish EpicChain  debug adapter
-      run: dotnet publish ./src/adapter3/neodebug-3-adapter.csproj --output ./src/vs-package/adapter/ --runtime win-x64 --no-self-contained
+      run: dotnet publish ./src/adapter3/epicchaindebug-3-adapter.csproj --output ./src/vs-package/adapter/ --runtime win-x64 --no-self-contained
     - uses: ilammy/msvc-dev-cmd@v1
     - name: Install dependencies
       run: nuget restore ./src/vs-package/neodebug-vs.csproj
@@ -38,7 +38,7 @@ jobs:
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         prerelease: true
-        title: EpicChain Debugger for Visual Studio Preview Release ${{ env.NUGET_PACKAGE_VERSION }}
+        title: EpicChain Graphical Wizard for Visual Studio Preview Release ${{ env.NUGET_PACKAGE_VERSION }}
         automatic_release_tag: vswin-latest
         files: |
           ./src/vs-package/bin/x64/Release/*.vsix
