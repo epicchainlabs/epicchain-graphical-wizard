@@ -7,7 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Numerics;
 using System.Text;
-using Neo;
+using EpicChain;
 using EpicChain.BlockchainToolkit;
 using EpicChain.BlockchainToolkit.Models;
 using EpicChain.SmartContract;

@@ -1,6 +1,6 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
-using Neo;
+using EpicChain;
 using EpicChain.BlockchainToolkit;
 
 namespace EpicChainTraceVisualizer.Neo3

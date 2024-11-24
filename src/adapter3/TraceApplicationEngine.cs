@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using EpicChain.SmartContract;
 using StackItem = EpicChain.VM.Types.StackItem;
 using epicchainArray = EpicChain.VM.Types.Array;
-using Neo;
+using EpicChain;
 using EpicChain.VM;
 using System.Diagnostics.CodeAnalysis;
 using EpicChain.BlockchainToolkit.TraceDebug;

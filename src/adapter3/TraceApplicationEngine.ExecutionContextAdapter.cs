@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using StackItem = EpicChain.VM.Types.StackItem;
-using Neo;
+using EpicChain;
 using EpicChain.VM;
 using EpicChain.BlockchainToolkit.TraceDebug;
 using EpicChain.SmartContract.Native;

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
-using Neo;
+using EpicChain;
 
 namespace EpicChainTraceVisualizer.Neo3
 {

@@ -9,7 +9,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
-using Neo;
+using EpicChain;
 using EpicChain.BlockchainToolkit;
 using EpicChain.BlockchainToolkit.Models;
 using EpicChain.BlockchainToolkit.Persistence;

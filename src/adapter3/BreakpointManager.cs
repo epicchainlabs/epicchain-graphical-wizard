@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
-using Neo;
+using EpicChain;
 using EpicChain.BlockchainToolkit.Models;
 
 namespace EpicChainTraceVisualizer.Neo3

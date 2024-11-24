@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using EpicChain.SmartContract;
 using StackItem = EpicChain.VM.Types.StackItem;
-using Neo;
+using EpicChain;
 using EpicChain.VM;
 using System.Diagnostics.CodeAnalysis;
 

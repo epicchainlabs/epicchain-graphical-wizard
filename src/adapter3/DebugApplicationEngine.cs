@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
-using Neo;
+using EpicChain;
 using EpicChain.BlockchainToolkit.Persistence;
 using EpicChain.BlockchainToolkit.SmartContract;
 using EpicChain.Network.P2P.Payloads;

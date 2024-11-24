@@ -4,7 +4,7 @@ using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
-using Neo;
+using EpicChain;
 using EpicChain.BlockchainToolkit.Models;
 using EpicChain.SmartContract;
 using EpicChain.VM;
