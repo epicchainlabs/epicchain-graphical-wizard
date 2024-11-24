@@ -281,10 +281,10 @@ namespace EpicChainTraceVisualizer
 
             static UInt256 GetAssetId(IBlockchainStorage blockchain, string asset)
             {
-                if (string.Compare("neo", asset, true) == 0)
+                if (string.Compare("epicchain", asset, true) == 0)
                     return blockchain.GoverningTokenHash;
 
-                if (string.Compare("gas", asset, true) == 0)
+                if (string.Compare("epicpulse", asset, true) == 0)
                     return blockchain.UtilityTokenHash;
 
                 return UInt256.Parse(asset);

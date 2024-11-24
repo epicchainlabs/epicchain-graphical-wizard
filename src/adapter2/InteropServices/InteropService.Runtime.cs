@@ -41,7 +41,7 @@ namespace EpicChainTraceVisualizer
 
         private bool Runtime_Platform(ExecutionEngine engine)
         {
-            engine.CurrentContext.EvaluationStack.Push(Encoding.ASCII.GetBytes("NEO"));
+            engine.CurrentContext.EvaluationStack.Push(Encoding.ASCII.GetBytes("EpicChain"));
             return true;
         }
 
