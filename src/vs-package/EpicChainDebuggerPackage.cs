@@ -24,12 +24,12 @@ namespace NeoDebug.VS
     /// </para>
     /// </remarks>
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
-    [Guid(NeoDebuggerPackage.PackageGuidString)]
+    [Guid(EpicChainDebuggerPackage.PackageGuidString)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
-    public sealed class NeoDebuggerPackage : AsyncPackage
+    public sealed class EpicChainDebuggerPackage : AsyncPackage
     {
         /// <summary>
-        /// NeoDebuggerPackage GUID string.
+        /// EpicChainDebuggerPackage GUID string.
         /// </summary>
         public const string PackageGuidString = "e8ff4855-6c8a-4ddc-8bc6-23666cd03219";
 
@@ -47,7 +47,7 @@ namespace NeoDebug.VS
             // When initialized asynchronously, the current thread may be a background thread at this point.
             // Do any initialization that requires the UI thread after switching to the UI thread.
             await this.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
-            await LaunchNeoDebugger.InitializeAsync(this);
+            await LaunchEpicChainDebugger.InitializeAsync(this);
         }
 
         #endregion

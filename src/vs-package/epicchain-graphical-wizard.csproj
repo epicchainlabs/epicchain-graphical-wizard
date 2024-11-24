@@ -14,7 +14,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NeoDebug.VS</RootNamespace>
-    <AssemblyName>neodebug-vs</AssemblyName>
+    <AssemblyName>epicchain-graphical-wizard</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <GeneratePkgDefFile>true</GeneratePkgDefFile>
     <UseCodebase>true</UseCodebase>
@@ -244,10 +244,10 @@
       <DependentUpon>LaunchConfigSelectionDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="LaunchConfigSelectionViewModel.cs" />
-    <Compile Include="LaunchNeoDebugger.cs" />
+    <Compile Include="LaunchEpicChainDebugger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="NeoDebuggerPackage.cs" />
-    <Content Include="NeoDebuggerPackage.pkgdef">
+    <Compile Include="EpicChainDebuggerPackage.cs" />
+    <Content Include="EpicChainDebuggerPackage.pkgdef">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <None Include="source.extension.vsixmanifest">
@@ -275,12 +275,12 @@
     <PackageReference Include="Microsoft.VisualStudio.Workspace.VSIntegration" Version="16.3.43" />
   </ItemGroup>
   <ItemGroup>
-    <VSCTCompile Include="NeoDebuggerPackage.vsct">
+    <VSCTCompile Include="EpicChainDebuggerPackage.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
     </VSCTCompile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\LaunchNeoDebugger.png" />
+    <Content Include="Resources\LaunchEpicChainDebugger.png" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="LaunchConfigSelectionDialog.xaml">

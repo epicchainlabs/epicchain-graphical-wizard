@@ -25,7 +25,7 @@
 
   <!--The Commands section is where commands, menus, and menu groups are defined.
       This section uses a Guid to identify the package that provides the command defined inside it. -->
-  <Commands package="guidNeoDebuggerPackage">
+  <Commands package="guidEpicChainDebuggerPackage">
     <!-- Inside this section we have different sub-sections: one for the menus, another
     for the menu groups, one for the buttons (the actual commands), one for the combos
     and the last one for the bitmaps used. Each element is identified by a command id that
@@ -39,7 +39,7 @@
          group as the part of a menu contained between two lines. The parent of a group
          must be a menu. -->
     <Groups>
-      <Group guid="guidNeoDebuggerPackageCmdSet" id="MyMenuGroup" priority="0x0600">
+      <Group guid="guidEpicChainDebuggerPackageCmdSet" id="MyMenuGroup" priority="0x0600">
         <Parent guid="guidVSDebugGroup" id="IDM_DEBUG_MENU"/>
       </Group>
     </Groups>
@@ -55,8 +55,8 @@
               <CommandFlag>DefaultInvisible</CommandFlag>
               <CommandFlag>DynamicVisibility</CommandFlag>
           If you do not want an image next to your command, remove the Icon node /> -->
-      <Button guid="guidNeoDebuggerPackageCmdSet" id="LaunchNeoDebuggerId" priority="0x0100" type="Button">
-        <Parent guid="guidNeoDebuggerPackageCmdSet" id="MyMenuGroup" />
+      <Button guid="guidEpicChainDebuggerPackageCmdSet" id="LaunchEpicChainDebuggerId" priority="0x0100" type="Button">
+        <Parent guid="guidEpicChainDebuggerPackageCmdSet" id="MyMenuGroup" />
         <Icon guid="guidImages" id="bmpPic1" />
         <Strings>
           <ButtonText>Launch EpicChain Smart Contract Debugger</ButtonText>
@@ -71,18 +71,18 @@
             bitmap strip containing the bitmaps and then there are the numeric ids of the elements used
             inside a button definition. An important aspect of this declaration is that the element id
             must be the actual index (1-based) of the bitmap inside the bitmap strip. -->
-      <Bitmap guid="guidImages" href="Resources\LaunchNeoDebugger.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough"/>
+      <Bitmap guid="guidImages" href="Resources\LaunchEpicChainDebugger.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough"/>
     </Bitmaps>
   </Commands>
 
   <Symbols>
     <!-- This is the package guid. -->
-    <GuidSymbol name="guidNeoDebuggerPackage" value="{e8ff4855-6c8a-4ddc-8bc6-23666cd03219}" />
+    <GuidSymbol name="guidEpicChainDebuggerPackage" value="{e8ff4855-6c8a-4ddc-8bc6-23666cd03219}" />
 
     <!-- This is the guid used to group the menu commands together -->
-    <GuidSymbol name="guidNeoDebuggerPackageCmdSet" value="{068f4a6b-9e7b-41e5-b483-4ee839895511}">
+    <GuidSymbol name="guidEpicChainDebuggerPackageCmdSet" value="{068f4a6b-9e7b-41e5-b483-4ee839895511}">
       <IDSymbol name="MyMenuGroup" value="0x1020" />
-      <IDSymbol name="LaunchNeoDebuggerId" value="0x0100" />
+      <IDSymbol name="LaunchEpicChainDebuggerId" value="0x0100" />
     </GuidSymbol>
 
     <GuidSymbol name="guidImages" value="{3ba9a33e-d95a-479d-b10e-01c891b71e42}" >

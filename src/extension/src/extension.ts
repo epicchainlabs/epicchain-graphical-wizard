@@ -9,7 +9,7 @@ import * as https from 'https';
 import { createWriteStream, stat, unlink, WriteStream } from 'fs';
 import { Octokit } from "@octokit/rest";
 
-const OWNER = 'neo-project';
+const OWNER = 'epicchainlabs';
 const REPO = 'epicchain-graphical-wizard';
 
 interface GithubReleaseAsset {
@@ -210,7 +210,7 @@ export async function activate(context: vscode.ExtensionContext) {
     const configProvider = new NeoContractDebugConfigurationProvider();
     context.subscriptions.push(vscode.debug.registerDebugConfigurationProvider("neo-contract", configProvider));
 
-    const factory = new NeoContractDebugAdapterDescriptorFactory(context, neoDebugChannel);
+    const factory = new EpicChainContractDebugAdapterDescriptorFactory(context, neoDebugChannel);
     context.subscriptions.push(vscode.debug.registerDebugAdapterDescriptorFactory("neo-contract", factory));
 
     context.subscriptions.push(vscode.commands.registerCommand("epicchain-graphical-wizard.displaySourceView",
@@ -240,7 +240,7 @@ class NeoContractDebugConfigurationProvider implements vscode.DebugConfiguration
 
         function createConfig(programPath: string | undefined = undefined): vscode.DebugConfiguration {
             var fs = require('fs');
-            const neoxpConfig: string | undefined = folder ? fs.readdirSync(folder.uri.fsPath).find(function (x: string) {
+            const epicchainxpConfig: string | undefined = folder ? fs.readdirSync(folder.uri.fsPath).find(function (x: string) {
                 return x.endsWith(".epicchain-trace-visualizer")
             }) : undefined;
 
@@ -248,8 +248,8 @@ class NeoContractDebugConfigurationProvider implements vscode.DebugConfiguration
                 name: programPath ? path.basename(programPath) : "EpicChain Contract",
                 type: "neo-contract",
                 request: "launch",
-                "epicchain-trace-visualizer": neoxpConfig && folder
-                    ? slash(path.join("${workspaceFolder}", neoxpConfig))
+                "epicchain-trace-visualizer": epicchainxpConfig && folder
+                    ? slash(path.join("${workspaceFolder}", epicchainxpConfig))
                     : "${workspaceFolder}/<insert path to EpicChain express config here>",
                 program: programPath && folder
                     ? slash(path.join("${workspaceFolder}", path.relative(folder.uri.fsPath, programPath)))
@@ -265,9 +265,9 @@ class NeoContractDebugConfigurationProvider implements vscode.DebugConfiguration
         }
 
         if (folder) {
-            var neoVmFiles = await vscode.workspace.findFiles(new vscode.RelativePattern(folder, "**/*.{avm,nef}"));
-            if (neoVmFiles.length > 0) {
-                return neoVmFiles.map(f => createConfig(f.fsPath));
+            var epicchainVmFiles = await vscode.workspace.findFiles(new vscode.RelativePattern(folder, "**/*.{avm,nef}"));
+            if (epicchainVmFiles.length > 0) {
+                return epicchainVmFiles.map(f => createConfig(f.fsPath));
             }
         }
 
@@ -275,7 +275,7 @@ class NeoContractDebugConfigurationProvider implements vscode.DebugConfiguration
     }
 }
 
-class NeoContractDebugAdapterDescriptorFactory implements vscode.DebugAdapterDescriptorFactory {
+class EpicChainContractDebugAdapterDescriptorFactory implements vscode.DebugAdapterDescriptorFactory {
 
     private readonly extension: vscode.Extension<any>;
     private readonly extensionMode: vscode.ExtensionMode;
@@ -483,7 +483,7 @@ class NeoContractDebugAdapterDescriptorFactory implements vscode.DebugAdapterDes
                 path = 'epicchaindebug-3-adapter';
                 break;
             case 'EpicChain.Debug2.Adapter':
-                path = 'neodebug-2-adapter';
+                path = 'epicchain-graphical-wizard';
                 break;
             default:
                 throw new Error(`Unexpected adapter package ${packageId}`);

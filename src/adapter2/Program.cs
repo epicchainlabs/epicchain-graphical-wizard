@@ -25,7 +25,7 @@ namespace NeoDebug
         {
             var neoDebugLogPath = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                "EpicChain-Debugger",
+                "epicchain-graphical-wizard",
                 "logs");
 
             if (!Directory.Exists(neoDebugLogPath))

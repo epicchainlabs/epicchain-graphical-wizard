@@ -34,9 +34,9 @@ jobs:
       run: dotnet publish ./src/adapter3/epicchaindebug-3-adapter.csproj -c Release --output ./src/vs-package/adapter/ --runtime win-x64 --no-self-contained
     - uses: ilammy/msvc-dev-cmd@v1
     - name: Install extension dependencies
-      run: nuget restore ./src/vs-package/neodebug-vs.csproj
+      run: nuget restore ./src/vs-package/epicchain-graphical-wizard.csproj
     - name: build vsix
-      run: msbuild ./src/vs-package/neodebug-vs.csproj /p:BaseOutputPath=bin\ /p:Configuration=Release
+      run: msbuild ./src/vs-package/epicchain-graphical-wizard.csproj /p:BaseOutputPath=bin\ /p:Configuration=Release
 
     - name: Upload extension
       uses: actions/upload-artifact@v2

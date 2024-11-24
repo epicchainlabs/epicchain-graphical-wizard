@@ -17,7 +17,7 @@ namespace NeoDebug.VS
     /// <summary>
     /// Command handler
     /// </summary>
-    internal sealed class LaunchNeoDebugger
+    internal sealed class LaunchEpicChainDebugger
     {
         /// <summary>
         /// Command ID.
@@ -38,12 +38,12 @@ namespace NeoDebug.VS
         private readonly string adapterPath = GetAdapterPath();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LaunchNeoDebugger"/> class.
+        /// Initializes a new instance of the <see cref="LaunchEpicChainDebugger"/> class.
         /// Adds our command handlers for menu (commands must exist in the command table file)
         /// </summary>
         /// <param name="package">Owner package, not null.</param>
         /// <param name="commandService">Command service to add command to, not null.</param>
-        private LaunchNeoDebugger(AsyncPackage package, OleMenuCommandService commandService)
+        private LaunchEpicChainDebugger(AsyncPackage package, OleMenuCommandService commandService)
         {
             this.package = package ?? throw new ArgumentNullException(nameof(package));
             commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
@@ -56,7 +56,7 @@ namespace NeoDebug.VS
         /// <summary>
         /// Gets the instance of the command.
         /// </summary>
-        public static LaunchNeoDebugger Instance
+        public static LaunchEpicChainDebugger Instance
         {
             get;
             private set;
@@ -74,12 +74,12 @@ namespace NeoDebug.VS
         /// <param name="package">Owner package, not null.</param>
         public static async Task InitializeAsync(AsyncPackage package)
         {
-            // Switch to the main thread - the call to AddCommand in LaunchNeoDebugger's constructor requires
+            // Switch to the main thread - the call to AddCommand in LaunchEpicChainDebugger's constructor requires
             // the UI thread.
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(package.DisposalToken);
 
             OleMenuCommandService commandService = await package.GetServiceAsync(typeof(IMenuCommandService)) as OleMenuCommandService;
-            Instance = new LaunchNeoDebugger(package, commandService);
+            Instance = new LaunchEpicChainDebugger(package, commandService);
         }
 
         /// <summary>
@@ -104,7 +104,7 @@ namespace NeoDebug.VS
                 _ = VsShellUtilities.ShowMessageBox(
                     package,
                     "No neo-contract Launch Configurations Found",
-                    nameof(LaunchNeoDebugger),
+                    nameof(LaunchEpicChainDebugger),
                     OLEMSGICON.OLEMSGICON_INFO,
                     OLEMSGBUTTON.OLEMSGBUTTON_OK,
                     OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
@@ -129,7 +129,7 @@ namespace NeoDebug.VS
                 _ = VsShellUtilities.ShowMessageBox(
                     package,
                     string.Format(CultureInfo.CurrentCulture, "Debugger Launch failed.  Error: {0}", ex.Message),
-                    nameof(LaunchNeoDebugger),
+                    nameof(LaunchEpicChainDebugger),
                     OLEMSGICON.OLEMSGICON_WARNING,
                     OLEMSGBUTTON.OLEMSGBUTTON_OK,
                     OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
@@ -166,7 +166,7 @@ namespace NeoDebug.VS
                 _ = VsShellUtilities.ShowMessageBox(
                     package,
                     string.Format(CultureInfo.CurrentCulture, "Launch failed.  Error: {0}", ex.Message),
-                    nameof(LaunchNeoDebugger),
+                    nameof(LaunchEpicChainDebugger),
                     OLEMSGICON.OLEMSGICON_WARNING,
                     OLEMSGBUTTON.OLEMSGBUTTON_OK,
                     OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
@@ -281,7 +281,7 @@ namespace NeoDebug.VS
 
         private static string GetAdapterPath()
         {
-            string codebase = typeof(NeoDebuggerPackage).Assembly.CodeBase;
+            string codebase = typeof(EpicChainDebuggerPackage).Assembly.CodeBase;
             var uri = new Uri(codebase, UriKind.Absolute);
             return Path.Combine(Path.GetDirectoryName(uri.LocalPath), "adapter\\epicchaindebug-3-adapter.exe");
         }
