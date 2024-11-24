@@ -79,7 +79,7 @@
             "command": "dotnet",
             "args": [
                 "pack",
-                "./src/adapter/neodebug-adapter.csproj",
+                "./src/adapter/epicchain-graphical-wizard.csproj",
                 "--no-build",
                 "--output",
                 "./src/extension"
