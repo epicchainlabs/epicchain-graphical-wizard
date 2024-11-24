@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NeoDebug.Models
+namespace EpicChainTraceVisualizer.Models
 {
     public class Contract
     {

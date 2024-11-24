@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol;
 using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 
-namespace NeoDebug.Neo3
+namespace EpicChainTraceVisualizer.Neo3
 {
     public class DebugAdapter : DebugAdapterBase
     {

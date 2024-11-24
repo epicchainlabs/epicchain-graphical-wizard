@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol;
 using System;
 using System.IO;
 
-namespace NeoDebug
+namespace EpicChainTraceVisualizer
 {
 
     class Program
@@ -23,17 +23,17 @@ namespace NeoDebug
 
         public Program()
         {
-            var neoDebugLogPath = Path.Combine(
+            var EpicChainTraceVisualizerLogPath = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
                 "epicchain-graphical-wizard",
                 "logs");
 
-            if (!Directory.Exists(neoDebugLogPath))
+            if (!Directory.Exists(EpicChainTraceVisualizerLogPath))
             {
-                Directory.CreateDirectory(neoDebugLogPath);
+                Directory.CreateDirectory(EpicChainTraceVisualizerLogPath);
             }
 
-            logFile = Path.Combine(neoDebugLogPath, $"{DateTime.Now:yyMMdd-hhmmss}.log");
+            logFile = Path.Combine(EpicChainTraceVisualizerLogPath, $"{DateTime.Now:yyMMdd-hhmmss}.log");
         }
 
         private void OnExecute(CommandLineApplication app, IConsole console)

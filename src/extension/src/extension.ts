@@ -205,12 +205,12 @@ function downloadAsset(asset: GithubReleaseAsset, path: string, url?: string) {
 // your extension is activated the very first time the command is executed
 export async function activate(context: vscode.ExtensionContext) {
 
-    let neoDebugChannel = vscode.window.createOutputChannel('EpicChain Graphical Wizard Log');
+    let EpicChainTraceVisualizerChannel = vscode.window.createOutputChannel('EpicChain Graphical Wizard Log');
 
     const configProvider = new NeoContractDebugConfigurationProvider();
     context.subscriptions.push(vscode.debug.registerDebugConfigurationProvider("epicchain-contract", configProvider));
 
-    const factory = new EpicChainContractDebugAdapterDescriptorFactory(context, neoDebugChannel);
+    const factory = new EpicChainContractDebugAdapterDescriptorFactory(context, EpicChainTraceVisualizerChannel);
     context.subscriptions.push(vscode.debug.registerDebugAdapterDescriptorFactory("epicchain-contract", factory));
 
     context.subscriptions.push(vscode.commands.registerCommand("epicchain-graphical-wizard.displaySourceView",

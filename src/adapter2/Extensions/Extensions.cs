@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
-using NeoDebug.Models;
-using NeoDebug.VariableContainers;
+using EpicChainTraceVisualizer.Models;
+using EpicChainTraceVisualizer.VariableContainers;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
@@ -10,7 +10,7 @@ using System.Numerics;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 
-namespace NeoDebug
+namespace EpicChainTraceVisualizer
 {
     public static class Extensions
     {

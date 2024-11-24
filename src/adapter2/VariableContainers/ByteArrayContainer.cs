@@ -3,7 +3,7 @@ using EpicChain.VM.Types;
 using System;
 using System.Collections.Generic;
 
-namespace NeoDebug.VariableContainers
+namespace EpicChainTraceVisualizer.VariableContainers
 {
     public class ByteArrayContainer : IVariableContainer
     {

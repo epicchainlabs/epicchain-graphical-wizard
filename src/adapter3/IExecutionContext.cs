@@ -6,7 +6,7 @@ using Neo;
 using EpicChain.VM;
 using System.Diagnostics.CodeAnalysis;
 
-namespace NeoDebug.Neo3
+namespace EpicChainTraceVisualizer.Neo3
 {
     internal interface IExecutionContext
     {

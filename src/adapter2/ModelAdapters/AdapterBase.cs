@@ -3,7 +3,7 @@ using System;
 
 
 
-namespace NeoDebug.ModelAdapters
+namespace EpicChainTraceVisualizer.ModelAdapters
 {
     class AdapterBase : StackItem
     {

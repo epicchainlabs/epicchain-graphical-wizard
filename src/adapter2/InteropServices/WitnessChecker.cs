@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace NeoDebug
+namespace EpicChainTraceVisualizer
 {
     class WitnessChecker
     {

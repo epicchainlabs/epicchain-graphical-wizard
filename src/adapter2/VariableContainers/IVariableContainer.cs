@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 using System.Collections.Generic;
 
-namespace NeoDebug.VariableContainers
+namespace EpicChainTraceVisualizer.VariableContainers
 {
     public interface IVariableContainer
     {

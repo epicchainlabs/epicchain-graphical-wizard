@@ -1,9 +1,9 @@
-using NeoDebug.Models;
+using EpicChainTraceVisualizer.Models;
 using System;
 using System.Text;
 using OpCode = EpicChain.VM.OpCode;
 
-namespace NeoDebug
+namespace EpicChainTraceVisualizer
 {
     static class InstructionExtensions
     {

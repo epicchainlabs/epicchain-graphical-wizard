@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 using EpicChain.VM;
-using NeoDebug.Models;
+using EpicChainTraceVisualizer.Models;
 using NeoFx;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -11,7 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace NeoDebug
+namespace EpicChainTraceVisualizer
 {
     partial class InteropService
     {

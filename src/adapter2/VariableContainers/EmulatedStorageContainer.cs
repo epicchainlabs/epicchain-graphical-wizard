@@ -1,10 +1,10 @@
 ﻿using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
-using NeoDebug.VariableContainers;
+using EpicChainTraceVisualizer.VariableContainers;
 using NeoFx;
 using System;
 using System.Collections.Generic;
 
-namespace NeoDebug
+namespace EpicChainTraceVisualizer
 {
     class EmulatedStorageContainer : IVariableContainer
     {

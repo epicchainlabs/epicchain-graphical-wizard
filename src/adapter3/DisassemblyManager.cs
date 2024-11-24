@@ -14,7 +14,7 @@ using EpicChain.SmartContract;
 using EpicChain.VM;
 using Helper = EpicChain.SmartContract.Helper;
 
-namespace NeoDebug.Neo3
+namespace EpicChainTraceVisualizer.Neo3
 {
     class DisassemblyManager
     {

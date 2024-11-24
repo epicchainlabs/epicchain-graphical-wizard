@@ -5,7 +5,7 @@ using Neo;
 using EpicChain.Persistence;
 using EpicChain.SmartContract;
 
-namespace NeoDebug.Neo3
+namespace EpicChainTraceVisualizer.Neo3
 {
     internal partial class DebugApplicationEngine
     {

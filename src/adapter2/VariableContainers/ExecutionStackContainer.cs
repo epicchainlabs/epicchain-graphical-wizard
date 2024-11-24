@@ -3,7 +3,7 @@ using EpicChain.VM;
 using System;
 using System.Collections.Generic;
 
-namespace NeoDebug.VariableContainers
+namespace EpicChainTraceVisualizer.VariableContainers
 {
     public class ExecutionStackContainer : IVariableContainer
     {

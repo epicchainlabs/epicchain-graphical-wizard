@@ -2,7 +2,7 @@
 using NeoFx;
 using System;
 
-namespace NeoDebug
+namespace EpicChainTraceVisualizer
 {
     class Crypto : ICrypto
     {

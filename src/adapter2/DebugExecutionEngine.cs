@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 using EpicChain.VM;
-using NeoDebug.Models;
-using NeoDebug.VariableContainers;
+using EpicChainTraceVisualizer.Models;
+using EpicChainTraceVisualizer.VariableContainers;
 using NeoFx;
 using NeoFx.Models;
 using NeoFx.Storage;
@@ -10,7 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace NeoDebug
+namespace EpicChainTraceVisualizer
 {
 
     class DebugExecutionEngine : ExecutionEngine

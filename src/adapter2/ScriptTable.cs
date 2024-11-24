@@ -1,9 +1,9 @@
-﻿using NeoDebug.Models;
+﻿using EpicChainTraceVisualizer.Models;
 using NeoFx;
 using System;
 using System.Collections.Generic;
 
-namespace NeoDebug
+namespace EpicChainTraceVisualizer
 {
     class ScriptTable : EpicChain.VM.IScriptTable
     {

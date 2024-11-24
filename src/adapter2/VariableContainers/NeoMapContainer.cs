@@ -3,7 +3,7 @@ using EpicChain.VM;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace NeoDebug.VariableContainers
+namespace EpicChainTraceVisualizer.VariableContainers
 {
     class NeoMapContainer : IVariableContainer
     {

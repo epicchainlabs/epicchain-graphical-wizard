@@ -1,8 +1,8 @@
 using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
-using NeoDebug.VariableContainers;
+using EpicChainTraceVisualizer.VariableContainers;
 using NeoFx;
 
-namespace NeoDebug
+namespace EpicChainTraceVisualizer
 {
     static class DebugExecutionEngineExtensions
     {

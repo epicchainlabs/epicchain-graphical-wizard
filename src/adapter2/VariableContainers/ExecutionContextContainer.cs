@@ -1,10 +1,10 @@
 ﻿using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 using EpicChain.VM;
-using NeoDebug.Models;
+using EpicChainTraceVisualizer.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace NeoDebug.VariableContainers
+namespace EpicChainTraceVisualizer.VariableContainers
 {
     class ExecutionContextContainer : IVariableContainer
     {

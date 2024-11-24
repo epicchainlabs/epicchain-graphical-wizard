@@ -1,11 +1,11 @@
 ﻿using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 using EpicChain.VM;
-using NeoDebug.VariableContainers;
+using EpicChainTraceVisualizer.VariableContainers;
 using NeoFx.Models;
 
 
 
-namespace NeoDebug.ModelAdapters
+namespace EpicChainTraceVisualizer.ModelAdapters
 {
     class DeployedContractAdapter : AdapterBase, IVariableProvider
     {

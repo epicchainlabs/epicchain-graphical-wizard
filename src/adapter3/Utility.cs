@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using Neo;
 using EpicChain.BlockchainToolkit;
 
-namespace NeoDebug.Neo3
+namespace EpicChainTraceVisualizer.Neo3
 {
     public static class Utility
     {

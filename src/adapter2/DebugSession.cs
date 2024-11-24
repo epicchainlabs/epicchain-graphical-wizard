@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 using EpicChain.VM;
-using NeoDebug.Models;
-using NeoDebug.VariableContainers;
+using EpicChainTraceVisualizer.Models;
+using EpicChainTraceVisualizer.VariableContainers;
 using NeoFx;
 using System;
 using System.Buffers;
@@ -11,7 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace NeoDebug
+namespace EpicChainTraceVisualizer
 {
     class DebugSession : IVariableContainerSession
     {

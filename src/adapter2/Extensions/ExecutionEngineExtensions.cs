@@ -3,10 +3,10 @@ using System.Diagnostics.CodeAnalysis;
 using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 using EpicChain.VM;
 using EpicChain.VM.Types;
-using NeoDebug.VariableContainers;
+using EpicChainTraceVisualizer.VariableContainers;
 using NeoFx;
 
-namespace NeoDebug
+namespace EpicChainTraceVisualizer
 {
     static class ExecutionEngineExtensions
     {

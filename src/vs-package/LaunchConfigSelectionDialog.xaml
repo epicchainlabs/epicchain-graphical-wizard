@@ -1,4 +1,4 @@
-﻿<vsui:DialogWindow x:Name="dialogWindow" x:Class="NeoDebug.VS.LaunchConfigSelectionDialog" 
+﻿<vsui:DialogWindow x:Name="dialogWindow" x:Class="EpicChainTraceVisualizer.VS.LaunchConfigSelectionDialog" 
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 

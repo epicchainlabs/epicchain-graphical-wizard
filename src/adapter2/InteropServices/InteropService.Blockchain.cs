@@ -5,7 +5,7 @@ using System;
 
 
 
-namespace NeoDebug
+namespace EpicChainTraceVisualizer
 {
     partial class InteropService
     {

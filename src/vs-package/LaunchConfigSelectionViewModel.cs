@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
-namespace NeoDebug.VS
+namespace EpicChainTraceVisualizer.VS
 {
     public class LaunchConfigSelectionViewModel : INotifyPropertyChanged
     {

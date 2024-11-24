@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace NeoDebug.Models
+namespace EpicChainTraceVisualizer.Models
 {
     public class DebugInfo
     {

@@ -6,7 +6,7 @@ using System.Linq;
 
 
 
-namespace NeoDebug
+namespace EpicChainTraceVisualizer
 {
     partial class InteropService
     {

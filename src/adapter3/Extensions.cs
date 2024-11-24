@@ -9,7 +9,7 @@ using EpicChain.Cryptography.ECC;
 using EpicChain.SmartContract;
 using Newtonsoft.Json.Linq;
 
-namespace NeoDebug.Neo3
+namespace EpicChainTraceVisualizer.Neo3
 {
     using StackItem = EpicChain.VM.Types.StackItem;
     using StackItemType = EpicChain.VM.Types.StackItemType;

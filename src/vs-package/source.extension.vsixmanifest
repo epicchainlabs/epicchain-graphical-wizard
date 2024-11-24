@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="NeoDebugger.e459dac7-4b09-447c-a5e5-8848406e013e" Version="1.0" Language="en-US" Publisher="Harry Pierson" />
+    <Identity Id="EpicChainTraceVisualizerger.e459dac7-4b09-447c-a5e5-8848406e013e" Version="1.0" Language="en-US" Publisher="Harry Pierson" />
     <DisplayName>EpicChain Smart Contract Debugger</DisplayName>
     <Description>Debugger Extension for EpicChain Blockchain Smart Contracts</Description>
   </Metadata>

@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.PlatformUI;
 
-namespace NeoDebug.VS
+namespace EpicChainTraceVisualizer.VS
 {
     public partial class LaunchConfigSelectionDialog : DialogWindow
     {

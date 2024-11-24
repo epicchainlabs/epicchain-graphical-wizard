@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace NeoDebug.VS
+namespace EpicChainTraceVisualizer.VS
 {
     public class UiCommand : ICommand
     {

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 
-namespace NeoDebug.Neo3
+namespace EpicChainTraceVisualizer.Neo3
 {
     using ByteString = EpicChain.VM.Types.ByteString;
     using Buffer = EpicChain.VM.Types.Buffer;

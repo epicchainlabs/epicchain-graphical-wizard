@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 using EpicChain.VM;
-using NeoDebug.VariableContainers;
+using EpicChainTraceVisualizer.VariableContainers;
 using NeoFx;
 using NeoFx.Models;
 using NeoFx.Storage;
@@ -8,7 +8,7 @@ using System.Buffers;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace NeoDebug.ModelAdapters
+namespace EpicChainTraceVisualizer.ModelAdapters
 {
     class TransactionAdapter : AdapterBase, IScriptContainer, IVariableProvider, IVariableContainer
     {

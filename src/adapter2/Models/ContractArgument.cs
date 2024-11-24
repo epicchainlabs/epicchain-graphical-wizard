@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 using System.Numerics;
 
-namespace NeoDebug.Models
+namespace EpicChainTraceVisualizer.Models
 {
     public readonly struct ContractArgument
     {

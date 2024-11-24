@@ -1,4 +1,4 @@
-namespace NeoDebug.Neo3
+namespace EpicChainTraceVisualizer.Neo3
 {
     public enum DebugView
     {

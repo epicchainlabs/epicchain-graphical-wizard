@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NeoDebug.Models
+namespace EpicChainTraceVisualizer.Models
 {
     readonly struct Instruction
     {

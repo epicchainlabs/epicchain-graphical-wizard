@@ -1,10 +1,10 @@
 using EpicChain.VM;
-using NeoDebug.Models;
+using EpicChainTraceVisualizer.Models;
 using NeoFx;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace NeoDebug
+namespace EpicChainTraceVisualizer
 {
     public static class ContractExtensions
     {

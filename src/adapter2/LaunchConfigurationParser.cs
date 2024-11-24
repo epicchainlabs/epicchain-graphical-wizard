@@ -8,13 +8,13 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
-using NeoDebug.Models;
+using EpicChainTraceVisualizer.Models;
 using NeoFx;
 using NeoFx.Models;
 using NeoFx.Storage;
 using Newtonsoft.Json.Linq;
 
-namespace NeoDebug
+namespace EpicChainTraceVisualizer
 {
     static class LaunchConfigurationParser
     {

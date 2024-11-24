@@ -1,4 +1,4 @@
-﻿namespace NeoDebug.VariableContainers
+﻿namespace EpicChainTraceVisualizer.VariableContainers
 {
     public interface IVariableContainerSession
     {

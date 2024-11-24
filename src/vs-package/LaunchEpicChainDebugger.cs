@@ -12,7 +12,7 @@ using Task = System.Threading.Tasks.Task;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace NeoDebug.VS
+namespace EpicChainTraceVisualizer.VS
 {
     /// <summary>
     /// Command handler
@@ -138,7 +138,7 @@ namespace NeoDebug.VS
 
         private void LaunchDebugger(JObject config)
         {
-            const string NeoDebugAdapterId = "ba0544e5-b299-4a4d-b6bb-c62e1c6cfa71";
+            const string EpicChainTraceVisualizerAdapterId = "ba0544e5-b299-4a4d-b6bb-c62e1c6cfa71";
             const string DebugAdapterHostPackageCmdSet = "0ddba113-7ac1-4c6e-a2ef-dcac3f9e731e";
             const int DebugAdapterHostLaunchCommandId = 0x0101;
 
@@ -158,7 +158,7 @@ namespace NeoDebug.VS
                 var configText = config.ToString(Formatting.Indented);
                 File.WriteAllText(tempLaunchPath, configText);
 
-                string parameters = FormattableString.Invariant($@"/LaunchJson:""{tempLaunchPath}"" /EngineGuid:""{NeoDebugAdapterId}""");
+                string parameters = FormattableString.Invariant($@"/LaunchJson:""{tempLaunchPath}"" /EngineGuid:""{EpicChainTraceVisualizerAdapterId}""");
                 dte.Commands.Raise(DebugAdapterHostPackageCmdSet, DebugAdapterHostLaunchCommandId, parameters, IntPtr.Zero);
             }
             catch (Exception ex)

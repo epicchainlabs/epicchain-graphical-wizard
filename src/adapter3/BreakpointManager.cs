@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 using Neo;
 using EpicChain.BlockchainToolkit.Models;
 
-namespace NeoDebug.Neo3
+namespace EpicChainTraceVisualizer.Neo3
 {
     class BreakpointManager
     {

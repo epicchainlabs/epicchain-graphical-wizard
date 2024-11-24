@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using EpicChain.SmartContract;
 
-namespace NeoDebug.Neo3
+namespace EpicChainTraceVisualizer.Neo3
 {
     internal sealed partial class TraceApplicationEngine
     {

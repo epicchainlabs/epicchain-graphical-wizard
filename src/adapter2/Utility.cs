@@ -1,4 +1,4 @@
-namespace NeoDebug
+namespace EpicChainTraceVisualizer
 {
     static class Utility
     {

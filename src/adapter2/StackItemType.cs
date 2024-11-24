@@ -1,4 +1,4 @@
-namespace NeoDebug
+namespace EpicChainTraceVisualizer
 {
     enum StackItemType : byte
     {

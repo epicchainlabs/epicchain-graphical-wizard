@@ -11,7 +11,7 @@ using System.Linq;
 using System.IO;
 using EpicChain.SmartContract.Native;
 
-namespace NeoDebug.Neo3
+namespace EpicChainTraceVisualizer.Neo3
 {
     internal sealed partial class TraceApplicationEngine : IApplicationEngine
     {

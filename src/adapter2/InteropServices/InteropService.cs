@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 using EpicChain.VM;
-using NeoDebug.Models;
-using NeoDebug.VariableContainers;
+using EpicChainTraceVisualizer.Models;
+using EpicChainTraceVisualizer.VariableContainers;
 using NeoFx;
 using NeoFx.Models;
 using NeoFx.Storage;
@@ -14,7 +14,7 @@ using System.Numerics;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace NeoDebug
+namespace EpicChainTraceVisualizer
 {
     partial class InteropService : IInteropService
     {

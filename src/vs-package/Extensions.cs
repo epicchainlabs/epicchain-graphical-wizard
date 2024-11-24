@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using System.Runtime.InteropServices;
 
-namespace NeoDebug.VS
+namespace EpicChainTraceVisualizer.VS
 {
     static class Extensions
     {

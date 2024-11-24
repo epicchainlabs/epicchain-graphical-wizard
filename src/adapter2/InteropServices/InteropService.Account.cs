@@ -1,8 +1,8 @@
 ﻿using EpicChain.VM;
-using NeoDebug.ModelAdapters;
+using EpicChainTraceVisualizer.ModelAdapters;
 using System;
 
-namespace NeoDebug
+namespace EpicChainTraceVisualizer
 {
     partial class InteropService
     {

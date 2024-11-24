@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
-using NeoDebug.Models;
+using EpicChainTraceVisualizer.Models;
 using NeoFx;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Linq;
 using System.Text;
 
-namespace NeoDebug
+namespace EpicChainTraceVisualizer
 {
     class DisassemblyManager
     {

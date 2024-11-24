@@ -1,13 +1,13 @@
 ﻿using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 using EpicChain.VM;
-using NeoDebug.VariableContainers;
+using EpicChainTraceVisualizer.VariableContainers;
 using NeoFx.Models;
 using NeoFx.Storage;
 using System.Collections.Generic;
 
 
 
-namespace NeoDebug.ModelAdapters
+namespace EpicChainTraceVisualizer.ModelAdapters
 {
     class BlockHeaderAdapter : AdapterBase, IVariableProvider, IVariableContainer
     {

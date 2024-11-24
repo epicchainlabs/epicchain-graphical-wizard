@@ -6,7 +6,7 @@ using Neo;
 using EpicChain.VM;
 using EpicChain.BlockchainToolkit;
 
-namespace NeoDebug.Neo3
+namespace EpicChainTraceVisualizer.Neo3
 {
     internal partial class DebugApplicationEngine
     {

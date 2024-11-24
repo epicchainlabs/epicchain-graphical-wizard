@@ -13,7 +13,7 @@
     <ProjectGuid>{FA618CA5-C880-47EC-8C9F-25013AF8BA13}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NeoDebug.VS</RootNamespace>
+    <RootNamespace>EpicChainTraceVisualizer.VS</RootNamespace>
     <AssemblyName>epicchain-graphical-wizard</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <GeneratePkgDefFile>true</GeneratePkgDefFile>

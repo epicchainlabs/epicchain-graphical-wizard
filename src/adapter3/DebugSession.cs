@@ -9,7 +9,7 @@ using EpicChain.BlockchainToolkit.Models;
 using EpicChain.SmartContract;
 using EpicChain.VM;
 
-namespace NeoDebug.Neo3
+namespace EpicChainTraceVisualizer.Neo3
 {
     using ByteString = EpicChain.VM.Types.ByteString;
     using NeoArray = EpicChain.VM.Types.Array;
