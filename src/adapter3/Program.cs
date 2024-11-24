@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol;
 using McMaster.Extensions.CommandLineUtils;
 
 
-namespace EpicChainTraceVisualizer.Neo3
+namespace EpicChainTraceVisualizer.EpicChain
 {
     class Program
     {

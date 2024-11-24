@@ -7,7 +7,7 @@ using EpicChain.BlockchainToolkit.TraceDebug;
 using EpicChain.SmartContract.Native;
 using EpicChain.SmartContract;
 
-namespace EpicChainTraceVisualizer.Neo3
+namespace EpicChainTraceVisualizer.EpicChain
 {
     internal partial class TraceApplicationEngine
     {

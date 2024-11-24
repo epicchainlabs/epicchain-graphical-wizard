@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 
-namespace EpicChainTraceVisualizer.Neo3
+namespace EpicChainTraceVisualizer.EpicChain
 {
     class EngineContainer : IVariableContainer
     {

@@ -2,7 +2,7 @@ using EpicChain.Network.P2P.Payloads;
 using Newtonsoft.Json.Linq;
 using System;
 
-namespace EpicChainTraceVisualizer.Neo3
+namespace EpicChainTraceVisualizer.EpicChain
 {
     partial class LaunchConfigParser
     {

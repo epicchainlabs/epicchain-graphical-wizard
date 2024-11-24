@@ -15,7 +15,7 @@ using EpicChain.VM;
 using epicchainArray = EpicChain.VM.Types.Array;
 using StackItem = EpicChain.VM.Types.StackItem;
 
-namespace EpicChainTraceVisualizer.Neo3
+namespace EpicChainTraceVisualizer.EpicChain
 {
     internal partial class DebugApplicationEngine : TestApplicationEngine, IApplicationEngine
     {

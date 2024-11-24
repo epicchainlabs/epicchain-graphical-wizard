@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 using System.Collections.Generic;
 
-namespace EpicChainTraceVisualizer.Neo3
+namespace EpicChainTraceVisualizer.EpicChain
 {
     public interface IDebugSession
     {

@@ -29,7 +29,7 @@ using OneOf;
 using Script = EpicChain.VM.Script;
 using StackItem = EpicChain.VM.Types.StackItem;
 
-namespace EpicChainTraceVisualizer.Neo3
+namespace EpicChainTraceVisualizer.EpicChain
 {
     using ConfigProps = IReadOnlyDictionary<string, JToken>;
     using Invocation = OneOf<LaunchConfigParser.InvokeFileInvocation, LaunchConfigParser.OracleResponseInvocation, LaunchConfigParser.LaunchInvocation, LaunchConfigParser.ContractDeployInvocation>;

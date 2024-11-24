@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 using EpicChain.BlockchainToolkit.Models;
 using EpicChain.SmartContract;
 
-namespace EpicChainTraceVisualizer.Neo3
+namespace EpicChainTraceVisualizer.EpicChain
 {
     using StackItem = EpicChain.VM.Types.StackItem;
 

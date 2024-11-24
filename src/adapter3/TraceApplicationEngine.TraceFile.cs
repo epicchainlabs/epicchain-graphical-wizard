@@ -11,7 +11,7 @@ using EpicChain.SmartContract;
 using EpicChain.VM;
 
 
-namespace EpicChainTraceVisualizer.Neo3
+namespace EpicChainTraceVisualizer.EpicChain
 {
     internal partial class TraceApplicationEngine
     {

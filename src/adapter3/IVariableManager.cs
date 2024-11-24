@@ -1,4 +1,4 @@
-﻿namespace EpicChainTraceVisualizer.Neo3
+﻿namespace EpicChainTraceVisualizer.EpicChain
 {
     public interface IVariableManager
     {

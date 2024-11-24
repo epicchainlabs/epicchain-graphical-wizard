@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 using EpicChain.SmartContract;
 using StackItem = EpicChain.VM.Types.StackItem;
 
-namespace EpicChainTraceVisualizer.Neo3
+namespace EpicChainTraceVisualizer.EpicChain
 {
     public class VariableManager : IVariableManager
     {

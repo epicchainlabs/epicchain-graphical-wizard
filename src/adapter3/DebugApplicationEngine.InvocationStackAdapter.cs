@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace EpicChainTraceVisualizer.Neo3
+namespace EpicChainTraceVisualizer.EpicChain
 {
     internal partial class DebugApplicationEngine
     {

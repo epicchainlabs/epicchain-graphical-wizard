@@ -7,7 +7,7 @@ using EpicChain;
 using EpicChain.VM;
 using System.Diagnostics.CodeAnalysis;
 
-namespace EpicChainTraceVisualizer.Neo3
+namespace EpicChainTraceVisualizer.EpicChain
 {
     internal interface IApplicationEngine : IDisposable
     {

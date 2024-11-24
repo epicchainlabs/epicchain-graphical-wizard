@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 using EpicChain.VM;
 using StackItem = EpicChain.VM.Types.StackItem;
 
-namespace EpicChainTraceVisualizer.Neo3
+namespace EpicChainTraceVisualizer.EpicChain
 {
     class SlotContainer : IVariableContainer
     {
