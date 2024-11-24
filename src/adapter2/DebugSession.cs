@@ -297,7 +297,7 @@ namespace NeoDebug
             var source = disassemblyManager.GetSource(arguments.SourceReference);
             return new SourceResponse(source)
             {
-                MimeType = "text/x-neovm.disassembly"
+                MimeType = "text/x-epicchainvm.disassembly"
             };
         }
 

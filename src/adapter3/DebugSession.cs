@@ -226,7 +226,7 @@ namespace NeoDebug.Neo3
             {
                 return new SourceResponse(disassembly.Source)
                 {
-                    MimeType = "text/x-neovm.disassembly"
+                    MimeType = "text/x-epicchainvm.disassembly"
                 };
             }
 
