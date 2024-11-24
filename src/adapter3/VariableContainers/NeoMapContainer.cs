@@ -5,18 +5,18 @@ using EpicChain;
 
 namespace EpicChainTraceVisualizer.EpicChain
 {
-    using NeoMap = EpicChain.VM.Types.Map;
+    using EpicChainMap = EpicChain.VM.Types.Map;
 
     class EpicChainMapContainer : IVariableContainer
     {
-        private readonly NeoMap map;
+        private readonly EpicChainMap map;
 
-        public EpicChainMapContainer(NeoMap map)
+        public EpicChainMapContainer(EpicChainMap map)
         {
             this.map = map;
         }
 
-        public static Variable Create(IVariableManager manager, NeoMap map, string name)
+        public static Variable Create(IVariableManager manager, EpicChainMap map, string name)
         {
             var container = new EpicChainMapContainer(map);
             return new Variable()
