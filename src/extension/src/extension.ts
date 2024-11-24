@@ -207,7 +207,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
     let EpicChainTraceVisualizerChannel = vscode.window.createOutputChannel('EpicChain Graphical Wizard Log');
 
-    const configProvider = new NeoContractDebugConfigurationProvider();
+    const configProvider = new EpicChainContractDebugConfigurationProvider();
     context.subscriptions.push(vscode.debug.registerDebugConfigurationProvider("epicchain-contract", configProvider));
 
     const factory = new EpicChainContractDebugAdapterDescriptorFactory(context, EpicChainTraceVisualizerChannel);
@@ -235,7 +235,7 @@ async function changeDebugView(debugView: 'source' | 'disassembly' | 'toggle') {
     }
 }
 
-class NeoContractDebugConfigurationProvider implements vscode.DebugConfigurationProvider {
+class EpicChainContractDebugConfigurationProvider implements vscode.DebugConfigurationProvider {
     public async provideDebugConfigurations(folder: vscode.WorkspaceFolder | undefined, token?: vscode.CancellationToken): Promise<vscode.DebugConfiguration[]> {
 
         function createConfig(programPath: string | undefined = undefined): vscode.DebugConfiguration {
