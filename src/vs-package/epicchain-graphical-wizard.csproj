@@ -163,7 +163,7 @@
     <Content Include="adapter\MPTTrie.dll">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="adapter\neo-bctklib.dll">
+    <Content Include="adapter\epicchain-bctklib.dll">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="adapter\EpicChain.dll">
