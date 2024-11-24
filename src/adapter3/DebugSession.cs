@@ -12,7 +12,7 @@ using EpicChain.VM;
 namespace EpicChainTraceVisualizer.Neo3
 {
     using ByteString = EpicChain.VM.Types.ByteString;
-    using NeoArray = EpicChain.VM.Types.Array;
+    using epicchainArray = EpicChain.VM.Types.Array;
     using StackItem = EpicChain.VM.Types.StackItem;
     using StackItemType = EpicChain.VM.Types.StackItemType;
 
@@ -54,7 +54,7 @@ namespace EpicChainTraceVisualizer.Neo3
             }
         }
 
-        private void OnNotify(object? sender, (UInt160 scriptHash, string scriptName, string eventName, NeoArray state) args)
+        private void OnNotify(object? sender, (UInt160 scriptHash, string scriptName, string eventName, epicchainArray state) args)
         {
             var state = args.state.ToJson().ToString(Newtonsoft.Json.Formatting.Indented);
             sendEvent(new OutputEvent()

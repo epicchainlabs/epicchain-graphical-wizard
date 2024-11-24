@@ -12,7 +12,7 @@ using EpicChain.SmartContract;
 using EpicChain.SmartContract.Native;
 using EpicChain.VM;
 
-using NeoArray = EpicChain.VM.Types.Array;
+using epicchainArray = EpicChain.VM.Types.Array;
 using StackItem = EpicChain.VM.Types.StackItem;
 
 namespace EpicChainTraceVisualizer.Neo3
@@ -23,7 +23,7 @@ namespace EpicChainTraceVisualizer.Neo3
         private readonly InvocationStackAdapter invocationStackAdapter;
         private readonly IDictionary<UInt160, UInt160> scriptIdMap = new Dictionary<UInt160, UInt160>();
 
-        public event EventHandler<(UInt160 scriptHash, string scriptName, string eventName, NeoArray state)>? DebugNotify;
+        public event EventHandler<(UInt160 scriptHash, string scriptName, string eventName, epicchainArray state)>? DebugNotify;
         public event EventHandler<(UInt160 scriptHash, string scriptName, string message)>? DebugLog;
 
         public DebugApplicationEngine(IVerifiable container, IReadOnlyStore checkpointStore, ProtocolSettings settings, Block persistingBlock, Func<byte[], bool>? witnessChecker)

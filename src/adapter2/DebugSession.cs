@@ -565,10 +565,10 @@ namespace EpicChainTraceVisualizer
             {
                 if (index.HasValue)
                 {
-                    if (item is EpicChain.VM.Types.Array neoArray
-                        && index.Value < neoArray.Count)
+                    if (item is EpicChain.VM.Types.Array epicchainArray
+                        && index.Value < epicchainArray.Count)
                     {
-                        return neoArray[(int)index.Value].GetVariable(this, local.name + $"[{index.Value}]", typeHint);
+                        return epicchainArray[(int)index.Value].GetVariable(this, local.name + $"[{index.Value}]", typeHint);
                     }
                 }
                 else

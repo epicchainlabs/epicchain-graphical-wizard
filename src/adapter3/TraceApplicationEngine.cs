@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using EpicChain.SmartContract;
 using StackItem = EpicChain.VM.Types.StackItem;
-using NeoArray = EpicChain.VM.Types.Array;
+using epicchainArray = EpicChain.VM.Types.Array;
 using Neo;
 using EpicChain.VM;
 using System.Diagnostics.CodeAnalysis;
@@ -97,7 +97,7 @@ namespace EpicChainTraceVisualizer.Neo3
                 case NotifyRecord notify:
                     if (!stepBack)
                     {
-                        DebugNotify?.Invoke(this, (notify.ScriptHash, notify.ScriptName, notify.EventName, new NeoArray(notify.State)));
+                        DebugNotify?.Invoke(this, (notify.ScriptHash, notify.ScriptName, notify.EventName, new epicchainArray(notify.State)));
                     }
                     break;
                 case LogRecord log:
@@ -126,7 +126,7 @@ namespace EpicChainTraceVisualizer.Neo3
         public Exception? FaultException { get; private set; }
         public long GasConsumed { get; private set; }
 
-        public event EventHandler<(UInt160 scriptHash, string scriptName, string eventName, NeoArray state)>? DebugNotify;
+        public event EventHandler<(UInt160 scriptHash, string scriptName, string eventName, epicchainArray state)>? DebugNotify;
         public event EventHandler<(UInt160 scriptHash, string scriptName, string message)>? DebugLog;
 
         public bool CatchBlockOnStack() => stackFrames.Any(f => f.HasCatch);

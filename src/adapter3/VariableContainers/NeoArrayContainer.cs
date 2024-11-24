@@ -3,19 +3,19 @@ using Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages;
 
 namespace EpicChainTraceVisualizer.Neo3
 {
-    using NeoArray = EpicChain.VM.Types.Array;
+    using epicchainArray = EpicChain.VM.Types.Array;
     using NeoStruct = EpicChain.VM.Types.Struct;
 
     class EpicChainArrayContainer : IVariableContainer
     {
-        private readonly NeoArray array;
+        private readonly epicchainArray array;
 
-        public EpicChainArrayContainer(NeoArray array)
+        public EpicChainArrayContainer(epicchainArray array)
         {
             this.array = array;
         }
 
-        public static Variable Create(IVariableManager manager, NeoArray array, string name)
+        public static Variable Create(IVariableManager manager, epicchainArray array, string name)
         {
             var typeName = array is NeoStruct ? "Struct" : "Array";
             var container = new EpicChainArrayContainer(array);

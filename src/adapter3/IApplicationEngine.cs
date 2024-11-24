@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using EpicChain.SmartContract;
 using StackItem = EpicChain.VM.Types.StackItem;
-using NeoArray = EpicChain.VM.Types.Array;
+using epicchainArray = EpicChain.VM.Types.Array;
 using Neo;
 using EpicChain.VM;
 using System.Diagnostics.CodeAnalysis;
@@ -11,7 +11,7 @@ namespace EpicChainTraceVisualizer.Neo3
 {
     internal interface IApplicationEngine : IDisposable
     {
-        event EventHandler<(UInt160 scriptHash, string scriptName, string eventName, NeoArray state)>? DebugNotify;
+        event EventHandler<(UInt160 scriptHash, string scriptName, string eventName, epicchainArray state)>? DebugNotify;
         event EventHandler<(UInt160 scriptHash, string scriptName, string message)>? DebugLog;
 
         bool CatchBlockOnStack();
