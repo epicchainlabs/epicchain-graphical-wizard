@@ -488,12 +488,12 @@
         ],
         "languages": [
             {
-                "id": "neovm.disassembly",
+                "id": "epicchainvm.disassembly",
                 "aliases": [
                     "Disassembly"
                 ],
                 "extensions": [
-                    ".neovm"
+                    ".epicchainvm"
                 ]
             }
         ],
@@ -528,14 +528,14 @@
         },
         "grammars": [
             {
-                "language": "neovm.disassembly",
+                "language": "epicchainvm.disassembly",
                 "scopeName": "source.disassembly",
                 "path": "./syntaxes/disassembly.json"
             }
         ],
         "breakpoints": [
             {
-                "language": "neovm.disassembly"
+                "language": "epicchainvm.disassembly"
             }
         ]
     },
