@@ -53,7 +53,7 @@ With this invocation, the configuration specifies a path to an existing
 [EpicChain invoke file](https://github.com/ngdenterprise/design-notes/blob/master/NDX-DN12%20-%20Neo%20Express%20Invoke%20Files.md).
 Invoke files are JSON format files, similar in structure to the [operation invocation](#invoke-operation)
 described above. Invocation files are supported by both the EpicChain Graphical Wizard as well as by
-[EpicChain Express](https://github.com/epicchainlabs/epicchain-trace-visualizer/blob/master/docs/command-reference.md#neoxp-contract-invoke).
+[EpicChain Express](https://github.com/epicchainlabs/epicchain-trace-visualizer/blob/master/docs/command-reference.md#epicchainxp-contract-invoke).
 
 ```json
 "invocation": {
@@ -148,14 +148,11 @@ representative data stored in an actual instance of a EpicChainTraceVisualizer n
   contract as it currently exists on disk in compiled format.
 
 ```json
-"checkpoint": "${workspaceFolder}/checkpoints/token-bought.neoxp-checkpoint",
+"checkpoint": "${workspaceFolder}/checkpoints/token-bought.epicchainxp-checkpoint",
 ```
 
 ## signers
 
-> For more information about signers / witnesses, please see 
-  [Thou shalt check their witnesses](https://neospcc.medium.com/thou-shalt-check-their-witnesses-485d2bf8375d)
-  by the good folks at the [EpicChain SPCC](https://nspcc.io/)
 
 Every EpicChain transaction that executes on the blockchain must be signed by one or more accounts. The
 `signers` configuration property is used to specify signing information for the transaction executing
