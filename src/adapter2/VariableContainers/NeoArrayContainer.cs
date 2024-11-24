@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace EpicChainTraceVisualizer.VariableContainers
 {
-    class NeoArrayContainer : IVariableContainer
+    class EpicChainArrayContainer : IVariableContainer
     {
         private readonly IVariableContainerSession session;
         private readonly EpicChain.VM.Types.Array array;
         private readonly string? name;
 
-        private NeoArrayContainer(IVariableContainerSession session, EpicChain.VM.Types.Array array, string name)
+        private EpicChainArrayContainer(IVariableContainerSession session, EpicChain.VM.Types.Array array, string name)
         {
             this.session = session;
             this.array = array;
@@ -18,7 +18,7 @@ namespace EpicChainTraceVisualizer.VariableContainers
 
         public static Variable Create(IVariableContainerSession session, EpicChain.VM.Types.Array array, string name)
         {
-            var container = new NeoArrayContainer(session, array, name);
+            var container = new EpicChainArrayContainer(session, array, name);
             var containerID = session.AddVariableContainer(container);
             var typeName = array is EpicChain.VM.Types.Struct
                 ? "Struct" : "Array";

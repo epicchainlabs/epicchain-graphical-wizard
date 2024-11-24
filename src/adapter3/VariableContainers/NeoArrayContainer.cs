@@ -6,11 +6,11 @@ namespace EpicChainTraceVisualizer.Neo3
     using NeoArray = EpicChain.VM.Types.Array;
     using NeoStruct = EpicChain.VM.Types.Struct;
 
-    class NeoArrayContainer : IVariableContainer
+    class EpicChainArrayContainer : IVariableContainer
     {
         private readonly NeoArray array;
 
-        public NeoArrayContainer(NeoArray array)
+        public EpicChainArrayContainer(NeoArray array)
         {
             this.array = array;
         }
@@ -18,7 +18,7 @@ namespace EpicChainTraceVisualizer.Neo3
         public static Variable Create(IVariableManager manager, NeoArray array, string name)
         {
             var typeName = array is NeoStruct ? "Struct" : "Array";
-            var container = new NeoArrayContainer(array);
+            var container = new EpicChainArrayContainer(array);
             return new Variable()
             {
                 Name = name,

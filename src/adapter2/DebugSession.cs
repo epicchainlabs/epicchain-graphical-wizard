@@ -427,7 +427,7 @@ namespace EpicChainTraceVisualizer
             return Enumerable.Empty<Variable>();
         }
 
-        private string GetResult(NeoArrayContainer container)
+        private string GetResult(EpicChainArrayContainer container)
         {
             var array = new Newtonsoft.Json.Linq.JArray();
             foreach (var x in container.GetVariables())
@@ -453,7 +453,7 @@ namespace EpicChainTraceVisualizer
             {
                 switch (container)
                 {
-                    case NeoArrayContainer arrayContainer:
+                    case EpicChainArrayContainer arrayContainer:
                         return GetResult(arrayContainer);
                     case ByteArrayContainer byteArrayContainer:
                         return GetResult(byteArrayContainer);

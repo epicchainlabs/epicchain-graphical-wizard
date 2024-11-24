@@ -160,9 +160,9 @@ namespace EpicChainTraceVisualizer
                     Value = string.Empty
                 },
                 EpicChain.VM.Types.Map map => NeoMapContainer.Create(session, map, name),
-                // NeoArrayContainer.Create will detect Struct (which inherits from Array)
+                // EpicChainArrayContainer.Create will detect Struct (which inherits from Array)
                 // and distinguish accordingly
-                EpicChain.VM.Types.Array array => NeoArrayContainer.Create(session, array, name),
+                EpicChain.VM.Types.Array array => EpicChainArrayContainer.Create(session, array, name),
                 _ => throw new NotImplementedException($"GetStackItemValue {item.GetType().FullName}"),
             };
         }

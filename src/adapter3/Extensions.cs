@@ -263,7 +263,7 @@ namespace EpicChainTraceVisualizer.Neo3
         {
             return item switch
             {
-                EpicChain.VM.Types.Array array => NeoArrayContainer.Create(manager, array, name),
+                EpicChain.VM.Types.Array array => EpicChainArrayContainer.Create(manager, array, name),
                 EpicChain.VM.Types.Boolean _ => new Variable { Name = name, Value = $"{item.GetBoolean()}", Type = "Boolean" },
                 EpicChain.VM.Types.Buffer buffer => ByteArrayContainer.Create(manager, buffer, name),
                 EpicChain.VM.Types.ByteString byteString => ByteArrayContainer.Create(manager, byteString, name),
