@@ -67,4 +67,4 @@ jobs:
           ./artifacts/*
     - name: Publish debug extension to VSCode Marketplace
       if: ${{ github.event.inputs.marketplaceRelease == 'true' }}
-      run: npx vsce publish -i ${{ format('./artifacts/neo-contract-debug-{0}.vsix', needs.build.outputs.extensionVersion) }} -p ${{ secrets.VSCODE_MARKETPLACE_TOKEN }}
+      run: npx vsce publish -i ${{ format('./artifacts/epicchain-contract-debug-{0}.vsix', needs.build.outputs.extensionVersion) }} -p ${{ secrets.VSCODE_MARKETPLACE_TOKEN }}

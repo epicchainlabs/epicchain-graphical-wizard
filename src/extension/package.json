@@ -1,7 +1,7 @@
 {
-    "name": "neo-contract-debug",
+    "name": "epicchain-contract-debug",
     "license": "MIT",
-    "publisher": "ngd-seattle",
+    "publisher": "epicchainlabs",
     "version": "0.0.0",
     "displayName": "EpicChain Smart Contract Debugger",
     "description": "Debugger Extension for EpicChain Smart Contracts",
