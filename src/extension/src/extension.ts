@@ -465,7 +465,7 @@ class EpicChainContractDebugAdapterDescriptorFactory implements vscode.DebugAdap
                 segments.push("net6.0");
                 break;
             case 'EpicChain.Debug2.Adapter':
-                segments.push("netcoreapp3.1");
+                segments.push("net8.0");
                 break;
             default:
                 throw new Error(`Unexpected adapter package ${packageId}`);

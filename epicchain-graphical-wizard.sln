@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8443F8CC-900
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EpicChainTraceVisualizer-2-adapter", "src\adapter2\EpicChainTraceVisualizer-2-adapter.csproj", "{9C193961-ADF8-4BB9-B3E5-F99B5EF78D4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "epicchaindebug-3-adapter", "src\adapter3\epicchaindebug-3-adapter.csproj", "{1C7A0AD1-FF6F-443B-89B8-7DBE145228EB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EpicChainDebug-3-adapter", "src\adapter3\EpicChainDebug-3-adapter.csproj", "{1C7A0AD1-FF6F-443B-89B8-7DBE145228EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
